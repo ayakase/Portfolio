@@ -3,20 +3,22 @@
     let active: any = null;
 </script>
 
-<div class="relative flex w-full items-center justify-between text-blue-600">
-    <div class={"fixed inset-x-0 top-12 z-50 mx-auto max-w-2xl"}>
+<div class="relative flex w-full items-center justify-between">
+    <div class={"fixed inset-x-0 top-5 z-50 mx-auto max-w-xl "}>
         <NavbarMenu>
-            <MenuItem {active} item="Services">
+            <MenuItem {active} item="Technologies">
                 <div class="flex flex-col space-y-4 text-sm">
-                    <HoveredLink href="#">Web Development</HoveredLink>
+                    <HoveredLink href="#test">Web Development</HoveredLink>
                     <HoveredLink href="#">Interface Design</HoveredLink>
-                    <HoveredLink href="#"
-                        >Search Engine Optimization</HoveredLink
-                    >
-                    <HoveredLink href="#">Branding</HoveredLink>
                 </div>
             </MenuItem>
-            <MenuItem {active} item="Products">
+            <MenuItem {active} item="Experience">
+                <div class="flex flex-col space-y-4 text-sm">
+                    <HoveredLink href="#test">Web Development</HoveredLink>
+                    <HoveredLink href="#">Interface Design</HoveredLink>
+                </div>
+            </MenuItem>
+            <MenuItem {active} item="Projects">
                 <div
                     class="  grid grid-cols-2 gap-10 p-4 text-sm text-blue-600"
                 >
@@ -56,5 +58,4 @@
             </MenuItem>
         </NavbarMenu>
     </div>
-    <p class="text-blue-600">The Navbar will show on top of the page</p>
 </div>
