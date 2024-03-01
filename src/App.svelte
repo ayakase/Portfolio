@@ -33,7 +33,7 @@
       // demo: "https://demo.",
     },
     {
-      id: 2,
+      id: 3,
       title: "Fuwa Chat App",
       description:
         "An Serverless real-time application written in VueJS, Vuetify, Firebase Firestore 10, Cloudinary ",
@@ -42,7 +42,7 @@
       demo: "https://touhou-vn.site/",
     },
     {
-      id: 2,
+      id: 4,
       title: "Japanese translation tool",
       description:
         "A tool for translating files in Japanese to Vietnamese using OpenAI API, capable of converting XLSX, Markdown files ",

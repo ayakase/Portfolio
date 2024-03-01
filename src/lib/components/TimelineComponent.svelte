@@ -1,4 +1,5 @@
-<div class="timeline-container w-4/5 mx-auto px-auto">
+<div class="timeline-container w-4/5 mx-auto px-auto flex flex-row gap-6">
+    <p class="timeline-title text-white text-5xl">My career</p>
     <ol class="relative border-s border-gray-200 dark:border-gray-700">
         <li class="mb-10 ms-4" id="anh-tuan">
             <div
@@ -72,15 +73,27 @@
             ></div>
             <time
                 class="mb-1 text-2xl font-normal leading-none text-gray-400 dark:text-gray-500"
-                >April 2022</time
+                >From September 2023 to December 2023</time
             >
-            <h3 class="text-3xl font-semibold text-gray-900 dark:text-white">
-                E-Commerce UI code in Tailwind CSS
+            <h3 class="text-3xl font-semibold text-gray-400 dark:text-white">
+                Programming tutor at <span class="text-emerald-600"
+                    >Marathon Education</span
+                >
             </h3>
-            <p class="text-xl font-normal text-gray-500 dark:text-gray-400">
-                Get started with dozens of web components and interactive
-                elements built on top of Tailwind CSS.
+            <p class="text-xl font-normal text-gray-400 dark:text-gray-400">
+                Taught Javascript, HTML, CSS, Python, Wordpress, UI/UX design
             </p>
         </li>
     </ol>
 </div>
+
+<style>
+    /* .timeline-container {
+        display: block;
+        pointer-events: none;
+    } */
+    .timeline-title {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+    }
+</style>
