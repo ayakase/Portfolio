@@ -6,6 +6,14 @@
 <div class="relative flex w-full items-center justify-between">
     <div class={"fixed inset-x-0 top-5 z-50 mx-auto max-w-xl "}>
         <NavbarMenu>
+            <MenuItem {active} item="About me">
+                <div class="flex flex-col space-y-4 text-sm">
+                    <HoveredLink href="#">Hobby</HoveredLink>
+                    <HoveredLink href="#">Individual</HoveredLink>
+                    <HoveredLink href="#">Team</HoveredLink>
+                    <HoveredLink href="#">Enterprise</HoveredLink>
+                </div>
+            </MenuItem>
             <MenuItem {active} item="Technologies">
                 <div class="flex flex-col space-y-4 text-sm">
                     <HoveredLink href="#test">Web Development</HoveredLink>
@@ -14,8 +22,12 @@
             </MenuItem>
             <MenuItem {active} item="Experience">
                 <div class="flex flex-col space-y-4 text-sm">
-                    <HoveredLink href="#test">Web Development</HoveredLink>
-                    <HoveredLink href="#">Interface Design</HoveredLink>
+                    <HoveredLink href="#anh-tuan"
+                        >Anh Tuan Driving Center</HoveredLink
+                    >
+                    <HoveredLink href="#gmo"
+                        >GMO-Z.com Runsystem JSC</HoveredLink
+                    >
                 </div>
             </MenuItem>
             <MenuItem {active} item="Projects">
@@ -48,7 +60,7 @@
                     />
                 </div>
             </MenuItem>
-            <MenuItem {active} item="Pricing">
+            <MenuItem {active} item="Certificate">
                 <div class="flex flex-col space-y-4 text-sm">
                     <HoveredLink href="#">Hobby</HoveredLink>
                     <HoveredLink href="#">Individual</HoveredLink>

@@ -1,26 +1,28 @@
-<div class="timeline-container w-3/6 mx-auto px-auto">
+<div class="timeline-container w-4/5 mx-auto px-auto">
     <ol class="relative border-s border-gray-200 dark:border-gray-700">
-        <li class="mb-10 ms-4">
+        <li class="mb-10 ms-4" id="anh-tuan">
             <div
                 class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
             ></div>
             <time
-                class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-                >February 2022</time
+                class="mb-1 text-2xl font-normal leading-none text-gray-400 dark:text-gray-500"
+                >From May 2021 to January 2023</time
             >
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                Application UI code in Tailwind CSS
+            <h3 class="text-3xl font-semibold text-gray-400 dark:text-white">
+                Wordpress Website builder for <span class="text-yellow-400"
+                    >Anh Tuan Driving Center</span
+                >
             </h3>
             <p
-                class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+                class="text-xl mb-4 font-normal text-gray-400 dark:text-gray-400"
             >
-                Get access to over 20+ pages including a dashboard layout,
-                charts, kanban board, calendar, and pre-order E-commerce &
-                Marketing pages.
+                Rebuilt the interface, deployed, debugged and developed many
+                functionalities for Anh Tuan Driving Center’s website using
+                Wordpress, Cpanel, SSH, Cron Jobs...
             </p>
-            <a
-                href="#"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- <a
+                class="inline-flex items-center px-4 py-2 text-2xl font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                 >Learn more <svg
                     class="w-3 h-3 ms-2 rtl:rotate-180"
                     aria-hidden="true"
@@ -36,37 +38,46 @@
                         d="M1 5h12m0 0L9 1m4 4L9 9"
                     />
                 </svg></a
-            >
+            > -->
         </li>
-        <li class="mb-10 ms-4">
+        <li class="mb-10 ms-4" id="gmo">
             <div
                 class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
             ></div>
             <time
-                class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-                >March 2022</time
+                class="mb-1 text-2xl font-normal leading-none text-gray-400 dark:text-gray-500"
+                >From January 2023 to July 2023</time
             >
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                Marketing UI design in Figma
+            <h3 class="text-3xl font-semibold text-gray-400 dark:text-white">
+                Web Developer Internship & Fresher at <span class="text-sky-600"
+                    >GMO-Z.com</span
+                > <span class="text-red-500">Runsystem</span> JSC
             </h3>
-            <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                All of the pages and components are first designed in Figma and
-                we keep a parity between the two versions even as we update the
-                project.
-            </p>
+            <ul class="text-xl font-normal text-gray-400 dark:text-gray-400">
+                <li>Developed Front End Interface for SPA landing pages</li>
+                <li>
+                    Crawled data from blogs about technologies' API using
+                    Javascript and Python to build an SPA blog.
+                </li>
+                <li>
+                    Participated in an automated translation web app project
+                    serving internal staffs, capable of translating XLSX,
+                    Markdown,,.. files without losing formats and images.
+                </li>
+            </ul>
         </li>
         <li class="ms-4">
             <div
                 class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
             ></div>
             <time
-                class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                class="mb-1 text-2xl font-normal leading-none text-gray-400 dark:text-gray-500"
                 >April 2022</time
             >
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 class="text-3xl font-semibold text-gray-900 dark:text-white">
                 E-Commerce UI code in Tailwind CSS
             </h3>
-            <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            <p class="text-xl font-normal text-gray-500 dark:text-gray-400">
                 Get started with dozens of web components and interactive
                 elements built on top of Tailwind CSS.
             </p>

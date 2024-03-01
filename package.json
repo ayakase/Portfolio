@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
+    "lucide-svelte": "^0.343.0",
     "svelte-motion": "^0.12.2",
     "tailwind-merge": "^2.2.1"
   }
