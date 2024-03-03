@@ -1,6 +1,6 @@
 <script lang="ts">
     import { cn } from "../../../utils/cn";
-    export let className:string;
+    export let className: string;
 </script>
 
 <div

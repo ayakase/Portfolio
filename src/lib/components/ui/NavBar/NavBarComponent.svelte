@@ -1,6 +1,19 @@
 <script lang="ts">
     import { NavbarMenu, HoveredLink, MenuItem, ProductItem } from ".";
     let active: any = null;
+    export let projectArray: {
+        id: number;
+        title: string;
+        description: string;
+        image: string;
+        github: string;
+        demo?: string;
+    }[];
+    function truncateDescription(description, maxLength) {
+        return description.length > maxLength
+            ? description.substring(0, maxLength) + "..."
+            : description;
+    }
 </script>
 
 <div class="relative flex w-full items-center justify-between">
@@ -31,33 +44,15 @@
                 </div>
             </MenuItem>
             <MenuItem {active} item="Projects">
-                <div
-                    class="  grid grid-cols-2 gap-10 p-4 text-sm text-blue-600"
-                >
-                    <ProductItem
-                        title="Algochurn"
-                        href="#"
-                        src="https://images.pexels.com/photos/1031659/pexels-photo-1031659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        description="Prepare for tech interviews like never before."
-                    />
-                    <ProductItem
-                        title="Tailwind Master Kit"
-                        href="#"
-                        src="https://images.pexels.com/photos/733071/pexels-photo-733071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        description="Production ready Tailwind css components for your next project"
-                    />
-                    <ProductItem
-                        title="Moonbeam"
-                        href="#"
-                        src="https://images.pexels.com/photos/730424/pexels-photo-730424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        description="Never write from scratch again. Go from idea to blog in minutes."
-                    />
-                    <ProductItem
-                        title="Rogue"
-                        href="#"
-                        src="https://images.pexels.com/photos/745243/pexels-photo-745243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-                    />
+                <div class=" grid grid-cols-2 gap-10 p-4 text-sm text-blue-600">
+                    {#each projectArray as { title, description, image }}
+                        <ProductItem
+                            {title}
+                            href="#"
+                            src={image}
+                            description={truncateDescription(description, 40)}
+                        />
+                    {/each}
                 </div>
             </MenuItem>
             <MenuItem {active} item="Certificate">

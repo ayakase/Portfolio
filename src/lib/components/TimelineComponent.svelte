@@ -1,5 +1,5 @@
 <div class="timeline-container w-4/5 mx-auto px-auto flex flex-row gap-6">
-    <p class="timeline-title text-white text-5xl">My career</p>
+    <p class="timeline-title text-white text-5xl">Experience</p>
     <ol class="relative border-s border-gray-200 dark:border-gray-700">
         <li class="mb-10 ms-4" id="anh-tuan">
             <div
