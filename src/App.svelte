@@ -1,4 +1,5 @@
 <script lang="ts">
+  import testBg from "./assets/bg.png";
   import ThreeDCardEffect from "./lib/components/ui/ThreeDCardEffect/ThreeDCardEffect.svelte";
   // import BackgroundBoxesComponent from "./lib/components/ui/BackgroundBoxes/BackgroundBoxesComponent.svelte";
   import NavBarComponent from "./lib/components/ui/NavBar/NavBarComponent.svelte";
@@ -71,7 +72,7 @@
       <div class="text-white">second section</div>
     </div>
   </div>
-  <LanguageToolComponent></LanguageToolComponent>
+  <!-- <LanguageToolComponent></LanguageToolComponent> -->
   <div class="experience">
     <TimelineComponent></TimelineComponent>
   </div>
@@ -81,11 +82,14 @@
       ></ThreeDCardEffect>
     {/each}
   </div>
-  <div id="test"></div>
+  <!-- <div id="test"></div> -->
+  <img src={testBg} alt="" />
 </div>
 
 <style>
   .text-generate {
+    text-shadow: 0 0 10px #e600a5;
+
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url("https://img.freepik.com/free-vector/circuits-blue-red-gradient-digital-background_23-2148821701.jpg?w=1380&t=st=1709320114~exp=1709320714~hmac=9c4be20fb94e5857b737362cddac0ce13d85eec7f1b1ebb05b923a3b7c9613bb");
     background-size: cover;
@@ -120,6 +124,7 @@
       scale: 1 1;
     }
   } */
+
   .experience {
     /* transform: translate(0); */
     animation: slide-in linear;

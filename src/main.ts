@@ -1,6 +1,6 @@
 import './app.css'
 import App from './App.svelte'
-
+import spaceBoiModel from './assets/space_boi.glb'
 const app = new App({
   target: document.getElementById('app'),
 })
@@ -25,7 +25,7 @@ const textureLoader = new THREE.TextureLoader()
 textureLoader.crossOrigin = "Anonymous"
 
 const scene = new THREE.Scene();
-scene.background = textureLoader.load('../assets/bg.png')
+scene.background = new THREE.Color(0x020617)
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -33,8 +33,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.setZ(30);
-camera.position.setX(0);
+camera.position.setZ(20);
+camera.position.setX(20);
 camera.position.setY(10);
 
 
@@ -75,11 +75,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // Earth Model
 
-let earthModel
-loader.load('../src/assets/miku_amongus.glb', function (gltf) {
+let earthModel: any
+loader.load(spaceBoiModel, function (gltf) {
   earthModel = gltf.scene
   scene.add(earthModel);
-  earthModel.scale.set(1, 1, 1)
+  earthModel.scale.set(3, 3, 3)
 
 }, undefined, function (error) {
   console.error(error);
@@ -88,15 +88,15 @@ loader.load('../src/assets/miku_amongus.glb', function (gltf) {
 
 //Moon
 
-const moonTexture = textureLoader.load('../src/assets/moon.jpg');
-const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
-  new THREE.MeshStandardMaterial({
-    map: moonTexture
-  })
-)
-moon.position.set(20, 0, 0)
-scene.add(moon);
+// const moonTexture = textureLoader.load('../src/assets/moon.jpg');
+// const moon = new THREE.Mesh(
+//   new THREE.SphereGeometry(3, 32, 32),
+//   new THREE.MeshStandardMaterial({
+//     map: moonTexture
+//   })
+// )
+// moon.position.set(20, 0, 0)
+// scene.add(moon);
 
 // Earth
 
@@ -111,26 +111,26 @@ scene.add(moon);
 
 // Sun 
 
-const sunTexture = textureLoader.load('../src/assets/sun.jpg');
-const sun = new THREE.Mesh(
-  new THREE.SphereGeometry(30, 32, 32),
-  new THREE.MeshStandardMaterial({
-    map: sunTexture
-  })
-)
-scene.add(sun);
-sun.position.set(-40, 40, -40);
+// const sunTexture = textureLoader.load('../src/assets/sun.jpg');
+// const sun = new THREE.Mesh(
+//   new THREE.SphereGeometry(30, 32, 32),
+//   new THREE.MeshStandardMaterial({
+//     map: sunTexture
+//   })
+// )
+// scene.add(sun);
+// sun.position.set(-40, 40, -40);
 
 //Stars
 
 function addRandomStar() {
-  const geometry = new THREE.SphereGeometry(0.3, 24, 24)
+  const geometry = new THREE.SphereGeometry(0.2, 24, 24)
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff })
   const star = new THREE.Mesh(geometry, material)
 
-  const x = THREE.MathUtils.randFloatSpread(300)
-  const y = THREE.MathUtils.randFloatSpread(300)
-  const z = THREE.MathUtils.randFloatSpread(300)
+  const x = THREE.MathUtils.randFloatSpread(200)
+  const y = THREE.MathUtils.randFloatSpread(200)
+  const z = THREE.MathUtils.randFloatSpread(200)
 
   star.position.set(x, y, z)
   scene.add(star)
@@ -139,8 +139,12 @@ Array(200).fill().forEach(addRandomStar)
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top
-  moon.rotation.x += 0.1
-  camera.position.z = t * -0.01
+  // camera.position.z = t * -0.002 + 10
+  // camera.position.y = t * -0.0005 + 10
+  // camera.position.x = t * -0.005 + 10
+  earthModel.rotation.y = t * -0.0005
+
+
 
 
 }
@@ -155,10 +159,10 @@ function animate() {
 }
 function render() {
   // earth.rotation.y += 0.02
-  moon.rotation.y += 0.005
+  // moon.rotation.y += 0.005
   t += -0.005
-  moon.position.x = 20 * Math.cos(t) + 0;
-  moon.position.z = 20 * Math.sin(t) + 0;
+  // moon.position.x = 20 * Math.cos(t) + 0;
+  // moon.position.z = 20 * Math.sin(t) + 0;
   // if (earthModel) {
   //   earthModel.rotation.y += 0.01;
   // }
