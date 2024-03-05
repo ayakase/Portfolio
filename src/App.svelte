@@ -82,17 +82,16 @@
     {/each}
   </div>
   <div id="test"></div>
-
 </div>
 
 <style>
   .text-generate {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url("https://img.freepik.com/free-vector/circuits-blue-red-gradient-digital-background_23-2148821701.jpg?w=1380&t=st=1709320114~exp=1709320714~hmac=9c4be20fb94e5857b737362cddac0ce13d85eec7f1b1ebb05b923a3b7c9613bb");
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 0 40px 40px #020617 inset;
-    clip-path: 0px -15px 0px 0px;
+    clip-path: 0px -15px 0px 0px; */
 
     /* animation: background-disappear linear;
     animation-timeline: scroll();
