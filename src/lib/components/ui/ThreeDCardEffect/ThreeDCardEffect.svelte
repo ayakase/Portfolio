@@ -3,17 +3,17 @@
   import CardContainer from "./CardContainer.svelte";
   import CardItem from "./CardItem.svelte";
   let isMouseEntered = false;
-  export let id: number;
+  // export let id: number;
   export let title: string;
   export let description: string;
   export let image: string;
-  export let github: string;
+  // export let github: string;
   export let demo: string;
 </script>
 
 <CardContainer bind:isMouseEntered className="inter-var">
   <CardBody
-    className="backdrop-blur-sm bg-white/25 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  "
+    className="backdrop-blur-sm bg-indigo-300/25 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-96 h-auto rounded-xl p-6 border  "
   >
     <CardItem
       {isMouseEntered}
@@ -34,11 +34,11 @@
         src={image}
         height="1000"
         width="1000"
-        class="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
+        class="h-50 w-full rounded-xl object-cover group-hover/card:shadow-xl"
         alt="thumbnail"
       />
     </CardItem>
-    <div class="mt-20 flex items-center justify-between">
+    <div class="mt-12 flex items-center justify-between">
       <CardItem
         {isMouseEntered}
         translateZ={20}

@@ -1,11 +1,42 @@
 <script lang="ts">
-  import testBg from "./assets/bg.png";
   import ThreeDCardEffect from "./lib/components/ui/ThreeDCardEffect/ThreeDCardEffect.svelte";
   // import BackgroundBoxesComponent from "./lib/components/ui/BackgroundBoxes/BackgroundBoxesComponent.svelte";
   import NavBarComponent from "./lib/components/ui/NavBar/NavBarComponent.svelte";
   import TimelineComponent from "./lib/components/TimelineComponent.svelte";
   import TextGenerateComponent from "./lib/components/ui/TextGenerateEffect/TextGenerateComponent.svelte";
   import LanguageToolComponent from "./lib/components/LanguageToolComponent.svelte";
+  import ContactForm from "./lib/components/ContactForm.svelte";
+  import { onMount } from "svelte";
+  import IntersectionObserver from "svelte-intersection-observer";
+  import { fade, blur, slide, fly, scale } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
+
+  let node: any;
+
+  // onMount(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries, observer) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.intersectionRatio === 1) {
+  //           entry.target.classList.add("bg-blue-600");
+  //           entry.target.classList.remove("bg-gray-200");
+  //         } else {
+  //           entry.target.classList.remove("bg-blue-600");
+  //           entry.target.classList.add("bg-gray-200");
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 1,
+  //     },
+  //   );
+
+  //   const elements = document.querySelectorAll(".item");
+
+  //   elements.forEach((element) => {
+  //     observer.observe(element);
+  //   });
+  // });
   const words1: string = `Hello world! My name is Dang Thai An a.k.a アヤ (Aya), I am a passionate Junior Web Developer from Vietnam!`;
   const words2: string = `こんにちは、世界！ダン・タイ・アン、またの名をアヤです。ベトナム出身の情熱的なウェブ開発者です!`;
   const projectArray: {
@@ -52,17 +83,50 @@
       title: "Japanese translation tool",
       description:
         "A tool for translating files in Japanese to Vietnamese using OpenAI API, capable of converting XLSX, Markdown files ",
-      image: "https://i.imgur.com/EDlQ2xu.png",
+      image: "https://i.imgur.com/P81cq5Q.png",
+      github: "https://github.com/ayakase/Fuwa",
+      // demo: "https://demo.",
+      section: "#translate",
+    },
+    {
+      id: 5,
+      title: "Landing page design template",
+      description: "A landing page written in pure HTML, CSS",
+      image: "https://i.imgur.com/w55NPbA.png",
+      github: "https://github.com/ayakase/Fuwa",
+      // demo: "https://demo.",
+      section: "#translate",
+    },
+    {
+      id: 6,
+      title: "Landing page design template",
+      description: "A landing page written in pure HTML, CSS",
+      image: "https://i.imgur.com/w55NPbA.png",
       github: "https://github.com/ayakase/Fuwa",
       // demo: "https://demo.",
       section: "#translate",
     },
   ];
+  let touchedBottom: boolean;
+  window.onscroll = function () {
+    const difference =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollposition = document.documentElement.scrollTop;
+    if (difference - scrollposition <= 2) {
+      touchedBottom = true;
+      console.log(touchedBottom);
+    } else {
+      touchedBottom = false;
+      console.log(touchedBottom);
+    }
+  };
 </script>
 
 <div class="mt-[10rem]">
-  <NavBarComponent {projectArray}></NavBarComponent>
-  <div class="scroll-watcher"></div>
+  {#if !touchedBottom}
+    <NavBarComponent {projectArray}></NavBarComponent>
+  {/if}
+  <!-- <div class="scroll-watcher"></div> -->
   <div class="text-generate h-auto flex flex-row justify-around items-center">
     <div class="h-[50rem] w-1/2">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
@@ -73,17 +137,70 @@
     </div>
   </div>
   <!-- <LanguageToolComponent></LanguageToolComponent> -->
-  <div class="experience">
-    <TimelineComponent></TimelineComponent>
-  </div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <div>a</div>
+  <IntersectionObserver once element={node} let:intersecting>
+    <div class="experience">
+      <div bind:this={node}>
+        {#if intersecting}
+          <TimelineComponent></TimelineComponent>
+        {/if}
+      </div>
+    </div>
+  </IntersectionObserver>
+  <IntersectionObserver element={node} let:intersecting>
+    <div bind:this={node}>
+      {#if intersecting}
+        <div
+          class="text-5xl text-white"
+          transition:scale={{
+            duration: 800,
+            delay: 300,
+            opacity: 0.5,
+            start: 0,
+            easing: quintOut,
+          }}
+        >
+          <h2 class="flex flex-row flex-nowrap items-center my-8">
+            <span
+              class="flex-grow block border-t border-white"
+              aria-hidden="true"
+              role="presentation"
+            ></span>
+            <span
+              class="flex-none block mx-4 px-4 py-2.5 text-[2rem] leading-none font-medium uppercase bg-white text-black"
+            >
+              Personal projects
+            </span>
+            <span
+              class="flex-grow block border-t border-white"
+              aria-hidden="true"
+              role="presentation"
+            ></span>
+          </h2>
+        </div>
+      {/if}
+    </div>
+  </IntersectionObserver>
+
   <div class="all-project flex flex-row justify-around flex-wrap">
     {#each projectArray as { id, title, description, image, github, demo }}
-      <ThreeDCardEffect {id} {title} {description} {image} {github} {demo}
+      <ThreeDCardEffect
+        {id}
+        {title}
+        {description}
+        {image}
+        {github}
+        demo={demo || ""}
       ></ThreeDCardEffect>
     {/each}
   </div>
-  <!-- <div id="test"></div> -->
-  <img src={testBg} alt="" />
+  <ContactForm></ContactForm>
+  <div class="empty-space h-screen w-screen"></div>
 </div>
 
 <style>
@@ -125,8 +242,7 @@
     }
   } */
 
-  .experience {
-    /* transform: translate(0); */
+  /* .experience {
     animation: slide-in linear;
     animation-timeline: view();
     animation-range-start: 0px;
@@ -139,11 +255,27 @@
     to {
       transform: translate(0);
     }
-  }
-  .text-test {
+  } */
+  /* .text-test {
     background: linear-gradient(to right, rgb(67, 124, 205), rgb(69, 214, 202));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  } */
+  .all-project {
+    transform: perspective(0) rotateX(0);
+
+    /* animation: straighten linear;
+    animation-timeline: view();
+    animation-range-start: 200px;
+    animation-range-end: 1000px; */
   }
+  /* @keyframes straighten {
+    from {
+      transform: perspective(200px) rotateX(10deg);
+    }
+    to {
+      transform: perspective(0) rotateX(0);
+    }
+  } */
 </style>

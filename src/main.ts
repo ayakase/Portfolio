@@ -1,17 +1,24 @@
 import './app.css'
 import App from './App.svelte'
+// @ts-ignore
 import spaceBoiModel from './assets/space_boi.glb'
+// @ts-ignore
+// import earthModel from './assets/of_planes_and_satellites.glb'
 const app = new App({
-  target: document.getElementById('app'),
+  target: document.getElementById('app')!,
 })
 
 export default app
 
 
 import * as THREE from "three";
+// @ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// @ts-ignore
 import { AsciiEffect } from 'three/addons/effects/AsciiEffect';
+// @ts-ignore
 import { TrackballControls } from 'three/addons/controls/TrackballControls';
+// @ts-ignore
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 
 // import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
@@ -20,26 +27,23 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 
 
 const loader = new GLTFLoader();
-
 const textureLoader = new THREE.TextureLoader()
 textureLoader.crossOrigin = "Anonymous"
-
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x020617)
-
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
 );
-camera.position.setZ(20);
 camera.position.setX(20);
 camera.position.setY(10);
+camera.position.setZ(20);
 
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector("#bg"),
+  canvas: document.querySelector("#bg") as HTMLCanvasElement,
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -56,9 +60,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(ambientLight);
-const pointLight = new THREE.PointLight(0xffffff, 3000, 2000);
-pointLight.position.set(20, 20, 20);
-scene.add(pointLight);
+// const pointLight = new THREE.PointLight(0xffffff, 3000, 2000);
+// pointLight.position.set(20, 20, 20);
+// scene.add(pointLight);
 
 // Helper config
 
@@ -66,7 +70,9 @@ scene.add(pointLight);
 // scene.add(lightHelper);
 // const gridHelper = new THREE.GridHelper(200, 50);
 // scene.add(gridHelper);
-
+// const axesHelper = new THREE.AxesHelper(5);
+// scene.add(axesHelper);
+// axesHelper.scale.set(10, 10, 10)
 // Controll
 
 // const controls = new OrbitControls(camera, effect.domElement);
@@ -75,27 +81,47 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // Earth Model
 
-let earthModel: any
-loader.load(spaceBoiModel, function (gltf) {
-  earthModel = gltf.scene
-  scene.add(earthModel);
-  earthModel.scale.set(3, 3, 3)
+let spaceBoi: any
+loader.load(spaceBoiModel, function (gltf: any) {
+  spaceBoi = gltf.scene
+  scene.add(spaceBoi);
+  spaceBoi.scale.set(3, 3, 3)
 
-}, undefined, function (error) {
+}, undefined, function (error: Error) {
   console.error(error);
 });
 
+// Language
+
+// const langTexture = textureLoader.load('../src/assets/vue.png')
+// const lang = new THREE.Mesh(
+//   new THREE.PlaneGeometry(5, 5),
+//   new THREE.MeshStandardMaterial({
+//     map: langTexture
+//   })
+// )
+// lang.position.y = 10
+// scene.add(lang)
+// let earth: any
+// loader.load(earthModel, function (gltf: any) {
+//   earth = gltf.scene
+//   scene.add(earth);
+//   earth.scale.set(100, 100, 100)
+
+// }, undefined, function (error: Error) {
+//   console.error(error);
+// });
 
 //Moon
 
-// const moonTexture = textureLoader.load('../src/assets/moon.jpg');
+// const moonTexture = textureLoader.load('../src/assets/vue.png');
 // const moon = new THREE.Mesh(
-//   new THREE.SphereGeometry(3, 32, 32),
+//   new THREE.BoxGeometry(2, 2, 2),
 //   new THREE.MeshStandardMaterial({
 //     map: moonTexture
 //   })
 // )
-// moon.position.set(20, 0, 0)
+// moon.position.set(20, 10, 0)
 // scene.add(moon);
 
 // Earth
@@ -121,50 +147,90 @@ loader.load(spaceBoiModel, function (gltf) {
 // scene.add(sun);
 // sun.position.set(-40, 40, -40);
 
+const objects = [];
+
+// use just one sphere for everything
+const radius = 1;
+const widthSegments = 6;
+const heightSegments = 6;
+const sphereGeometry = new THREE.SphereGeometry(
+  radius, widthSegments, heightSegments);
+
+// const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xFFFF00 });
+// const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
+// sunMesh.scale.set(5, 5, 5);  // make the sun large
+// scene.add(sunMesh);
+// objects.push(sunMesh);
+
 //Stars
 
-function addRandomStar() {
-  const geometry = new THREE.SphereGeometry(0.2, 24, 24)
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff })
-  const star = new THREE.Mesh(geometry, material)
+// function addRandomStar() {
+//   const geometry = new THREE.SphereGeometry(0.2, 24, 24)
+//   const material = new THREE.MeshStandardMaterial({ color: 0xffffff })
+//   const star = new THREE.Mesh(geometry, material)
 
-  const x = THREE.MathUtils.randFloatSpread(200)
-  const y = THREE.MathUtils.randFloatSpread(200)
-  const z = THREE.MathUtils.randFloatSpread(200)
+//   const x = THREE.MathUtils.randFloatSpread(300)
+//   const y = THREE.MathUtils.randFloatSpread(300)
+//   const z = THREE.MathUtils.randFloatSpread(300)
 
-  star.position.set(x, y, z)
-  scene.add(star)
-}
-Array(200).fill().forEach(addRandomStar)
+//   star.position.set(x, y, z)
+//   scene.add(star)
+// }
+// Array(200).fill(undefined).map(() => addRandomStar());
 
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top
-  // camera.position.z = t * -0.002 + 10
-  // camera.position.y = t * -0.0005 + 10
-  // camera.position.x = t * -0.005 + 10
-  earthModel.rotation.y = t * -0.0005
-
-
-
-
+  const topT = document.body.getBoundingClientRect().top
+  camera.position.x = topT * 0.005 + 20
+  camera.position.y = topT * 0.0005 + 10
+  camera.position.z = topT * 0.005 + 20
+  spaceBoi.rotation.y = topT * -0.0005
+  spaceBoi.position.y = topT * 0.005
+  // lang.position.y = topT * 0.005 + 10
 }
-document.body.onscroll = moveCamera
+// document.body.onscroll = moveCamera
 //Animate
 
 let t = 0
 function animate() {
   requestAnimationFrame(animate);
   render();
+  if (touchedBottom) {
+    bottomAnimate();
+  }
+}
+function bottomAnimate() {
+  if (spaceBoi) {
+    spaceBoi.rotation.y += 0.001;
+  }
+}
+let touchedBottom = false;
+window.onscroll = function () {
+  moveCamera()
+  const difference = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollposition = document.documentElement.scrollTop;
+  if (difference - scrollposition <= 2) {
+    touchedBottom = true;
+  } else {
+    touchedBottom = false;
+  }
+}
+window.addEventListener('resize', onWindowResize, false);
+function onWindowResize() {
 
+  camera.aspect = window.innerWidth / window.innerHeight;
+
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function render() {
   // earth.rotation.y += 0.02
-  // moon.rotation.y += 0.005
-  t += -0.005
-  // moon.position.x = 20 * Math.cos(t) + 0;
-  // moon.position.z = 20 * Math.sin(t) + 0;
-  // if (earthModel) {
-  //   earthModel.rotation.y += 0.01;
+  // lang.rotation.y += 0.005
+  // t += -0.05
+  // lang.position.x = 10 * Math.cos(t) + 0;
+  // lang.position.z = 10 * Math.sin(t) + 0;
+  // lang.quaternion.copy(camera.quaternion)
+  // if (spaceBoi) {
+  //   spaceBoi.rotation.y += 0.01;
   // }
   controls.update()
   renderer.render(scene, camera);

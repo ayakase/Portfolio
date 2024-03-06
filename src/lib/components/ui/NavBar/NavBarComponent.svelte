@@ -9,7 +9,7 @@
         github: string;
         demo?: string;
     }[];
-    function truncateDescription(description, maxLength) {
+    function truncateDescription(description: any, maxLength: any) {
         return description.length > maxLength
             ? description.substring(0, maxLength) + "..."
             : description;
@@ -17,7 +17,7 @@
 </script>
 
 <div class="relative flex w-full items-center justify-between">
-    <div class={"fixed inset-x-0 top-5 z-50 mx-auto max-w-xl "}>
+    <div class={"fixed inset-x-0 top-2 z-50 mx-auto max-w-xl "}>
         <NavbarMenu>
             <MenuItem {active} item="About me">
                 <div class="flex flex-col space-y-4 text-sm">

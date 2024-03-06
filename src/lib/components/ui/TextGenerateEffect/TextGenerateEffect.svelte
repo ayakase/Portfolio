@@ -16,8 +16,8 @@
 </script>
 
 <div class={cn("font-bold", className)}>
-    <div class="mt-4">
-        <div class=" text-7xl leading-snug tracking-wide text-white">
+    <div class="mt-1">
+        <div class=" text-5xl leading-snug tracking-wide text-white">
             <Motion
                 let:motion
                 custom={0}
