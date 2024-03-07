@@ -254,7 +254,7 @@ function onWindowResize() {
 }
 function render() {
   // earth.rotation.y += 0.02
-  t += -0.003
+  t += 0.003
   // vueLogo.position.x = 10 * Math.cos(t) + 0;
   // vueLogo.position.z = 10 * Math.sin(t) + 0;
   // vueLogo.quaternion.copy(camera.quaternion)
