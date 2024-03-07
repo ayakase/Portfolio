@@ -118,30 +118,31 @@
       </div>
     </IntersectionObserver>
   </div>
-
-  <div class=" h-[70rem]">
-    <IntersectionObserver element={nodeProjectSection} let:intersecting>
-      <div bind:this={nodeProjectSection}>
-        {#if intersecting}
-          <div
-            class="pt-4"
-            transition:fade={{ delay: 200, duration: 800, easing: quintOut }}
-          >
-            <div class="all-project flex flex-row justify-around flex-wrap">
-              {#each projectArray as { title, description, image, github, demo }}
-                <ThreeDCardEffect
-                  {title}
-                  {description}
-                  {image}
-                  demo={demo || ""}
-                ></ThreeDCardEffect>
-              {/each}
+  {#if projectArray}
+    <div class=" h-[70rem]">
+      <IntersectionObserver element={nodeProjectSection} let:intersecting>
+        <div bind:this={nodeProjectSection}>
+          {#if intersecting}
+            <div
+              class="pt-4"
+              transition:fade={{ delay: 200, duration: 800, easing: quintOut }}
+            >
+              <div class="all-project flex flex-row justify-around flex-wrap">
+                {#each projectArray as { title, description, image, github, demo }}
+                  <ThreeDCardEffect
+                    {title}
+                    {description}
+                    {image}
+                    demo={demo || ""}
+                  ></ThreeDCardEffect>
+                {/each}
+              </div>
             </div>
-          </div>
-        {/if}
-      </div>
-    </IntersectionObserver>
-  </div>
+          {/if}
+        </div>
+      </IntersectionObserver>
+    </div>
+  {/if}
   <div id="contact"></div>
   <ContactForm></ContactForm>
   <button on:click={() => (condition = !condition)}> show svg </button>
