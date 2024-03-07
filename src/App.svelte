@@ -1,15 +1,14 @@
 <script lang="ts">
   import ThreeDCardEffect from "./lib/components/ui/ThreeDCardEffect/ThreeDCardEffect.svelte";
-  // import BackgroundBoxesComponent from "./lib/components/ui/BackgroundBoxes/BackgroundBoxesComponent.svelte";
   import NavBarComponent from "./lib/components/ui/NavBar/NavBarComponent.svelte";
   import TimelineComponent from "./lib/components/TimelineComponent.svelte";
   import TextGenerateComponent from "./lib/components/ui/TextGenerateEffect/TextGenerateComponent.svelte";
-  import LanguageToolComponent from "./lib/components/LanguageToolComponent.svelte";
   import ContactForm from "./lib/components/ContactForm.svelte";
-  import { onMount } from "svelte";
   import IntersectionObserver from "svelte-intersection-observer";
+  import GithubComponent from "./lib/components/GithubComponent.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  import { Github } from "lucide-svelte";
   let condition: boolean = false;
   let nodeTimeline: any;
   let nodeProjectTitle: any;
@@ -93,15 +92,19 @@
       <NavBarComponent {projectArray}></NavBarComponent>
     {/if}
   </div>
+
   <div
-    class="text-generate h-auto flex flex-row justify-around items-center bg-red-500 gap-[15rem]"
+    class="text-generate h-auto flex flex-row justify-around items-center gap-[15rem]"
   >
-    <div class="h-[50rem] w-1/2 bg-white">
+    <div class="h-[50rem] w-1/2">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
     </div>
     <div class="text-white bg-green-700">second section</div>
   </div>
   <!-- <LanguageToolComponent></LanguageToolComponent> -->
+  <div>
+    <GithubComponent></GithubComponent>
+  </div>
   <div class=" h-[38rem]">
     <IntersectionObserver element={nodeTimeline} let:intersecting>
       <div class="experience">
