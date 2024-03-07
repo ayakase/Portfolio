@@ -8,37 +8,15 @@
   import ContactForm from "./lib/components/ContactForm.svelte";
   import { onMount } from "svelte";
   import IntersectionObserver from "svelte-intersection-observer";
-  import { fade, blur, slide, fly, scale } from "svelte/transition";
+  import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import { quintOut } from "svelte/easing";
-
-  let node: any;
-
-  // onMount(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries, observer) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.intersectionRatio === 1) {
-  //           entry.target.classList.add("bg-blue-600");
-  //           entry.target.classList.remove("bg-gray-200");
-  //         } else {
-  //           entry.target.classList.remove("bg-blue-600");
-  //           entry.target.classList.add("bg-gray-200");
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 1,
-  //     },
-  //   );
-
-  //   const elements = document.querySelectorAll(".item");
-
-  //   elements.forEach((element) => {
-  //     observer.observe(element);
-  //   });
-  // });
+  let condition: boolean = false;
+  let nodeTimeline: any;
+  let nodeProjectTitle: any;
+  let nodeProjectSection: any;
+  let element: any;
+  let intersecting: any;
   const words1: string = `Hello world! My name is Dang Thai An a.k.a アヤ (Aya), I am a passionate Junior Web Developer from Vietnam!`;
-  const words2: string = `こんにちは、世界！ダン・タイ・アン、またの名をアヤです。ベトナム出身の情熱的なウェブ開発者です!`;
   const projectArray: {
     id: number;
     title: string;
@@ -107,26 +85,14 @@
       section: "#translate",
     },
   ];
-  let touchedBottom: boolean;
-  window.onscroll = function () {
-    const difference =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const scrollposition = document.documentElement.scrollTop;
-    if (difference - scrollposition <= 2) {
-      touchedBottom = true;
-      console.log(touchedBottom);
-    } else {
-      touchedBottom = false;
-      console.log(touchedBottom);
-    }
-  };
 </script>
 
 <div class="mt-[10rem]">
-  {#if !touchedBottom}
-    <NavBarComponent {projectArray}></NavBarComponent>
-  {/if}
-  <!-- <div class="scroll-watcher"></div> -->
+  <div class:intersecting>
+    {#if !intersecting}
+      <NavBarComponent {projectArray}></NavBarComponent>
+    {/if}
+  </div>
   <div class="text-generate h-auto flex flex-row justify-around items-center">
     <div class="h-[50rem] w-1/2">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
@@ -137,70 +103,102 @@
     </div>
   </div>
   <!-- <LanguageToolComponent></LanguageToolComponent> -->
-  <div>a</div>
-  <div>a</div>
-  <div>a</div>
-  <div>a</div>
-  <div>a</div>
-  <div>a</div>
-  <IntersectionObserver once element={node} let:intersecting>
-    <div class="experience">
-      <div bind:this={node}>
+  <div class=" h-[38rem]">
+    <IntersectionObserver element={nodeTimeline} let:intersecting>
+      <div class="experience">
+        <div bind:this={nodeTimeline}>
+          {#if intersecting}
+            <div
+              class="pt-4"
+              transition:fly={{
+                delay: 250,
+                duration: 800,
+                x: 2000,
+                // y: 500,
+                opacity: 1,
+                easing: quintOut,
+              }}
+            >
+              <TimelineComponent></TimelineComponent>
+            </div>
+          {/if}
+        </div>
+      </div>
+    </IntersectionObserver>
+  </div>
+  <div class="h-[5rem]">
+    <IntersectionObserver element={nodeProjectTitle} let:intersecting>
+      <div bind:this={nodeProjectTitle}>
         {#if intersecting}
-          <TimelineComponent></TimelineComponent>
+          <div
+            class="text-5xl text-white"
+            transition:scale={{
+              duration: 500,
+              delay: 400,
+              opacity: 0.5,
+              start: 0,
+              easing: quintOut,
+            }}
+          >
+            <h2 class="flex flex-row flex-nowrap items-center my-8">
+              <span
+                class="flex-grow block border-t border-white"
+                aria-hidden="true"
+                role="presentation"
+              ></span>
+              <span
+                class="flex-none block mx-4 px-4 py-2.5 text-[2rem] leading-none font-medium uppercase bg-white text-black"
+              >
+                Personal projects
+              </span>
+              <span
+                class="flex-grow block border-t border-white"
+                aria-hidden="true"
+                role="presentation"
+              ></span>
+            </h2>
+          </div>
         {/if}
       </div>
-    </div>
-  </IntersectionObserver>
-  <IntersectionObserver element={node} let:intersecting>
-    <div bind:this={node}>
-      {#if intersecting}
-        <div
-          class="text-5xl text-white"
-          transition:scale={{
-            duration: 800,
-            delay: 300,
-            opacity: 0.5,
-            start: 0,
-            easing: quintOut,
-          }}
-        >
-          <h2 class="flex flex-row flex-nowrap items-center my-8">
-            <span
-              class="flex-grow block border-t border-white"
-              aria-hidden="true"
-              role="presentation"
-            ></span>
-            <span
-              class="flex-none block mx-4 px-4 py-2.5 text-[2rem] leading-none font-medium uppercase bg-white text-black"
-            >
-              Personal projects
-            </span>
-            <span
-              class="flex-grow block border-t border-white"
-              aria-hidden="true"
-              role="presentation"
-            ></span>
-          </h2>
-        </div>
-      {/if}
-    </div>
-  </IntersectionObserver>
+    </IntersectionObserver>
+  </div>
 
-  <div class="all-project flex flex-row justify-around flex-wrap">
-    {#each projectArray as { id, title, description, image, github, demo }}
-      <ThreeDCardEffect
-        {id}
-        {title}
-        {description}
-        {image}
-        {github}
-        demo={demo || ""}
-      ></ThreeDCardEffect>
-    {/each}
+  <div class=" h-[70rem]">
+    <IntersectionObserver element={nodeProjectSection} let:intersecting>
+      <div bind:this={nodeProjectSection}>
+        {#if intersecting}
+          <div
+            class="pt-4"
+            transition:fade={{ delay: 400, duration: 800, easing: quintOut }}
+          >
+            <div class="all-project flex flex-row justify-around flex-wrap">
+              {#each projectArray as { id, title, description, image, github, demo }}
+                <ThreeDCardEffect
+                  {id}
+                  {title}
+                  {description}
+                  {image}
+                  {github}
+                  demo={demo || ""}
+                ></ThreeDCardEffect>
+              {/each}
+            </div>
+          </div>
+        {/if}
+      </div>
+    </IntersectionObserver>
   </div>
   <ContactForm></ContactForm>
+  <button on:click={() => (condition = !condition)}> show svg </button>
+
   <div class="empty-space h-screen w-screen"></div>
+
+  <!-- <header class="text-white" class:intersecting>
+    {intersecting ? "Element is in view" : "Element is not in view"}
+  </header> -->
+  <IntersectionObserver {element} bind:intersecting>
+    <div bind:this={element}>Hello world</div>
+  </IntersectionObserver>
 </div>
 
 <style>
@@ -278,4 +276,10 @@
       transform: perspective(0) rotateX(0);
     }
   } */
+  svg {
+    display: block;
+
+    height: 150px;
+    width: 150px;
+  }
 </style>
