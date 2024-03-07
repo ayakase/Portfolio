@@ -3,7 +3,6 @@
   import CardContainer from "./CardContainer.svelte";
   import CardItem from "./CardItem.svelte";
   let isMouseEntered = false;
-  // export let id: number;
   export let title: string;
   export let description: string;
   export let image: string;
