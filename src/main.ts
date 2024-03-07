@@ -5,34 +5,38 @@ import spaceBoiModel from './assets/space_boi.glb'
 // @ts-ignore
 // import earthModel from './assets/of_planes_and_satellites.glb'
 
-import vueTexture from './assets/langLogo/vue.png'
-import tailwindTexture from './assets/langLogo/tailwind.png';
-import bootstrapTexture from './assets/langLogo/bootstrap.png';
-import svelteTexture from './assets/langLogo/svelte.png';
-import threejsTexture from './assets/langLogo/three.png';
-import nodejsTexture from './assets/langLogo/node.png';
-import flaskTexture from './assets/langLogo/flask.png';
-import jsTexture from './assets/langLogo/js.png';
-import pythonTexture from './assets/langLogo/python.png';
-import htmlTexture from './assets/langLogo/html.png';
-import cssTexture from './assets/langLogo/css.png';
-import firebaseTexture from './assets/langLogo/firebase.png';
-import socketioTexture from './assets/langLogo/socketio.png'
-import dockerTexture from './assets/langLogo/docker.png'
-import wordpressTexture from './assets/langLogo/wordpress.png'
-import ejsTexture from './assets/langLogo/ejs.png'
-import mysqlTexture from './assets/langLogo/mysql.png'
-import piniaTexture from './assets/langLogo/pinia.png'
-import vuetifyTexture from './assets/langLogo/vuetify.png'
-import mongoTexture from './assets/langLogo/mongo.png'
-import cloudinaryTexture from './assets/langLogo/cloudinary.png'
-import bashTexture from './assets/langLogo/bash.png'
-import bulmaTexture from './assets/langLogo/bulma.png'
-import linuxTexture from './assets/langLogo/linux.png'
-import aceternityuiTexture from './assets/langLogo/aceternity.png'
-import rubyTexture from './assets/langLogo/ruby.png'
-import railsTexture from './assets/langLogo/rails.png'
-import viteTexture from './assets/langLogo/vite.png'
+import vueTexture from './assets/techLogo/vue.png'
+import tailwindTexture from './assets/techLogo/tailwind.png';
+import bootstrapTexture from './assets/techLogo/bootstrap.png';
+import svelteTexture from './assets/techLogo/svelte.png';
+import threejsTexture from './assets/techLogo/three.png';
+import nodejsTexture from './assets/techLogo/node.png';
+import flaskTexture from './assets/techLogo/flask.png';
+import jsTexture from './assets/techLogo/js.png';
+import pythonTexture from './assets/techLogo/python.png';
+import htmlTexture from './assets/techLogo/html.png';
+import cssTexture from './assets/techLogo/css.png';
+import firebaseTexture from './assets/techLogo/firebase.png';
+import socketioTexture from './assets/techLogo/socketio.png'
+import dockerTexture from './assets/techLogo/docker.png'
+import wordpressTexture from './assets/techLogo/wordpress.png'
+import ejsTexture from './assets/techLogo/ejs.png'
+import mysqlTexture from './assets/techLogo/mysql.png'
+import piniaTexture from './assets/techLogo/pinia.png'
+import vuetifyTexture from './assets/techLogo/vuetify.png'
+import mongoTexture from './assets/techLogo/mongo.png'
+import cloudinaryTexture from './assets/techLogo/cloudinary.png'
+import bashTexture from './assets/techLogo/bash.png'
+import bulmaTexture from './assets/techLogo/bulma.png'
+import linuxTexture from './assets/techLogo/linux.png'
+import aceternityuiTexture from './assets/techLogo/aceternity.png'
+import rubyTexture from './assets/techLogo/ruby.png'
+import railsTexture from './assets/techLogo/rails.png'
+import viteTexture from './assets/techLogo/vite.png'
+import ubuntuTexture from './assets/techLogo/ubuntu.png'
+import figmaTexture from './assets/techLogo/figma.png'
+import githubTexture from './assets/techLogo/github.png'
+import photoshopTexture from './assets/techLogo/photoshop.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -68,7 +72,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.setX(0);
-camera.position.setY(10);
+camera.position.setY(80);
 camera.position.setZ(20);
 
 
@@ -121,50 +125,56 @@ loader.load(spaceBoiModel, function (gltf: any) {
   console.error(error);
 });
 
-// Language
-function createLanguageLogo(logoPath: string) {
-  const langTexture = textureLoader.load(logoPath);
-  const lang = new THREE.Mesh(
+// techuage
+function createtechuageLogo(logoPath: string) {
+  const techTexture = textureLoader.load(logoPath);
+  const tech = new THREE.Mesh(
     new THREE.PlaneGeometry(1.2, 1.2),
     new THREE.MeshStandardMaterial({
-      map: langTexture,
+      map: techTexture,
       transparent: true,
       alphaTest: 0.5,
     })
   );
-  lang.position.y = 8;
-  scene.add(lang);
-  return lang;
+  // tech.position.y = 8;
+  tech.position.y = Math.floor(Math.random() * 7) + 5
+
+  scene.add(tech);
+  return tech;
 }
-const vueLogo = createLanguageLogo(vueTexture);
-const svelteLogo = createLanguageLogo(svelteTexture);
-const tailwindLogo = createLanguageLogo(tailwindTexture);
-const bootstrapLogo = createLanguageLogo(bootstrapTexture)
-const jsLogo = createLanguageLogo(jsTexture);
-const htmlLogo = createLanguageLogo(htmlTexture)
-const cssLogo = createLanguageLogo(cssTexture)
-const pythonLogo = createLanguageLogo(pythonTexture)
-const flaskLogo = createLanguageLogo(flaskTexture)
-const threeLogo = createLanguageLogo(threejsTexture)
-const nodejsLogo = createLanguageLogo(nodejsTexture)
-const firebaseLogo = createLanguageLogo(firebaseTexture)
-const socketioLogo = createLanguageLogo(socketioTexture)
-const dockerLogo = createLanguageLogo(dockerTexture)
-const wordpressLogo = createLanguageLogo(wordpressTexture)
-const ejsLogo = createLanguageLogo(ejsTexture)
-const mysqlLogo = createLanguageLogo(mysqlTexture)
-const piniaLogo = createLanguageLogo(piniaTexture)
-const vuetifyLogo = createLanguageLogo(vuetifyTexture)
-const mongoLogo = createLanguageLogo(mongoTexture)
-const cloudinaryLogo = createLanguageLogo(cloudinaryTexture)
-const bashLogo = createLanguageLogo(bashTexture)
-const bulmaLogo = createLanguageLogo(bulmaTexture)
-const linuxLogo = createLanguageLogo(linuxTexture)
-const aceternityLogo = createLanguageLogo(aceternityuiTexture)
-const rubyLogo = createLanguageLogo(rubyTexture)
-const railsLogo = createLanguageLogo(railsTexture)
-const viteLogo = createLanguageLogo(viteTexture)
-const langArray = [
+const vueLogo = createtechuageLogo(vueTexture);
+const svelteLogo = createtechuageLogo(svelteTexture);
+const tailwindLogo = createtechuageLogo(tailwindTexture);
+const bootstrapLogo = createtechuageLogo(bootstrapTexture)
+const jsLogo = createtechuageLogo(jsTexture);
+const htmlLogo = createtechuageLogo(htmlTexture)
+const cssLogo = createtechuageLogo(cssTexture)
+const pythonLogo = createtechuageLogo(pythonTexture)
+const flaskLogo = createtechuageLogo(flaskTexture)
+const threeLogo = createtechuageLogo(threejsTexture)
+const nodejsLogo = createtechuageLogo(nodejsTexture)
+const firebaseLogo = createtechuageLogo(firebaseTexture)
+const socketioLogo = createtechuageLogo(socketioTexture)
+const dockerLogo = createtechuageLogo(dockerTexture)
+const wordpressLogo = createtechuageLogo(wordpressTexture)
+const ejsLogo = createtechuageLogo(ejsTexture)
+const mysqlLogo = createtechuageLogo(mysqlTexture)
+const piniaLogo = createtechuageLogo(piniaTexture)
+const vuetifyLogo = createtechuageLogo(vuetifyTexture)
+const mongoLogo = createtechuageLogo(mongoTexture)
+const cloudinaryLogo = createtechuageLogo(cloudinaryTexture)
+const bashLogo = createtechuageLogo(bashTexture)
+const bulmaLogo = createtechuageLogo(bulmaTexture)
+const linuxLogo = createtechuageLogo(linuxTexture)
+const aceternityLogo = createtechuageLogo(aceternityuiTexture)
+const rubyLogo = createtechuageLogo(rubyTexture)
+const railsLogo = createtechuageLogo(railsTexture)
+const viteLogo = createtechuageLogo(viteTexture)
+const ubuntuLogo = createtechuageLogo(ubuntuTexture)
+const figmaLogo = createtechuageLogo(figmaTexture)
+const githubLogo = createtechuageLogo(githubTexture)
+const photoshopLogo = createtechuageLogo(photoshopTexture)
+const techArray = [
   vueLogo,
   svelteLogo,
   tailwindLogo,
@@ -193,13 +203,17 @@ const langArray = [
   rubyLogo,
   railsLogo,
   viteLogo,
+  ubuntuLogo,
+  figmaLogo,
+  githubLogo,
+  photoshopLogo
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
-  camera.position.y = topT * -0.0002 + 10
+  camera.position.y = topT * -0.0001 + 8
   camera.position.z = topT * 0.001 + 20
   spaceBoi.rotation.y += 0.01
-  // langArray.forEach(function (logo, index) {
+  // techArray.forEach(function (logo, index) {
   //   logo.position.y = topT * 0.0035 + 10
   // })
 }
@@ -245,9 +259,9 @@ function render() {
   // vueLogo.position.z = 10 * Math.sin(t) + 0;
   // vueLogo.quaternion.copy(camera.quaternion)
 
-  langArray.forEach(function (logo, index) {
-    logo.position.x = 12 * Math.cos(t + index * 1.1) + 0;
-    logo.position.z = 12 * Math.sin(t + index * 1.1) + 0;
+  techArray.forEach(function (logo, index) {
+    logo.position.x = 10 * Math.cos(t + index * 1.1) + 0;
+    logo.position.z = 10 * Math.sin(t + index * 1.1) + 0;
     logo.quaternion.copy(camera.quaternion)
     // if (touchedBottom) {
     //   logo.visible = false
