@@ -93,14 +93,13 @@
       <NavBarComponent {projectArray}></NavBarComponent>
     {/if}
   </div>
-  <div class="text-generate h-auto flex flex-row justify-around items-center">
-    <div class="h-[50rem] w-1/2">
+  <div
+    class="text-generate h-auto flex flex-row justify-around items-center bg-red-500 gap-[15rem]"
+  >
+    <div class="h-[50rem] w-1/2 bg-white">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
-      <!-- <TextGenerateComponent words={words2}></TextGenerateComponent> -->
     </div>
-    <div>
-      <div class="text-white">second section</div>
-    </div>
+    <div class="text-white bg-green-700">second section</div>
   </div>
   <!-- <LanguageToolComponent></LanguageToolComponent> -->
   <div class=" h-[38rem]">

@@ -32,6 +32,7 @@ import linuxTexture from './assets/langLogo/linux.png'
 import aceternityuiTexture from './assets/langLogo/aceternity.png'
 import rubyTexture from './assets/langLogo/ruby.png'
 import railsTexture from './assets/langLogo/rails.png'
+import viteTexture from './assets/langLogo/vite.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -162,6 +163,7 @@ const linuxLogo = createLanguageLogo(linuxTexture)
 const aceternityLogo = createLanguageLogo(aceternityuiTexture)
 const rubyLogo = createLanguageLogo(rubyTexture)
 const railsLogo = createLanguageLogo(railsTexture)
+const viteLogo = createLanguageLogo(viteTexture)
 const langArray = [
   vueLogo,
   svelteLogo,
@@ -189,7 +191,8 @@ const langArray = [
   linuxLogo,
   aceternityLogo,
   rubyLogo,
-  railsLogo
+  railsLogo,
+  viteLogo,
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
