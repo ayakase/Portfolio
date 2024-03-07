@@ -102,6 +102,27 @@
     <div class="text-white bg-green-700">second section</div>
   </div>
   <!-- <LanguageToolComponent></LanguageToolComponent> -->
+  <h2 class="flex flex-row flex-nowrap items-center my-8">
+    <span
+      class="flex-grow block border-t border-white"
+      aria-hidden="true"
+      role="presentation"
+    ></span>
+    <span
+      class="flex-none block mx-4 px-4 py-2.5 text-[2rem] leading-none font-medium uppercase bg-white text-black"
+    >
+      <img
+        class="w-[20rem]"
+        src="https://komarev.com/ghpvc/?username=ayakase&color=blue&style=for-the-badge"
+        alt="Profile Views"
+      />
+    </span>
+    <span
+      class="flex-grow block border-t border-white"
+      aria-hidden="true"
+      role="presentation"
+    ></span>
+  </h2>
   <div>
     <GithubComponent></GithubComponent>
   </div>

@@ -1,10 +1,4 @@
 <div class="flex flex-col w-[90%] m-auto p-auto">
-    <!-- <img
-        class="w-[20rem]"
-        src="https://komarev.com/ghpvc/?username=ayakase&color=blue&style=for-the-badge"
-        alt="Profile Views"
-    /> -->
-
     <div
         class="flex w-3/5 flex-row justify-between h-full items-stretch m-auto p-auto"
     >
