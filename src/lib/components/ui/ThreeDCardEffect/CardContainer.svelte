@@ -24,8 +24,8 @@
 </script>
 
 <div
-    class={cn("flex items-center justify-center py-20", containerClassName)}
-    style="perspective: 1000px;"
+    class={cn("flex items-center justify-center ", containerClassName)}
+    style="perspective: 500px;"
 >
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div

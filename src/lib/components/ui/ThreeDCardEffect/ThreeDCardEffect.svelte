@@ -12,7 +12,7 @@
 
 <CardContainer bind:isMouseEntered className="inter-var">
   <CardBody
-    className="backdrop-blur-sm bg-indigo-300/25 relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-96 h-auto rounded-xl p-6 border  "
+    className="backdrop-blur-sm bg-indigo-300/25 relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-96   rounded-xl pl-6 pr-6 pt-4 border "
   >
     <CardItem
       {isMouseEntered}
@@ -24,16 +24,14 @@
     <CardItem
       {isMouseEntered}
       translateZ={60}
-      className="text-white text-sm max-w-sm mt-2"
+      className="text-white text-sm max-w-sm h-14"
     >
       {description}
     </CardItem>
-    <CardItem {isMouseEntered} translateZ={100} className="w-full mt-4">
+    <CardItem {isMouseEntered} translateZ={100} className="w-full mt-2">
       <img
         src={image}
-        height="1000"
-        width="1000"
-        class="h-50 w-full rounded-xl object-cover group-hover/card:shadow-xl"
+        class="h-44 w-full rounded-xl object-fill group-hover/card:shadow-xl"
         alt="thumbnail"
       />
     </CardItem>

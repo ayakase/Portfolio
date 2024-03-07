@@ -1,4 +1,8 @@
-<div class="timeline-container w-4/5 mx-auto px-auto flex flex-row gap-6">
+<div
+    class="timeline-container w-5/6 mx-auto px-auto flex flex-row gap-6 backdrop-blur-sm bg-indigo-300/25 pt-10 pb-10 rounded-lg
+
+    "
+>
     <p class="timeline-title text-white text-5xl">Experience</p>
     <ol class="relative border-s border-gray-200 dark:border-gray-700">
         <li class="mb-10 ms-4" id="anh-tuan">

@@ -7,9 +7,10 @@
   import IntersectionObserver from "svelte-intersection-observer";
   import DividerComponent from "./lib/components/DividerComponent.svelte";
   import GithubComponent from "./lib/components/GithubComponent.svelte";
+  import SocialMedia from "./lib/components/SocialMedia.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import axios from "axios";
-
+  import avatar from "./assets/avatar.jpg";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
   let condition: boolean = false;
@@ -31,7 +32,7 @@
   onMount(async () => {
     try {
       const response = await axios.get(
-        "https://ijdqygiwmwjrvkapvolt.supabase.co/rest/v1/projects",
+        "https://ijdqygiwmwjrvkapvolt.supabase.co/rest/v1/projects?order=id.asc",
         {
           headers: {
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
@@ -48,19 +49,28 @@
   });
 </script>
 
-<div class="mt-[10rem]">
+<div class="">
   <div class:intersecting class="flex flex-row justify-center">
     {#if !intersecting}
       <NavBarComponent></NavBarComponent>
     {/if}
   </div>
   <div
-    class="text-generate h-auto flex flex-row justify-around items-center gap-[15rem]"
+    class="introduce-section h-auto flex flex-row justify-around items-center gap-[15rem] m-auto"
   >
-    <div class="h-[50rem] w-1/2">
+    <div class=" w-1/2">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
+      <SocialMedia></SocialMedia>
     </div>
-    <div class="text-white bg-green-700">second section</div>
+    <div class="w-1/5">
+      <img
+        class="rounded-full
+
+      "
+        src={avatar}
+        alt="Avatar"
+      />
+    </div>
   </div>
   <div id="github"></div>
   <div class="h-[5rem]">
@@ -92,13 +102,11 @@
           {#if intersecting}
             <div
               class="pt-4"
-              transition:fly={{
-                delay: 250,
-                duration: 800,
-                x: 2000,
-                // y: 500,
-                opacity: 1,
+              transition:slide={{
+                delay: 650,
+                duration: 600,
                 easing: quintOut,
+                axis: "y",
               }}
             >
               <TimelineComponent></TimelineComponent>
@@ -119,15 +127,16 @@
     </IntersectionObserver>
   </div>
   {#if projectArray}
-    <div class=" h-[70rem]">
+    <div class=" h-[55rem] w-3/4 m-auto">
       <IntersectionObserver element={nodeProjectSection} let:intersecting>
         <div bind:this={nodeProjectSection}>
           {#if intersecting}
             <div
-              class="pt-4"
               transition:fade={{ delay: 200, duration: 800, easing: quintOut }}
             >
-              <div class="all-project flex flex-row justify-around flex-wrap">
+              <div
+                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center h-[55rem]"
+              >
                 {#each projectArray as { title, description, image, github, demo }}
                   <ThreeDCardEffect
                     {title}
@@ -145,7 +154,6 @@
   {/if}
   <div id="contact"></div>
   <ContactForm></ContactForm>
-  <button on:click={() => (condition = !condition)}> show svg </button>
 
   <div class="empty-space h-screen w-screen"></div>
 
@@ -158,8 +166,13 @@
 </div>
 
 <style>
-  .text-generate {
+  .introduce-section {
     text-shadow: 0 0 5px #9d00e6;
+    background-image: url("./assets/bg.png");
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
   }
 
   .all-project {

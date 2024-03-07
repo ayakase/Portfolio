@@ -38,6 +38,7 @@ import figmaTexture from './assets/techLogo/figma.png'
 import githubTexture from './assets/techLogo/github.png'
 import photoshopTexture from './assets/techLogo/photoshop.png'
 import supabaseTexture from './assets/techLogo/supabase.png'
+import emailjsTexture from './assets/techLogo/emailjs.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -73,7 +74,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.setX(0);
-camera.position.setY(80);
+camera.position.setY(8);
 camera.position.setZ(20);
 
 
@@ -121,6 +122,7 @@ loader.load(spaceBoiModel, function (gltf: any) {
   spaceBoi = gltf.scene
   scene.add(spaceBoi);
   spaceBoi.scale.set(3, 3, 3)
+  spaceBoi.rotation.y = -0.6
 
 }, undefined, function (error: Error) {
   console.error(error);
@@ -176,6 +178,7 @@ const figmaLogo = createtechuageLogo(figmaTexture)
 const githubLogo = createtechuageLogo(githubTexture)
 const photoshopLogo = createtechuageLogo(photoshopTexture)
 const supabaseLogo = createtechuageLogo(supabaseTexture)
+const emailjsLogo = createtechuageLogo(emailjsTexture)
 const techArray = [
   vueLogo,
   svelteLogo,
@@ -209,7 +212,8 @@ const techArray = [
   figmaLogo,
   githubLogo,
   photoshopLogo,
-  supabaseLogo
+  supabaseLogo,
+  emailjsLogo
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
