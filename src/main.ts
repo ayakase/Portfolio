@@ -26,6 +26,12 @@ import piniaTexture from './assets/langLogo/pinia.png'
 import vuetifyTexture from './assets/langLogo/vuetify.png'
 import mongoTexture from './assets/langLogo/mongo.png'
 import cloudinaryTexture from './assets/langLogo/cloudinary.png'
+import bashTexture from './assets/langLogo/bash.png'
+import bulmaTexture from './assets/langLogo/bulma.png'
+import linuxTexture from './assets/langLogo/linux.png'
+import aceternityuiTexture from './assets/langLogo/aceternity.png'
+import rubyTexture from './assets/langLogo/ruby.png'
+import railsTexture from './assets/langLogo/rails.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -150,6 +156,12 @@ const piniaLogo = createLanguageLogo(piniaTexture)
 const vuetifyLogo = createLanguageLogo(vuetifyTexture)
 const mongoLogo = createLanguageLogo(mongoTexture)
 const cloudinaryLogo = createLanguageLogo(cloudinaryTexture)
+const bashLogo = createLanguageLogo(bashTexture)
+const bulmaLogo = createLanguageLogo(bulmaTexture)
+const linuxLogo = createLanguageLogo(linuxTexture)
+const aceternityLogo = createLanguageLogo(aceternityuiTexture)
+const rubyLogo = createLanguageLogo(rubyTexture)
+const railsLogo = createLanguageLogo(railsTexture)
 const langArray = [
   vueLogo,
   svelteLogo,
@@ -172,11 +184,16 @@ const langArray = [
   vuetifyLogo,
   mongoLogo,
   cloudinaryLogo,
-
+  bashLogo,
+  bulmaLogo,
+  linuxLogo,
+  aceternityLogo,
+  rubyLogo,
+  railsLogo
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
-  camera.position.y = topT * -0.0005 + 10
+  camera.position.y = topT * -0.0002 + 10
   camera.position.z = topT * 0.001 + 20
   spaceBoi.rotation.y += 0.01
   // langArray.forEach(function (logo, index) {
@@ -220,14 +237,14 @@ function onWindowResize() {
 }
 function render() {
   // earth.rotation.y += 0.02
-  t += -0.005
+  t += -0.003
   // vueLogo.position.x = 10 * Math.cos(t) + 0;
   // vueLogo.position.z = 10 * Math.sin(t) + 0;
   // vueLogo.quaternion.copy(camera.quaternion)
 
   langArray.forEach(function (logo, index) {
-    logo.position.x = 10 * Math.cos(t + index) + 0;
-    logo.position.z = 10 * Math.sin(t + index) + 0;
+    logo.position.x = 12 * Math.cos(t + index * 1.1) + 0;
+    logo.position.z = 12 * Math.sin(t + index * 1.1) + 0;
     logo.quaternion.copy(camera.quaternion)
     // if (touchedBottom) {
     //   logo.visible = false
