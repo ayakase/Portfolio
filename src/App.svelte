@@ -41,6 +41,7 @@
       );
 
       projectArray = response.data;
+      console.log(projectArray);
     } catch (error: any) {
       console.error("Error fetching data:", error.message);
     }
