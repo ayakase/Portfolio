@@ -37,6 +37,7 @@ import ubuntuTexture from './assets/techLogo/ubuntu.png'
 import figmaTexture from './assets/techLogo/figma.png'
 import githubTexture from './assets/techLogo/github.png'
 import photoshopTexture from './assets/techLogo/photoshop.png'
+import supabaseTexture from './assets/techLogo/supabase.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -174,6 +175,7 @@ const ubuntuLogo = createtechuageLogo(ubuntuTexture)
 const figmaLogo = createtechuageLogo(figmaTexture)
 const githubLogo = createtechuageLogo(githubTexture)
 const photoshopLogo = createtechuageLogo(photoshopTexture)
+const supabaseLogo = createtechuageLogo(supabaseTexture)
 const techArray = [
   vueLogo,
   svelteLogo,
@@ -206,7 +208,8 @@ const techArray = [
   ubuntuLogo,
   figmaLogo,
   githubLogo,
-  photoshopLogo
+  photoshopLogo,
+  supabaseLogo
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top

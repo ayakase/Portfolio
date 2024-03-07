@@ -22,6 +22,9 @@
 				<li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
 					<a href="#projects">#projects</a>
 				</li>
+				<li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
+					<a href="#contact">#contact</a>
+				</li>
 			</ul>
 		</div>
 	</div>
