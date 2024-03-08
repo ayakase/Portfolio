@@ -1,4 +1,4 @@
-<div class="flex flex-row justify-around">
+<div class="flex flex-row justify-around h-full items-center">
     <a
         href="https://discord.com/users/596627933662281730"
         data-twe-ripple-init

@@ -6,7 +6,7 @@
   export let title: string;
   export let description: string;
   export let image: string;
-  // export let github: string;
+  export let github: string;
   export let demo: string;
 </script>
 
@@ -50,7 +50,7 @@
         translateZ={20}
         className="px-4 py-2 rounded-xl bg-black text-white text-xs font-bold cursor-pointer"
       >
-        Source code
+        <a href={github}> Source code </a>
       </CardItem>
     </div>
   </CardBody>

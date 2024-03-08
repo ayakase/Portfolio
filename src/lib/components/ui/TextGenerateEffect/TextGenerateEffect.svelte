@@ -8,7 +8,7 @@
             opacity: 1,
             transition: {
                 delay: i * 0.1,
-                duration: 3,
+                duration: 1,
             },
         }),
         hidden: { opacity: 0 },

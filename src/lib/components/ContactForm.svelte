@@ -88,7 +88,7 @@
     <div class=" h-96"></div>
     <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
         <div
-            class="backdrop-blur-sm bg-white/30 w-full shadow rounded p-8 sm:p-12 -mt-72"
+            class="backdrop-blur-sm bg-indigo-300/25 w-full shadow rounded-[2rem] p-8 sm:p-12 -mt-72"
         >
             <p class="text-3xl font-bold leading-7 text-center text-white">
                 Contact me
