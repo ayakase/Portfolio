@@ -31,6 +31,7 @@
     demo?: string;
   }[];
   onMount(async () => {
+    console.log(import.meta.env.VITE_TEST);
     try {
       const response = await axios.get(
         "https://ijdqygiwmwjrvkapvolt.supabase.co/rest/v1/projects?order=id.asc",

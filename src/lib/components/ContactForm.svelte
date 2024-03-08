@@ -74,6 +74,7 @@
                         toastSuccess();
                     },
                     (error) => {
+                        console.error(error);
                         toastError();
                     },
                 );
