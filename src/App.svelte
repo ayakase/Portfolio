@@ -59,7 +59,7 @@
   <div
     class="introduce-section h-auto flex flex-row justify-around items-center gap-[15rem] m-auto relative"
   >
-    <a class="m-auto absolute bottom-0 cursor-pointer" href="#github">
+    <a class="m-auto absolute bottom-0 cursor-pointer" href="#experience">
       <svg
         fill="#313131"
         height="60px"
@@ -90,19 +90,6 @@
       <img class="rounded-full" src={avatar} alt="Avatar" />
       <QuotesComponents></QuotesComponents>
     </div>
-  </div>
-  <div id="github"></div>
-  <div class="h-[5rem]">
-    <IntersectionObserver element={nodeGithub} let:intersecting>
-      <div bind:this={nodeGithub}>
-        {#if intersecting}
-          <DividerComponent title={"My Github Stats"}></DividerComponent>
-        {/if}
-      </div>
-    </IntersectionObserver>
-  </div>
-  <div class=" hidden lg:block">
-    <GithubComponent></GithubComponent>
   </div>
   <div id="experience"></div>
   <div class="h-[5rem]">

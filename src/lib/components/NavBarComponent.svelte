@@ -13,9 +13,7 @@
 				<li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
 					<a href="#technology">#technology</a>
 				</li>
-				<li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
-					<a href="#github">#github</a>
-				</li>
+
 				<li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
 					<a href="#experience">#experience</a>
 				</li>

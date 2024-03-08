@@ -96,7 +96,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(ambientLight);
-const pointLight = new THREE.PointLight(0xffffff, 500, 200);
+const pointLight = new THREE.PointLight(0xffffff, 300, 200);
 pointLight.position.set(0, 0, 15);
 scene.add(pointLight);
 

@@ -9,7 +9,7 @@
                 "https://api.api-ninjas.com/v1/quotes?category=success",
                 {
                     headers: {
-                        "X-Api-Key": "2QGoiW6zfVl5lMjewll2pw==pDe1ebphNl9Eca6F",
+                        "X-Api-Key": import.meta.env.VITE_QUOTE_KEY,
                         "Content-Type": "application/json", // Add other headers as needed
                     },
                 },

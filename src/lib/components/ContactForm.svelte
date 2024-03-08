@@ -61,9 +61,14 @@
             } = { name, contact, company, message };
             console.log(templateParams);
             emailjs
-                .send("service_m5gpx6e", "template_54fzlsh", templateParams, {
-                    publicKey: "7aWQ4CpnI3KQb5_Wl",
-                })
+                .send(
+                    import.meta.env.VITE_SERVICE_ID,
+                    import.meta.env.VITE_TEMPLATE_ID,
+                    templateParams,
+                    {
+                        publicKey: import.meta.env.VITE_PUBLIC_KEY,
+                    },
+                )
                 .then(
                     () => {
                         toastSuccess();
@@ -94,7 +99,7 @@
                 Contact me
             </p>
             <form on:submit|preventDefault={sendEmail}>
-                <div class="md:flex items-center mt-12">
+                <div class="flex flex-col items-center">
                     <div class="w-full md:w-1/2 flex flex-col">
                         <label
                             for="name"
@@ -108,9 +113,7 @@
                             class="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 backdrop-blur-sm bg-white/30 rounded"
                         />
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4"
-                    >
+                    <div class="w-full md:w-1/2 flex flex-col">
                         <label
                             for="contact"
                             class="font-semibold leading-none text-gray-300"
@@ -124,7 +127,7 @@
                         />
                     </div>
                 </div>
-                <div class="md:flex items-center mt-8">
+                <div class="md:flex items-center">
                     <div class="w-full flex flex-col">
                         <label
                             for="company"
