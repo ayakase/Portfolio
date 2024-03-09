@@ -16,7 +16,7 @@
 </script>
 
 <div class={cn("font-bold", className)}>
-    <div class="mt-1">
+    <div class="">
         <div class=" text-6xl leading-snug tracking-wide text-white">
             <Motion
                 let:motion
@@ -34,7 +34,7 @@
                             initial="hidden"
                             animate={"visible"}
                         >
-                            <span use:motion class="text-gray-300">
+                            <span use:motion class="text-white">
                                 {word}{" "}
                             </span>
                         </Motion>

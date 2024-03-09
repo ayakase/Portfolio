@@ -6,7 +6,7 @@
   import ContactForm from "./lib/components/ContactForm.svelte";
   import IntersectionObserver from "svelte-intersection-observer";
   import DividerComponent from "./lib/components/DividerComponent.svelte";
-  import GithubComponent from "./lib/components/GithubComponent.svelte";
+  import TechComponent from "./lib/components/TechComponent.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
   import QuotesComponents from "./lib/components/QuotesComponents.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
@@ -58,7 +58,7 @@
     {/if}
   </div>
   <div
-    class="introduce-section h-auto flex flex-row justify-around items-center gap-[15rem] m-auto relative"
+    class="introduce-section h-auto flex flex-row justify-around items-center m-auto relative"
   >
     <a class="m-auto absolute bottom-0 cursor-pointer" href="#experience">
       <svg
@@ -91,6 +91,9 @@
       <img class="rounded-full" src={avatar} alt="Avatar" />
       <QuotesComponents></QuotesComponents>
     </div>
+  </div>
+  <div id="technology">
+    <TechComponent></TechComponent>
   </div>
   <div id="experience"></div>
   <div class="h-[5rem]">
@@ -161,7 +164,9 @@
     </div>
   {/if}
   <div id="contact"></div>
-  <ContactForm></ContactForm>
+  <div class=" hidden lg:block">
+    <ContactForm></ContactForm>
+  </div>
 
   <div class="empty-space h-screen w-screen"></div>
 
@@ -178,7 +183,7 @@
     text-shadow: 0 0 5px #9d00e6;
     background-image: url("./assets/bg.png");
     height: 100vh;
-    background-size: 100%;
+    /* background-size: 100%; */
     background-repeat: no-repeat;
     background-position: left bottom;
   }

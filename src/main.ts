@@ -39,6 +39,8 @@ import githubTexture from './assets/techLogo/github.png'
 import photoshopTexture from './assets/techLogo/photoshop.png'
 import supabaseTexture from './assets/techLogo/supabase.png'
 import emailjsTexture from './assets/techLogo/emailjs.png'
+import ec2Texture from './assets/techLogo/ec2.png'
+import nuxtTexture from './assets/techLogo/nuxt.png'
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -97,13 +99,13 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(ambientLight);
 const pointLight = new THREE.PointLight(0xffffff, 300, 200);
-pointLight.position.set(0, 0, 15);
+pointLight.position.set(0, 8, 15);
 scene.add(pointLight);
 
 // Helper config
 
-const lightHelper = new THREE.PointLightHelper(pointLight)
-scene.add(lightHelper);
+// const lightHelper = new THREE.PointLightHelper(pointLight)
+// scene.add(lightHelper);
 // const gridHelper = new THREE.GridHelper(200, 50);
 // scene.add(gridHelper);
 // const axesHelper = new THREE.AxesHelper(5);
@@ -128,12 +130,12 @@ loader.load(spaceBoiModel, function (gltf: any) {
   console.error(error);
 });
 
-// techuage
-function createtechuageLogo(logoPath: string) {
+// tech logo constructor
+function createLogo(logoPath: string) {
   const techTexture = textureLoader.load(logoPath);
   const tech = new THREE.Mesh(
     new THREE.PlaneGeometry(1.2, 1.2),
-    new THREE.MeshStandardMaterial({
+    new THREE.MeshBasicMaterial({
       map: techTexture,
       transparent: true,
       alphaTest: 0.5,
@@ -145,40 +147,67 @@ function createtechuageLogo(logoPath: string) {
   scene.add(tech);
   return tech;
 }
-const vueLogo = createtechuageLogo(vueTexture);
-const svelteLogo = createtechuageLogo(svelteTexture);
-const tailwindLogo = createtechuageLogo(tailwindTexture);
-const bootstrapLogo = createtechuageLogo(bootstrapTexture)
-const jsLogo = createtechuageLogo(jsTexture);
-const htmlLogo = createtechuageLogo(htmlTexture)
-const cssLogo = createtechuageLogo(cssTexture)
-const pythonLogo = createtechuageLogo(pythonTexture)
-const flaskLogo = createtechuageLogo(flaskTexture)
-const threeLogo = createtechuageLogo(threejsTexture)
-const nodejsLogo = createtechuageLogo(nodejsTexture)
-const firebaseLogo = createtechuageLogo(firebaseTexture)
-const socketioLogo = createtechuageLogo(socketioTexture)
-const dockerLogo = createtechuageLogo(dockerTexture)
-const wordpressLogo = createtechuageLogo(wordpressTexture)
-const ejsLogo = createtechuageLogo(ejsTexture)
-const mysqlLogo = createtechuageLogo(mysqlTexture)
-const piniaLogo = createtechuageLogo(piniaTexture)
-const vuetifyLogo = createtechuageLogo(vuetifyTexture)
-const mongoLogo = createtechuageLogo(mongoTexture)
-const cloudinaryLogo = createtechuageLogo(cloudinaryTexture)
-const bashLogo = createtechuageLogo(bashTexture)
-const bulmaLogo = createtechuageLogo(bulmaTexture)
-const linuxLogo = createtechuageLogo(linuxTexture)
-const aceternityLogo = createtechuageLogo(aceternityuiTexture)
-const rubyLogo = createtechuageLogo(rubyTexture)
-const railsLogo = createtechuageLogo(railsTexture)
-const viteLogo = createtechuageLogo(viteTexture)
-const ubuntuLogo = createtechuageLogo(ubuntuTexture)
-const figmaLogo = createtechuageLogo(figmaTexture)
-const githubLogo = createtechuageLogo(githubTexture)
-const photoshopLogo = createtechuageLogo(photoshopTexture)
-const supabaseLogo = createtechuageLogo(supabaseTexture)
-const emailjsLogo = createtechuageLogo(emailjsTexture)
+
+
+
+
+
+
+
+
+
+// const raycaster = new THREE.Raycaster();
+// const mouse = new THREE.Vector2();
+// function onMouseMove(event: any) {
+//   mouse.x = -(event.clientX / window.innerWidth) * 2 - 1;
+//   mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+// }
+// window.addEventListener('mousemove', onMouseMove, false);
+
+
+
+
+
+
+
+
+
+const vueLogo = createLogo(vueTexture);
+const svelteLogo = createLogo(svelteTexture);
+const tailwindLogo = createLogo(tailwindTexture);
+const bootstrapLogo = createLogo(bootstrapTexture)
+const jsLogo = createLogo(jsTexture);
+const htmlLogo = createLogo(htmlTexture)
+const cssLogo = createLogo(cssTexture)
+const pythonLogo = createLogo(pythonTexture)
+const flaskLogo = createLogo(flaskTexture)
+const threeLogo = createLogo(threejsTexture)
+const nodejsLogo = createLogo(nodejsTexture)
+const firebaseLogo = createLogo(firebaseTexture)
+const socketioLogo = createLogo(socketioTexture)
+const dockerLogo = createLogo(dockerTexture)
+const wordpressLogo = createLogo(wordpressTexture)
+const ejsLogo = createLogo(ejsTexture)
+const mysqlLogo = createLogo(mysqlTexture)
+const piniaLogo = createLogo(piniaTexture)
+const vuetifyLogo = createLogo(vuetifyTexture)
+const mongoLogo = createLogo(mongoTexture)
+const cloudinaryLogo = createLogo(cloudinaryTexture)
+const bashLogo = createLogo(bashTexture)
+const bulmaLogo = createLogo(bulmaTexture)
+const linuxLogo = createLogo(linuxTexture)
+const aceternityLogo = createLogo(aceternityuiTexture)
+const rubyLogo = createLogo(rubyTexture)
+const railsLogo = createLogo(railsTexture)
+const viteLogo = createLogo(viteTexture)
+const ubuntuLogo = createLogo(ubuntuTexture)
+const figmaLogo = createLogo(figmaTexture)
+const githubLogo = createLogo(githubTexture)
+const photoshopLogo = createLogo(photoshopTexture)
+const supabaseLogo = createLogo(supabaseTexture)
+const emailjsLogo = createLogo(emailjsTexture)
+const ec2Logo = createLogo(ec2Texture)
+const nuxtLogo = createLogo(nuxtTexture)
 const techArray = [
   vueLogo,
   svelteLogo,
@@ -213,7 +242,9 @@ const techArray = [
   githubLogo,
   photoshopLogo,
   supabaseLogo,
-  emailjsLogo
+  emailjsLogo,
+  ec2Logo,
+  nuxtLogo
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
@@ -267,8 +298,8 @@ function render() {
   // vueLogo.quaternion.copy(camera.quaternion)
 
   techArray.forEach(function (logo, index) {
-    logo.position.x = 10 * Math.cos(t + index * 1.1) + 0;
-    logo.position.z = 10 * Math.sin(t + index * 1.1) + 0;
+    logo.position.x = 11 * Math.cos(t + index * 1.1) + 0;
+    logo.position.z = 11 * Math.sin(t + index * 1.1) + 0;
     logo.quaternion.copy(camera.quaternion)
     // if (touchedBottom) {
     //   logo.visible = false
@@ -276,7 +307,13 @@ function render() {
     //   logo.visible = true
     // }
   });
-
+  // raycaster.setFromCamera(mouse, camera);
+  // const intersects = raycaster.intersectObjects([spaceBoi]);
+  // if (intersects.length) {
+  //   const { point } = intersects[0];
+  //   pointLight.position.copy(point.setY(0.5));
+  //   pointLight.position.copy(point.setX(0.5));
+  // }
 
   renderer.render(scene, camera);
 }

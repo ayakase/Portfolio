@@ -21,7 +21,7 @@
 </script>
 
 <div class="flex h-[40rem] flex-col items-center justify-center">
-    <p class="text-xs text-neutral-600 dark:text-neutral-200 sm:text-base">
+    <p class="text-xs text-white sm:text-base">
         The road to freedom starts from here
     </p>
     <TypewriterEffectSmooth {words} />
