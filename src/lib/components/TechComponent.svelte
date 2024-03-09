@@ -1,30 +1,23 @@
 <div
   class="m-auto p-auto w-[90%] relative isolate overflow-hidden py-24 sm:py-32 lg:overflow-visible lg:px-0"
 >
-  <div
-    class=" grid grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
-  >
+  <div class=" grid grid-cols-1 lg:max-w-none lg:grid-cols-2 lg:items-start">
     <div
-      class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid w-full lg:grid-cols-2 lg:gap-x-8"
+      class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid w-full lg:grid-cols-2"
     >
       <div class="">
         <div class="">
-          <p class="text-4xl font-semibold leading-7 text-white">
-            What do I do ?
-          </p>
-          <!-- <h1
-                        class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-                    >
-                        I like to code
-                    </h1> -->
-          <p class="mt-6 text-xl leading-8 text-gray-100">
-            I started my University with
-          </p>
+          <p class="text-4xl font-semibold leading-7 text-white">My story</p>
+          <h1
+            class="mt-4 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl"
+          >
+            I like to code
+          </h1>
         </div>
       </div>
     </div>
     <div
-      class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+      class="-ml-12 -mt-12 p-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
     >
       <img
         class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
@@ -33,19 +26,20 @@
       />
     </div>
     <div
-      class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8"
+      class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2"
     >
       <div class="">
-        <div class=" text-base leading-7 text-gray-700">
+        <div class=" text-base leading-7 text-gray-300">
           <p>
-            Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-            enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
-            praesent donec est. Odio penatibus risus viverra tellus varius sit
-            neque erat velit. Faucibus commodo massa rhoncus, volutpat.
-            Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
-            sed turpis id.
+            I started my journey as a web developer 5 years ago, starting with
+            just pure HTML and CSS, I immediately discovered my passion for
+            developing simple yet aesthetic website. I love sharing my works of
+            art with people. I also love to discover emerging tech trends. I'm
+            instinctively curious and consistently improving my skills.
           </p>
-          <ul role="list" class="mt-8 space-y-8 text-gray-600">
+          <p class="mt-2 text-xl leading-8 text-gray-100">What I can do:</p>
+
+          <ul role="list" class="mt-4 space-y-8 text-gray-600">
             <li class="flex gap-x-3">
               <svg
                 class="mt-1 h-5 w-5 flex-none text-green-400"
@@ -72,7 +66,11 @@
                 fill="currentColor"
                 aria-hidden="true"
               >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  ><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                    d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"
+                  /></svg
+                >
               </svg>
               <span class="text-gray-100"
                 ><strong class="font-semibold">Back-end: </strong> NodeJS, ExpressJS,
@@ -121,11 +119,15 @@
                 fill="currentColor"
                 aria-hidden="true"
               >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M176 88v40H336V88c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zm-48 40V88c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56v40h28.1c12.7 0 24.9 5.1 33.9 14.1l51.9 51.9c9 9 14.1 21.2 14.1 33.9V304H384V288c0-17.7-14.3-32-32-32s-32 14.3-32 32v16H192V288c0-17.7-14.3-32-32-32s-32 14.3-32 32v16H0V227.9c0-12.7 5.1-24.9 14.1-33.9l51.9-51.9c9-9 21.2-14.1 33.9-14.1H128zM0 416V336H128v16c0 17.7 14.3 32 32 32s32-14.3 32-32V336H320v16c0 17.7 14.3 32 32 32s32-14.3 32-32V336H512v80c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  ><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                    d="M176 88v40H336V88c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zm-48 40V88c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56v40h28.1c12.7 0 24.9 5.1 33.9 14.1l51.9 51.9c9 9 14.1 21.2 14.1 33.9V304H384V288c0-17.7-14.3-32-32-32s-32 14.3-32 32v16H192V288c0-17.7-14.3-32-32-32s-32 14.3-32 32v16H0V227.9c0-12.7 5.1-24.9 14.1-33.9l51.9-51.9c9-9 21.2-14.1 33.9-14.1H128zM0 416V336H128v16c0 17.7 14.3 32 32 32s32-14.3 32-32V336H320v16c0 17.7 14.3 32 32 32s32-14.3 32-32V336H512v80c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"
+                  /></svg
+                >
               </svg>
               <span class="text-gray-100"
-                ><strong class="font-semibold">Other tools: </strong> Git, Github, Linux,
-                Bash, Vite
+                ><strong class="font-semibold">Other tools: </strong> Git, Github,
+                Linux, Bash, Vite
               </span>
             </li>
           </ul>

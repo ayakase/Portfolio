@@ -9,6 +9,7 @@
   import TechComponent from "./lib/components/TechComponent.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
   import QuotesComponents from "./lib/components/QuotesComponents.svelte";
+  import MobileNav from "./lib/components/MobileNav.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
@@ -40,7 +41,7 @@
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
             "Content-Type": "application/json", // Add other headers as needed
           },
-        },
+        }
       );
 
       projectArray = response.data;
@@ -52,6 +53,7 @@
 </script>
 
 <div class="">
+  <MobileNav></MobileNav>
   <div class:intersecting class="flex flex-row justify-center">
     {#if !intersecting}
       <NavBarComponent></NavBarComponent>
