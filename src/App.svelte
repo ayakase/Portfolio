@@ -183,7 +183,7 @@
 <style>
   .introduce-section {
     text-shadow: 0 0 5px #9d00e6;
-    background-image: url("./assets/bg.png");
+    background-image: url("./assets/bg.webp");
     height: 100vh;
     /* background-size: 100%; */
     background-repeat: no-repeat;
