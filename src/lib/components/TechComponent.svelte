@@ -21,17 +21,37 @@
     <div
       class="-ml-12 -mt-12 p-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
     >
-      <img
+      <div class="flex flex-col items-center">
+        <div class="text-4xl text-white mb-4">&lt; My Github Stats &gt;</div>
+        <img
+          loading="lazy"
+          src="https://github-readme-stats.vercel.app/api?username=ayakase&show_icons=true&theme=tokyonight&card_width=467"
+          alt="Ayakase's GitHub Stats"
+        />
+
+        <img
+          loading="lazy"
+          src="https://streak-stats.demolab.com?user=ayakase&theme=tokyonight&card_width=467"
+          alt="GitHub Streak"
+        />
+
+        <img
+          loading="lazy"
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayakase&layout=compact&langs_count=80&theme=tokyonight&card_width=467"
+          alt="Top Languages"
+        />
+      </div>
+      <!-- <img
         class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
         src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
         alt=""
-      />
+      /> -->
     </div>
     <div
       class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2"
     >
       <div class="">
-        <div class=" text-base leading-7 text-gray-300">
+        <div class=" text-xl leading-7 text-gray-300">
           <p>
             I started my journey as a web developer 5 years ago, starting with
             just pure HTML and CSS, I immediately discovered my passion for
@@ -55,10 +75,9 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100"
+              <span class="text-gray-100 text-xl"
                 ><strong class="font-semibold">Front-end: </strong> Vue 3, Nuxt 3,
-                Pinia, Vuetify, Svelte, ThreeJS, Bootstrap, BulmaCSS, TailwindCSS,
-                AceternityUI</span
+                Pinia, Vuetify, Svelte, ThreeJS, Bootstrap, TailwindCSS, AceternityUI</span
               >
             </li>
             <li class="flex gap-x-3">
@@ -74,9 +93,9 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100"
+              <span class="text-gray-100 text-xl"
                 ><strong class="font-semibold">Back-end: </strong> NodeJS, ExpressJS,
-                Flask, Supabase, Firebase, Ruby on Rails, Socket.IO</span
+                Flask, Supabase, Firebase, Ruby on Rails, Socket.IO, Sequelize</span
               >
             </li>
             <li class="flex gap-x-3">
@@ -92,7 +111,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100"
+              <span class="text-gray-100 text-xl"
                 ><strong class="font-semibold">Database: </strong> MySQL, MongoDB,
                 Firestore 10</span
               >
@@ -110,7 +129,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100"
+              <span class="text-gray-100 text-xl"
                 ><strong class="font-semibold">Cloud: </strong> AWS EC2, Cloudinary</span
               >
             </li>
@@ -127,29 +146,27 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100"
+              <span class="text-gray-100 text-xl"
                 ><strong class="font-semibold">Other tools: </strong> Git, Github,
                 Linux, Bash, Vite
               </span>
             </li>
           </ul>
           <p class="mt-8">
-            Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-            odio id et. Id blandit molestie auctor fermentum dignissim. Lacus
-            diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-            hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem
-            vel integer orci.
+            VueJS and NodeJS are the two skills that I am most confident about,
+            I love to discover and learn about other tech stacks as well.
           </p>
-          <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-            No server? No problem.
+          <h2 class="mt-6 text-2xl font-bold tracking-tight text-gray-200">
+            I am fluent in English, able to communicate, read and write
+            documentation.
+          </h2>
+          <h2 class="mt-6 text-2xl font-bold tracking-tight text-gray-200">
+            Currenly studying Japanese, I can hold basic conversations too (* ^
+            ω ^)
           </h2>
           <p class="mt-6">
-            Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat
-            in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum
-            mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed
-            tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi.
-            Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis
-            diam.
+            I would love to make friends from around the world and discuss our
+            hobbies.
           </p>
         </div>
       </div>
