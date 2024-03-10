@@ -1,5 +1,8 @@
+<div class="text-white text-3xl m-0 p-0">Reach me:</div>
 <div class="flex flex-row justify-around h-1/2 items-center">
-  <div class="text-white text-4xl m-0 p-0">Reach me:</div>
+  <div class="text-white text-3xl hidden lg:block lg:text-4xl m-0 p-0">
+    Reach me:
+  </div>
 
   <a
     href="https://discord.com/users/596627933662281730"

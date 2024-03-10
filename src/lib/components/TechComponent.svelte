@@ -7,7 +7,7 @@
     >
       <div class="">
         <div class="">
-          <p class="text-4xl font-semibold leading-7 text-white">
+          <p class="text-2xl lg:text-4xl font-semibold leading-7 text-white">
             &lt; Techical background &gt;
           </p>
           <!-- <h1
@@ -19,9 +19,9 @@
       </div>
     </div>
     <div
-      class="-ml-12 -mt-12 p-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+      class="-ml-12 -mt-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
     >
-      <div class="flex flex-col items-center">
+      <div class="flex-col items-center hidden lg:flex">
         <div class="text-4xl text-white mb-4">&lt; My Github Stats &gt;</div>
         <img
           loading="lazy"
@@ -51,7 +51,7 @@
       class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2"
     >
       <div class="">
-        <div class=" text-xl leading-7 text-gray-300">
+        <div class="text-base lg:text-xl leading-7 text-gray-300">
           <p>
             I started my journey as a web developer 5 years ago, starting with
             just pure HTML and CSS, I immediately discovered my passion for
@@ -59,7 +59,7 @@
             art with people. I also love to discover emerging tech trends. I'm
             instinctively curious and consistently improving my skills.
           </p>
-          <p class="mt-2 text-xl leading-8 text-gray-100">What I can do:</p>
+          <p class=" mt-2 lg:text-xl leading-8 text-gray-100">What I can do:</p>
 
           <ul role="list" class="mt-4 space-y-8 text-gray-600">
             <li class="flex gap-x-3">
@@ -75,7 +75,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100 text-xl"
+              <span class="text-gray-100 lg:text-xl text-base"
                 ><strong class="font-semibold">Front-end: </strong> Vue 3, Nuxt 3,
                 Pinia, Vuetify, Svelte, ThreeJS, Bootstrap, TailwindCSS, AceternityUI</span
               >
@@ -93,7 +93,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100 text-xl"
+              <span class="text-gray-100 lg:text-xl text-base"
                 ><strong class="font-semibold">Back-end: </strong> NodeJS, ExpressJS,
                 Flask, Supabase, Firebase, Ruby on Rails, Socket.IO, Sequelize</span
               >
@@ -111,7 +111,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100 text-xl"
+              <span class="text-gray-100 lg:text-xl text-base"
                 ><strong class="font-semibold">Database: </strong> MySQL, MongoDB,
                 Firestore 10</span
               >
@@ -129,7 +129,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100 text-xl"
+              <span class="text-gray-100 lg:text-xl text-base"
                 ><strong class="font-semibold">Cloud: </strong> AWS EC2, Cloudinary</span
               >
             </li>
@@ -146,7 +146,7 @@
                   /></svg
                 >
               </svg>
-              <span class="text-gray-100 text-xl"
+              <span class="text-gray-100 lg:text-xl text-base"
                 ><strong class="font-semibold">Other tools: </strong> Git, Github,
                 Linux, Bash, Vite
               </span>
@@ -156,11 +156,11 @@
             VueJS and NodeJS are the two skills that I am most confident about,
             I love to discover and learn about other tech stacks as well.
           </p>
-          <h2 class="mt-6 text-2xl font-bold tracking-tight text-gray-200">
+          <h2 class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200">
             I am fluent in English, able to communicate, read and write
             documentation.
           </h2>
-          <h2 class="mt-6 text-2xl font-bold tracking-tight text-gray-200">
+          <h2 class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200">
             Currenly studying Japanese, I can hold basic conversations too (* ^
             ω ^)
           </h2>

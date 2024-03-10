@@ -83,13 +83,21 @@
         </g></svg
       >
     </a>
-    <div class=" w-1/2 hidden lg:block">
-      <TextGenerateComponent words={words1}></TextGenerateComponent>
-      <div class="h-56">
+    <div class=" lg:w-1/2">
+      <div class="hidden lg:block">
+        <TextGenerateComponent words={words1}></TextGenerateComponent>
+      </div>
+      <div>
+        <p class="text-2xl w-1/2 absolute top-0 lg:hidden">
+          Hello world! My name is Dang Thai An a.k.a アヤ (Aya), I am a
+          passionate Junior Web Developer from Vietnam!
+        </p>
+      </div>
+      <div class="lg:h-56">
         <SocialMedia></SocialMedia>
       </div>
     </div>
-    <div class="w-1/5">
+    <div class="w-1/5 hidden lg:block">
       <img class="rounded-full" src={avatar} alt="Avatar" />
       <QuotesComponents></QuotesComponents>
     </div>
