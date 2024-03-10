@@ -11,7 +11,7 @@
           <a href="#">#about</a>
         </li>
         <li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">
-          <a href="#technology">#technology</a>
+          <a href="#technical">#technical</a>
         </li>
 
         <li class="nav-item md:px-4 md:py-2 hover:text-indigo-400">

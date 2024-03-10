@@ -94,7 +94,7 @@
       <QuotesComponents></QuotesComponents>
     </div>
   </div>
-  <div id="technology">
+  <div id="technical">
     <TechComponent></TechComponent>
   </div>
   <div id="experience"></div>
