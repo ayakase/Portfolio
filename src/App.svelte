@@ -83,7 +83,7 @@
         </g></svg
       >
     </a>
-    <div class=" w-1/2">
+    <div class=" w-1/2 hidden lg:block">
       <TextGenerateComponent words={words1}></TextGenerateComponent>
       <div class="h-56">
         <SocialMedia></SocialMedia>

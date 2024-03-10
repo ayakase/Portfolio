@@ -1,4 +1,4 @@
-<div id="circularMenu" class="circular-menu z-50 active sm:block lg:hidden">
+<div id="circularMenu" class="circular-menu z-50 sm:block lg:hidden">
   <!-- svelte-ignore a11y-missing-attribute -->
   <a
     class="floating-btn"

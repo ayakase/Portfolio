@@ -7,12 +7,14 @@
     >
       <div class="">
         <div class="">
-          <p class="text-4xl font-semibold leading-7 text-white">My story</p>
-          <h1
+          <p class="text-4xl font-semibold leading-7 text-white">
+            &lt; Techical background &gt;
+          </p>
+          <!-- <h1
             class="mt-4 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl"
           >
             I like to code
-          </h1>
+          </h1> -->
         </div>
       </div>
     </div>
