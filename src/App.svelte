@@ -88,10 +88,7 @@
         <TextGenerateComponent words={words1}></TextGenerateComponent>
       </div>
       <div>
-        <p class="text-2xl w-1/2 absolute top-0 lg:hidden">
-          Hello world! My name is Dang Thai An a.k.a アヤ (Aya), I am a
-          passionate Junior Web Developer from Vietnam!
-        </p>
+        <p class="text-2xl w-1/2 absolute top-0 lg:hidden">Hello, I do code</p>
       </div>
       <div class="lg:h-56">
         <SocialMedia></SocialMedia>
@@ -106,7 +103,7 @@
     <TechComponent></TechComponent>
   </div>
   <div id="experience"></div>
-  <div class="h-[5rem]">
+  <div class="h-[5rem] hidden lg:block">
     <IntersectionObserver element={nodeExperience} let:intersecting>
       <div bind:this={nodeExperience}>
         {#if intersecting}
@@ -137,7 +134,7 @@
     </IntersectionObserver>
   </div>
   <div id="projects"></div>
-  <div class="h-[5rem] mt-20">
+  <div class="h-[5rem] mt-20 hidden lg:block">
     <IntersectionObserver element={nodeProjectTitle} let:intersecting>
       <div bind:this={nodeProjectTitle}>
         {#if intersecting}
