@@ -8,8 +8,12 @@
   import DividerComponent from "./lib/components/DividerComponent.svelte";
   import TechComponent from "./lib/components/TechComponent.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
+  import ResumeComponent from "./lib/components/ResumeComponent.svelte";
   import QuotesComponents from "./lib/components/QuotesComponents.svelte";
-  import MobileNav from "./lib/components/MobileNav.svelte";
+  import MobileNav from "./lib/components/mobile-components/MobileNav.svelte";
+  import MobileProjects from "./lib/components/mobile-components/MobileProjects.svelte";
+  import MobileTimeline from "./lib/components/mobile-components/MobileTimeline.svelte";
+  import MobileContact from "./lib/components/mobile-components/MobileContact.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
@@ -35,7 +39,7 @@
     console.log(import.meta.env.VITE_TEST);
     try {
       const response = await axios.get(
-        "https://ijdqygiwmwjrvkapvolt.supabase.co/rest/v1/projects?order=id.asc",
+        import.meta.env.VITE_SUPABASE_URL + "projects?order=id.asc",
         {
           headers: {
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
@@ -62,27 +66,6 @@
   <div
     class="introduce-section h-auto flex flex-row justify-around items-center m-auto relative"
   >
-    <a class="m-auto absolute bottom-0 cursor-pointer" href="#experience">
-      <svg
-        fill="#313131"
-        height="60px"
-        version="1.1"
-        id="Layer_1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 407.437 407.437"
-        xml:space="preserve"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></g><g id="SVGRepo_iconCarrier">
-          <polygon
-            points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 "
-          ></polygon>
-        </g></svg
-      >
-    </a>
     <div class=" lg:w-1/2">
       <div class="hidden lg:block">
         <TextGenerateComponent words={words1}></TextGenerateComponent>
@@ -95,10 +78,13 @@
       </div>
     </div>
     <div class="w-1/5 hidden lg:block">
-      <img class="rounded-full" src={avatar} alt="Avatar" />
+      <img class="rounded-md avatar" src={avatar} alt="Avatar" />
       <QuotesComponents></QuotesComponents>
     </div>
   </div>
+  <!-- <div>
+    <ResumeComponent></ResumeComponent>
+  </div> -->
   <div id="technical">
     <TechComponent></TechComponent>
   </div>
@@ -134,6 +120,14 @@
     </IntersectionObserver>
   </div>
   <div id="projects"></div>
+  {#if projectArray}
+    {#each projectArray as { title, description, image, github, demo }}
+      <div class="flex flex-col">
+        <MobileProjects {title} {description} {image} {github} demo={demo || ""}
+        ></MobileProjects>
+      </div>
+    {/each}
+  {/if}
   <div class="h-[5rem] mt-20 hidden lg:block">
     <IntersectionObserver element={nodeProjectTitle} let:intersecting>
       <div bind:this={nodeProjectTitle}>
@@ -144,7 +138,7 @@
     </IntersectionObserver>
   </div>
   {#if projectArray}
-    <div class=" h-[55rem] w-3/4 m-auto hidden lg:block">
+    <div class="h-auto w-3/4 m-auto hidden lg:block">
       <IntersectionObserver element={nodeProjectSection} let:intersecting>
         <div bind:this={nodeProjectSection}>
           {#if intersecting}
@@ -152,7 +146,7 @@
               transition:fade={{ delay: 200, duration: 800, easing: quintOut }}
             >
               <div
-                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center h-[55rem]"
+                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center"
               >
                 {#each projectArray as { title, description, image, github, demo }}
                   <ThreeDCardEffect
@@ -174,7 +168,9 @@
   <div class=" hidden lg:block">
     <ContactForm></ContactForm>
   </div>
-
+  <div class="top-10">
+    <MobileContact></MobileContact>
+  </div>
   <div class="empty-space h-screen w-screen"></div>
 
   <!-- <header class="text-white" class:intersecting>
@@ -188,14 +184,23 @@
 <style>
   .introduce-section {
     text-shadow: 0 0 5px #9d00e6;
-    background-image: url("./assets/bg.webp");
-    height: 100vh;
+    padding-top: 8rem;
+    /* background-image: url("./assets/bg.webp"); */
+    /* height: 100vh; */
     /* background-size: 100%; */
-    background-repeat: no-repeat;
-    background-position: left bottom;
+    /* background-repeat: no-repeat;
+    background-position: left bottom; */
   }
 
   .all-project {
     transform: perspective(0) rotateX(0);
+  }
+  .avatar {
+    box-shadow:
+      rgba(211, 46, 240, 0.4) 5px 5px,
+      rgba(240, 46, 221, 0.3) 10px 10px,
+      rgba(224, 46, 240, 0.2) 15px 15px,
+      rgba(217, 46, 240, 0.1) 20px 20px,
+      rgba(227, 46, 240, 0.05) 25px 25px;
   }
 </style>

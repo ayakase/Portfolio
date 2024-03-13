@@ -41,6 +41,7 @@ import supabaseTexture from './assets/techLogo/supabase.png'
 import emailjsTexture from './assets/techLogo/emailjs.png'
 import ec2Texture from './assets/techLogo/ec2.png'
 import nuxtTexture from './assets/techLogo/nuxt.png'
+import s3Texture from './assets/techLogo/s3.png'  
 const app = new App({
   target: document.getElementById('app')!,
 })
@@ -114,7 +115,7 @@ scene.add(pointLight);
 // Controll
 
 // const controls = new OrbitControls(camera, effect.domElement);
-// const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 
 // Earth Model
@@ -138,7 +139,7 @@ function createLogo(logoPath: string) {
     new THREE.MeshBasicMaterial({
       map: techTexture,
       transparent: true,
-      alphaTest: 0.5,
+      // alphaTest: 0.5,
     })
   );
   // tech.position.y = 8;
@@ -208,6 +209,7 @@ const supabaseLogo = createLogo(supabaseTexture)
 const emailjsLogo = createLogo(emailjsTexture)
 const ec2Logo = createLogo(ec2Texture)
 const nuxtLogo = createLogo(nuxtTexture)
+const s3Logo = createLogo(s3Texture)
 const techArray = [
   vueLogo,
   svelteLogo,
@@ -244,7 +246,8 @@ const techArray = [
   supabaseLogo,
   emailjsLogo,
   ec2Logo,
-  nuxtLogo
+  nuxtLogo,
+  s3Logo,
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
@@ -291,16 +294,11 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function render() {
-  // earth.rotation.y += 0.02
   t += 0.003
-  // vueLogo.position.x = 10 * Math.cos(t) + 0;
-  // vueLogo.position.z = 10 * Math.sin(t) + 0;
-  // vueLogo.quaternion.copy(camera.quaternion)
-
   techArray.forEach(function (logo, index) {
     logo.position.x = 11 * Math.cos(t + index * 1.1) + 0;
     logo.position.z = 11 * Math.sin(t + index * 1.1) + 0;
-    logo.quaternion.copy(camera.quaternion)
+    // logo.quaternion.copy(camera.quaternion)
     // if (touchedBottom) {
     //   logo.visible = false
     // } else {

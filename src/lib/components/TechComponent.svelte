@@ -156,17 +156,21 @@
             VueJS and NodeJS are the two skills that I am most confident about,
             I love to discover and learn about other tech stacks as well.
           </p>
-          <h2 class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200">
+          <h2
+            class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200"
+          >
             I am fluent in English, able to communicate, read and write
             documentation.
           </h2>
-          <h2 class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200">
+          <h2
+            class="mt-6 lg:text-2xl text-base font-bold tracking-tight text-gray-200"
+          >
             Currenly studying Japanese, I can hold basic conversations too (* ^
             ω ^)
           </h2>
-          <p class="mt-6">
+          <p class="mt-6 lg:text-2xl">
             I would love to make friends from around the world and discuss our
-            hobbies.
+            hobbies. 新しい友達を作るのは楽しいです!
           </p>
         </div>
       </div>

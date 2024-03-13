@@ -1,5 +1,11 @@
-<div class="text-white text-3xl m-0 p-0 lg:hidden block">Reach me:</div>
-<div class="flex flex-row justify-around h-1/2 items-center">
+<div
+  class="text-white w-full text-center text-3xl m-auto p-auto lg:hidden block"
+>
+  Reach me:
+</div>
+<div
+  class="social-media-container flex flex-row justify-items-start justify-start h-1/2 items-center flex-wrap gap-5 mt-5 lg:mt-0"
+>
   <div class="text-white text-3xl hidden lg:block lg:text-4xl m-0 p-0">
     Reach me:
   </div>
@@ -101,7 +107,7 @@
     </span>
   </a>
   <a
-    href="telegral.com"
+    href="telegram.com"
     data-twe-ripple-init
     data-twe-ripple-color="light"
     class=" inline-block rounded bg-[#0088cc] px-6 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
@@ -120,3 +126,11 @@
     </span>
   </a>
 </div>
+
+<style>
+  @media screen and (max-width: 500px) {
+    .social-media-container a {
+      /* background-color: rebeccapurple; */
+    }
+  }
+</style>

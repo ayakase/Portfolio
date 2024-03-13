@@ -25,7 +25,7 @@
             opacity: 1,
         }}
         transition={{
-            duration: 0.3,
+            duration: 2,
             delay: 0.1,
             ease: "easeInOut",
             staggerChildren: 0.1,
@@ -61,7 +61,7 @@
             opacity: 1,
         }}
         transition={{
-            duration: 0.8,
+            duration: 2,
             repeat: Infinity,
             repeatType: "reverse",
         }}
