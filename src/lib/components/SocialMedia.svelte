@@ -4,7 +4,7 @@
   Reach me:
 </div>
 <div
-  class="social-media-container flex flex-row justify-items-start justify-start h-1/2 items-center flex-wrap gap-5 mt-5 lg:mt-0"
+  class="social-media-container flex flex-row justify-center lg:justify-start h-1/2 items-center flex-wrap gap-5 mt-5 lg:mt-0"
 >
   <div class="text-white text-3xl hidden lg:block lg:text-4xl m-0 p-0">
     Reach me:

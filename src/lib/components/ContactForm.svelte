@@ -140,7 +140,7 @@
           </div>
         </div>
         <div>
-          <div class="w-full flex flex-col mt-8">
+          <div class="w-full flex flex-col">
             <label
               for="message"
               class="font-semibold leading-none text-gray-300">Message</label
@@ -167,3 +167,9 @@
 <ToastContainer let:data>
   <FlatToast {data} />
 </ToastContainer>
+
+<style>
+  label {
+    margin-top: 1rem;
+  }
+</style>

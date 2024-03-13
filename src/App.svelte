@@ -63,14 +63,18 @@
     {/if}
   </div>
   <div
-    class="introduce-section h-auto flex flex-row justify-around items-center m-auto relative"
+    class="introduce-section lg:pt-[8rem] pt-[4rem] h-auto flex flex-row justify-around items-center m-auto relative"
   >
-    <div class=" lg:w-1/2">
+    <div class="w-full lg:w-1/2">
       <div class="hidden lg:block">
         <TextGenerateComponent words={words1}></TextGenerateComponent>
       </div>
       <div>
-        <p class="text-2xl w-1/2 absolute top-0 lg:hidden">Hello, I do code</p>
+        <p
+          class="text-5xl text-white w-full m-auto p-auto text-center lg:hidden mb-10"
+        >
+          Hello World !, <br /> my name is An, <br /> I do code
+        </p>
       </div>
       <div class="lg:h-56">
         <SocialMedia></SocialMedia>
@@ -88,7 +92,7 @@
     <TechComponent></TechComponent>
   </div>
   <div id="experience"></div>
-  <div class="h-[5rem] hidden lg:block">
+  <div class="min-h-[5rem] hidden lg:block">
     <IntersectionObserver element={nodeExperience} let:intersecting>
       <div bind:this={nodeExperience}>
         {#if intersecting}
@@ -97,7 +101,7 @@
       </div>
     </IntersectionObserver>
   </div>
-  <div class=" h-[38rem] hidden lg:block">
+  <div class=" min-h-[40rem] hidden lg:block">
     <IntersectionObserver element={nodeTimeline} let:intersecting>
       <div class="experience">
         <div bind:this={nodeTimeline}>
@@ -118,7 +122,15 @@
       </div>
     </IntersectionObserver>
   </div>
+  <div class="block lg:hidden">
+    <MobileTimeline></MobileTimeline>
+  </div>
   <div id="projects"></div>
+  <hr class="mt-10 block lg:hidden mb-10" />
+  <h2 class="text-center text-2xl font-bold text-gray-200 mb-4 block lg:hidden">
+    &lt; Personal Projects &gt;
+  </h2>
+
   {#if projectArray}
     {#each projectArray as { title, description, image, github, demo }}
       <div class="flex flex-col">
@@ -127,7 +139,7 @@
       </div>
     {/each}
   {/if}
-  <div class="h-auto mt-20 hidden lg:block">
+  <div class="min-h-[5rem] mt-20 hidden lg:block">
     <IntersectionObserver element={nodeProjectTitle} let:intersecting>
       <div bind:this={nodeProjectTitle}>
         {#if intersecting}
@@ -167,10 +179,10 @@
   <div class=" hidden lg:block">
     <ContactForm></ContactForm>
   </div>
-  <div class="top-10">
+  <div class="top-10 block lg:hidden">
     <MobileContact></MobileContact>
   </div>
-  <div class="empty-space h-screen w-screen"></div>
+  <div class="empty-space h-screen w-screen hidden lg:block"></div>
 
   <!-- <header class="text-white" class:intersecting>
     {intersecting ? "Element is in view" : "Element is not in view"}
@@ -183,12 +195,6 @@
 <style>
   .introduce-section {
     text-shadow: 0 0 5px #9d00e6;
-    padding-top: 8rem;
-    /* background-image: url("./assets/bg.webp"); */
-    /* height: 100vh; */
-    /* background-size: 100%; */
-    /* background-repeat: no-repeat;
-    background-position: left bottom; */
   }
 
   .all-project {

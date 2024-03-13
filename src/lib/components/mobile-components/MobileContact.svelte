@@ -11,7 +11,7 @@
       description: "I have recevied your information and will contact you soon",
       duration: 3000, // 0 or negative to avoid auto-remove
       theme: "dark",
-      placement: "bottom-right",
+      placement: "top-right",
       showProgress: true,
       type: "success",
       onClick: () => {},
@@ -25,7 +25,7 @@
       description: "Some error occurred",
       duration: 3000, // 0 or negative to avoid auto-remove
       theme: "dark",
-      placement: "bottom-right",
+      placement: "top-right",
       showProgress: true,
       type: "error",
       onClick: () => {},
@@ -39,7 +39,7 @@
       description: "Please fill in the form",
       duration: 3000, // 0 or negative to avoid auto-remove
       theme: "dark",
-      placement: "bottom-right",
+      placement: "top-right",
       showProgress: true,
       type: "warning",
       onClick: () => {},
@@ -91,48 +91,68 @@
     <p class="mb-8 lg:mb-16 font-light text-center text-gray-300 sm:text-xl">
       I will contact you as soon as possible
     </p>
-    <form action="#" class="space-y-8">
+    <form on:submit|preventDefault={sendEmail} class="space-y-8">
       <div>
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-300"
-          >Your email</label
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-300"
+          >Name</label
         >
         <input
-          type="email"
-          id="email"
+          bind:value={name}
+          type="text"
+          id="name"
           class="shadow-sm backdrop-blur-sm bg-white/75 text-gray-900 text-sm rounded-lg focus:ring-primary-500 block w-full p-2.5"
           required
         />
       </div>
       <div>
         <label
-          for="phone/email"
+          for="contact"
           class="block mb-2 text-sm font-medium text-gray-300 dark:text-gray-300"
-          >Subject</label
+          >Phone/number</label
         >
         <input
+          bind:value={contact}
           type="text"
-          id="phone/email"
-          class="block p-3 w-full text-sm text-gray-300 backdrop-blur-sm bg-white/75 rounded-lg shadow-sm focus:ring-primary-500"
+          id="contact"
+          class="block p-3 w-full text-sm text-gray-900 backdrop-blur-sm bg-white/75 rounded-lg shadow-sm focus:ring-primary-500"
           required
+        />
+      </div>
+      <div>
+        <label
+          for="company"
+          class="block mb-2 text-sm font-medium text-gray-300">Company</label
+        >
+        <input
+          bind:value={company}
+          type="text"
+          id="company"
+          class="shadow-sm backdrop-blur-sm bg-white/75 text-gray-900 text-sm rounded-lg focus:ring-primary-500 block w-full p-2.5"
         />
       </div>
       <div class="sm:col-span-2">
         <label
           for="message"
           class="block mb-2 text-sm font-medium text-gray-300 dark:text-gray-400"
-          >Your message</label
+          >Message</label
         >
         <textarea
+          bind:value={message}
           id="message"
           rows="6"
-          class="block p-2.5 w-full text-sm text-gray-300 backdrop-blur-sm bg-white/75 rounded-lg focus:ring-primary-500"
+          class="block p-2.5 w-full text-sm text-gray-900 backdrop-blur-sm bg-white/75 rounded-lg focus:ring-primary-500"
         ></textarea>
       </div>
-      <button
+      <input
         type="submit"
-        class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
-        >Send message</button
-      >
+        value="Submit"
+        class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none"
+      />
     </form>
   </div>
+  <div class="h-40"></div>
 </section>
+
+<ToastContainer let:data>
+  <FlatToast {data} />
+</ToastContainer>

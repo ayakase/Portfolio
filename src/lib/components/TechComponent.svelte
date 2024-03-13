@@ -1,5 +1,7 @@
+<hr class="mt-10 mb-10 lg:hidden block" />
+
 <div
-  class="m-auto p-auto w-[90%] relative isolate overflow-hidden py-24 sm:py-32 lg:overflow-visible lg:px-0"
+  class="m-auto p-auto w-[90%] relative isolate overflow-hidden sm:py-32 lg:overflow-visible lg:px-0"
 >
   <div class=" grid grid-cols-1 lg:max-w-none lg:grid-cols-2 lg:items-start">
     <div
@@ -7,8 +9,10 @@
     >
       <div class="">
         <div class="">
-          <p class="text-2xl lg:text-4xl font-semibold leading-7 text-white">
-            &lt; Techical background &gt;
+          <p
+            class="text-center lg:text-left text-2xl lg:text-4xl font-semibold leading-7 text-white"
+          >
+            &lt; Technical background &gt;
           </p>
           <!-- <h1
             class="mt-4 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl"
@@ -70,7 +74,7 @@
                 aria-hidden="true"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                  ><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                  ><path
                     d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V352H64V64H512z"
                   /></svg
                 >
