@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import emailjs from "@emailjs/browser";
   import { toasts, ToastContainer, FlatToast } from "svelte-toasts";
@@ -97,7 +96,7 @@
       class="backdrop-blur-sm bg-indigo-300/25 w-full shadow rounded-[2rem] p-8 sm:p-12 -mt-72"
     >
       <p class="text-3xl font-bold leading-7 text-center text-white">
-        Contact me
+        Contact me {contact}
       </p>
       <form on:submit|preventDefault={sendEmail}>
         <div class="flex flex-col items-center">

@@ -21,7 +21,6 @@
   import { onMount } from "svelte";
   let condition: boolean = false;
   let nodeTimeline: any;
-  let nodeGithub: any;
   let nodeExperience: any;
   let nodeProjectTitle: any;
   let nodeProjectSection: any;
@@ -78,7 +77,7 @@
       </div>
     </div>
     <div class="w-1/5 hidden lg:block">
-      <img class="rounded-md avatar" src={avatar} alt="Avatar" />
+      <img class="rounded-md avatar mb-10" src={avatar} alt="Avatar" />
       <QuotesComponents></QuotesComponents>
     </div>
   </div>
@@ -128,7 +127,7 @@
       </div>
     {/each}
   {/if}
-  <div class="h-[5rem] mt-20 hidden lg:block">
+  <div class="h-auto mt-20 hidden lg:block">
     <IntersectionObserver element={nodeProjectTitle} let:intersecting>
       <div bind:this={nodeProjectTitle}>
         {#if intersecting}
@@ -138,7 +137,7 @@
     </IntersectionObserver>
   </div>
   {#if projectArray}
-    <div class="h-auto w-3/4 m-auto hidden lg:block">
+    <div class="min-h-[55rem] w-3/4 m-auto hidden lg:block">
       <IntersectionObserver element={nodeProjectSection} let:intersecting>
         <div bind:this={nodeProjectSection}>
           {#if intersecting}
@@ -146,7 +145,7 @@
               transition:fade={{ delay: 200, duration: 800, easing: quintOut }}
             >
               <div
-                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center"
+                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center h-auto"
               >
                 {#each projectArray as { title, description, image, github, demo }}
                   <ThreeDCardEffect
@@ -177,7 +176,7 @@
     {intersecting ? "Element is in view" : "Element is not in view"}
   </header> -->
   <IntersectionObserver {element} bind:intersecting>
-    <div bind:this={element}>Hello world</div>
+    <div bind:this={element}></div>
   </IntersectionObserver>
 </div>
 

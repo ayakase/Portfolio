@@ -79,12 +79,6 @@
         );
     }
   };
-  // let templateParams: {
-  //     name: string;
-  //     contact: string;
-  //     company: string;
-  //     message: string;
-  // };
 </script>
 
 <section class=" dark:bg-gray-900 block lg:hidden">
