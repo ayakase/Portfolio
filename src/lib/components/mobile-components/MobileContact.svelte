@@ -49,7 +49,6 @@
   };
   const sendEmail = () => {
     if (name == "" || contact == "" || message == "") {
-      console.log("not");
       toastWarn();
     } else {
       let templateParams: {
@@ -58,7 +57,6 @@
         company: string;
         message: string;
       } = { name, contact, company, message };
-      console.log(templateParams);
       emailjs
         .send(
           import.meta.env.VITE_SERVICE_ID,

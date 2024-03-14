@@ -35,7 +35,6 @@
     demo?: string;
   }[];
   onMount(async () => {
-    console.log(import.meta.env.VITE_TEST);
     try {
       const response = await axios.get(
         import.meta.env.VITE_SUPABASE_URL + "projects?order=id.asc",
@@ -48,7 +47,6 @@
       );
 
       projectArray = response.data;
-      console.log(projectArray);
     } catch (error: any) {
       console.error("Error fetching data:", error.message);
     }

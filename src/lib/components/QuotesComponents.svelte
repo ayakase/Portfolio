@@ -16,7 +16,6 @@
             );
 
             quote = response.data[0].quote;
-            console.log(quote);
         } catch (error: any) {
             console.error("Error fetching data:", error.message);
         }
