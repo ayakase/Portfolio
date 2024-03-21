@@ -5,5 +5,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   plugins: [svelte()],
   assetsInclude: ['**/*.glb'],
+  server: {port: 5175},
   build: { chunkSizeWarningLimit: 1600, }
 })
