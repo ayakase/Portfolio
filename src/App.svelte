@@ -8,18 +8,18 @@
   import DividerComponent from "./lib/components/DividerComponent.svelte";
   import TechComponent from "./lib/components/TechComponent.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
-  import ResumeComponent from "./lib/components/ResumeComponent.svelte";
+  // import ResumeComponent from "./lib/components/ResumeComponent.svelte";
   import QuotesComponents from "./lib/components/QuotesComponents.svelte";
   import MobileNav from "./lib/components/mobile-components/MobileNav.svelte";
   import MobileProjects from "./lib/components/mobile-components/MobileProjects.svelte";
   import MobileTimeline from "./lib/components/mobile-components/MobileTimeline.svelte";
   import MobileContact from "./lib/components/mobile-components/MobileContact.svelte";
+  import LoadingScreen from "./lib/components/LoadingScreen.svelte";
   import { fade, blur, slide, fly, scale, draw } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
-  let condition: boolean = false;
   let nodeTimeline: any;
   let nodeExperience: any;
   let nodeProjectTitle: any;
@@ -54,6 +54,7 @@
 </script>
 
 <div class="">
+  <LoadingScreen></LoadingScreen>
   <MobileNav></MobileNav>
   <div class:intersecting class="flex flex-row justify-center">
     {#if !intersecting}
