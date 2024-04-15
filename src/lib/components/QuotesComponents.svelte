@@ -1,7 +1,6 @@
 <script lang="ts">
     import axios from "axios";
     import { onMount } from "svelte";
-    import TextGenerateComponent from "./ui/TextGenerateEffect/TextGenerateComponent.svelte";
     let quote: string = "";
     onMount(async () => {
         try {

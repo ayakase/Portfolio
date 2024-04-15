@@ -15,9 +15,9 @@
   };
 </script>
 
-<div class={cn("font-bold", className)}>
+<div class={cn("", className)}>
   <div class="">
-    <div class=" text-6xl leading-snug tracking-wide text-white">
+    <div class="leading-snug tracking-wide text-white">
       <Motion
         let:motion
         custom={0}

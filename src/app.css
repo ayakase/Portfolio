@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 body {
-  background-color: #020617;
+  background-color: black;
 }
-
+@layer utilities {
+  .main-box {
+    border: 1px solid #1b181b;
+    background-color: #100e10;
+    transition: all 0.2s linear;
+  }
+  .main-box:hover {
+    border: 1px solid #1b181b;
+    background-color: #191619;
+  }
+}
 #app {
   position: absolute;
   top: 0;
@@ -22,6 +32,24 @@ html {
   scroll-behavior: smooth;
 
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(46, 25, 69); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #503786; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b4290; 
+}
+
+
 :root {}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

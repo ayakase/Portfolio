@@ -3,7 +3,9 @@
 <div
   class="m-auto p-auto w-[90%] relative isolate overflow-hidden sm:py-32 lg:overflow-visible lg:px-0"
 >
-  <div class=" grid grid-cols-1 lg:max-w-none lg:grid-cols-2 lg:items-start">
+  <div
+    class="lg:pl-32 grid grid-cols-1 lg:max-w-none lg:grid-cols-2 lg:items-start"
+  >
     <div
       class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid w-full lg:grid-cols-2"
     >
@@ -23,7 +25,7 @@
       </div>
     </div>
     <div
-      class="-ml-12 -mt-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+      class=" -ml-12 -mt-12 lg:sticky lg:top-40 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
     >
       <div class="flex-col items-center hidden lg:flex">
         <div class="text-4xl text-white mb-4">&lt; My Github Stats &gt;</div>

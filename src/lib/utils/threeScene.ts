@@ -42,14 +42,13 @@ import s3Texture from '../../assets/techLogo/s3.png'
 
 import * as THREE from "three";
 // @ts-ignore
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // @ts-ignore
-import { AsciiEffect } from 'three/addons/effects/AsciiEffect';
+// import { AsciiEffect } from 'three/addons/effects/AsciiEffect';
 // @ts-ignore
-import { TrackballControls } from 'three/addons/controls/TrackballControls';
+// import { TrackballControls } from 'three/addons/controls/TrackballControls';
 // @ts-ignore
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
-import { element } from 'three/examples/jsm/nodes/Nodes.js';
 
 // import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 // import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
@@ -70,7 +69,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.setX(0);
 camera.position.setY(8);
-camera.position.setZ(20);
+camera.position.setZ(16);
 
 
 const renderer = new THREE.WebGLRenderer({
@@ -142,13 +141,6 @@ function createLogo(logoPath: string) {
 }
 
 
-
-
-
-
-
-
-
 // const raycaster = new THREE.Raycaster();
 // const mouse = new THREE.Vector2();
 // function onMouseMove(event: any) {
@@ -156,13 +148,6 @@ function createLogo(logoPath: string) {
 //   mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 // }
 // window.addEventListener('mousemove', onMouseMove, false);
-
-
-
-
-
-
-
 
 
 const vueLogo = createLogo(vueTexture);
@@ -243,14 +228,8 @@ const techArray = [
 ]
 function moveCamera() {
   const topT = document.body.getBoundingClientRect().top
-  camera.position.y = topT * -0.0001 + 8
-  camera.position.z = topT * 0.001 + 20
-  spaceBoi.rotation.y += 0.01
-  // techArray.forEach(function (logo, index) {
-  //   logo.position.y = topT * 0.0035 + 10
-  // })
+
 }
-// document.body.onscroll = moveCamera
 //Animate
 
 let t = 0
@@ -262,26 +241,13 @@ function animate() {
   }
 }
 function bottomAnimate() {
-  if (spaceBoi) {
-    spaceBoi.rotation.y += 0.001;
-  }
+  
 }
 let touchedBottom = false;
-window.onscroll = function () {
-  moveCamera()
-  const difference = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollposition = document.documentElement.scrollTop;
-  if (difference - scrollposition <= 2) {
-    touchedBottom = true;
-  } else {
-    touchedBottom = false;
-  }
-}
+
 window.addEventListener('resize', onWindowResize, false);
 function onWindowResize() {
-
   camera.aspect = window.innerWidth / window.innerHeight;
-
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
@@ -290,13 +256,10 @@ function render() {
   techArray.forEach(function (logo, index) {
     logo.position.x = 11 * Math.cos(t + index*1.1) + 0;
     logo.position.z = 11 * Math.sin(t + index*1.1) + 0;
-    // logo.quaternion.copy(camera.quaternion)
-    // if (touchedBottom) {
-    //   logo.visible = false
-    // } else {
-    //   logo.visible = true
-    // }
   });
+  if (spaceBoi) {
+    spaceBoi.rotation.y += 0.001;
+  }
   // raycaster.setFromCamera(mouse, camera);
   // const intersects = raycaster.intersectObjects([spaceBoi]);
   // if (intersects.length) {
