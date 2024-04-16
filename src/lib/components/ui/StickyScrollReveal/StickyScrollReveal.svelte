@@ -14,11 +14,7 @@
   ];
   let scrollYProgress = 0;
 
-  export let content: { title: string; description: string }[] = [
-    { title: "Title 1", description: "Description 1" },
-    { title: "Title 2", description: "Description 2" },
-    // Add more items as needed
-  ];
+  export let content: { title: string; description: string }[] = [];
 
   let ref: HTMLDivElement;
 

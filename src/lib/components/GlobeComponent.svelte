@@ -71,8 +71,8 @@
     renderer.setSize(container.clientWidth, container.clientHeight);
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 400, 300);
-    pointLight.position.set(0, 8, 15);
+    const pointLight = new THREE.PointLight(0xffffff, 400, 500);
+    pointLight.position.set(0, 8, 10);
     scene.add(pointLight);
     // const gridHelper = new THREE.GridHelper(200, 50);
     // scene.add(gridHelper);

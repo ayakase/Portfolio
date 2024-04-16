@@ -3,14 +3,18 @@
   import { cn } from "../../../utils/cn";
   import { onMount } from "svelte";
   import { onDestroy, tick } from "svelte";
+  import {
+    about,
+    tech,
+    experience,
+    projects,
+    contact,
+  } from "../../../../store/store";
   let time = new Date();
-
   const updateTime = () => {
     time = new Date();
   };
-
   const interval = setInterval(updateTime, 1000);
-
   onDestroy(() => {
     clearInterval(interval);
   });
@@ -52,6 +56,21 @@
 
   let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
+
+  function toggleAbout() {
+    $about = { glow: true };
+    setTimeout(() => {
+      $about = { glow: false };
+    }, 500);
+  }
+  function toggleTech() {
+    setTimeout(() => {
+      $tech = { glow: true };
+    }, 100);
+    setTimeout(() => {
+      $tech = { glow: false };
+    }, 600);
+  }
 </script>
 
 <div
@@ -97,10 +116,10 @@
             <!-- Active Link = text-indigo-500
                     Inactive Link = hover:text-indigo-500 -->
             <li class="nav-item md:px-4 md:py-2">
-              <a href="#">#about</a>
+              <a on:click={toggleAbout} href="#">#about</a>
             </li>
             <li class="nav-item md:px-4 md:py-2">
-              <a href="#technical">#technical</a>
+              <a on:click={toggleTech} href="#technical">#technical</a>
             </li>
 
             <li class="nav-item md:px-4 md:py-2">

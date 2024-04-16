@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: black;
+  background-color: black; 
 }
 @layer utilities {
   .main-box {
@@ -15,11 +15,18 @@ body {
     border: 1px solid #1b181b;
     background-color: #191619;
   }
+  .main-box-glow{
+    background-color: #252226;
+    /* transform: scale(1.1); */
+    box-shadow: rgba(131, 51, 153, 0.8) 0 0 20px 10px;
+    z-index: 99999;
+
+  }
 }
 #app {
-  position: absolute;
-  top: 0;
-  right: 0;
+  /* position: absolute; */
+  margin: auto;
+  padding: auto;
 }
 
 canvas {
@@ -30,7 +37,6 @@ canvas {
 
 html {
   scroll-behavior: smooth;
-
 }
 ::-webkit-scrollbar {
   width: 10px;

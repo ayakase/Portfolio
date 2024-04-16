@@ -1,35 +1,30 @@
 <script lang="ts">
   import ThreeDCardEffect from "./lib/components/ui/ThreeDCardEffect/ThreeDCardEffect.svelte";
-  import NavBarComponent from "./lib/components/NavBarComponent.svelte";
-  // import TextGenerateComponent from "./lib/components/ui/TextGenerateEffect/TextGenerateComponent.svelte";
-  import TextGenerateEffect from "./lib/components/ui/TextGenerateEffect/TextGenerateEffect.svelte";
   import ContactForm from "./lib/components/ContactForm.svelte";
   import IntroComponent from "./lib/components/IntroComponent.svelte";
   import AboutMe from "./lib/components/AboutMe.svelte";
-
+  import TimelineComponent from "./lib/components/TimelineComponent.svelte";
   import IntersectionObserver from "svelte-intersection-observer";
   import DividerComponent from "./lib/components/DividerComponent.svelte";
-  import TechComponent from "./lib/components/TechComponent.svelte";
+  // import TechComponent from "./lib/components/TechComponent.svelte";
+  import LanguageComponent from "./lib/components/LanguageComponent.svelte";
+  import TechStack from "./lib/components/TechStack.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
   import EvervaultComponent from "./lib/components/ui/EvervaultCard/EvervaultComponent.svelte";
-  import MapComponent from "./lib/components/MapComponent.svelte";
-  // import ResumeComponent from "./lib/components/ResumeComponent.svelte";
-  import QuotesComponents from "./lib/components/QuotesComponents.svelte";
-  import MobileNav from "./lib/components/mobile-components/MobileNav.svelte";
   import MobileProjects from "./lib/components/mobile-components/MobileProjects.svelte";
-  import MobileTimeline from "./lib/components/mobile-components/MobileTimeline.svelte";
   import MobileContact from "./lib/components/mobile-components/MobileContact.svelte";
   import ClockComponent from "./lib/components/ClockComponent.svelte";
-  import LoadingScreen from "./lib/components/LoadingScreen.svelte";
   import GlobeComponent from "./lib/components/GlobeComponent.svelte";
   import StickyRevealComponent from "./lib/components/ui/StickyScrollReveal/StickyRevealComponent.svelte";
-  import { fade, slide, fly } from "svelte/transition";
+  import ChatBox from "./lib/components/ChatBox.svelte";
+  import { slide, fly } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
-  import { AnimatedCounter } from "@benzara/svelte-animated-counter";
+  import { tech } from "./store/store";
 
+  import LanguageToolComponent from "./lib/components/LanguageToolComponent.svelte";
   let nodeTimeline: any;
   let nodeExperience: any;
   let nodeProjectTitle: any;
@@ -44,12 +39,18 @@
     github: string;
     demo?: string;
   }[];
+  let techGlow: {
+    glow: boolean;
+  };
+  tech.subscribe((value) => {
+    techGlow = value;
+  });
   let loaded: any;
   onMount(async () => {
     loaded = true;
     try {
       const response = await axios.get(
-        import.meta.env.VITE_SUPABASE_URL + "projects?order=id.asc",
+        import.meta.env.VITE_SUPABASE_URL + "/rest/v1/projects?order=id.asc",
         {
           headers: {
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
@@ -65,7 +66,7 @@
   });
 </script>
 
-<div class="w-10/12 m-auto">
+<div class="w-10/12 m-auto p-auto">
   <!-- <LoadingScreen></LoadingScreen> -->
 
   <!-- <MobileNav></MobileNav>
@@ -74,26 +75,21 @@
       <NavBarComponent></NavBarComponent>
     {/if}
   </div> -->
-  <div class="flex flex-row m-auto">
+  <div class="flex flex-row justify-between w-full">
     <div
       class="lg:pt-[4rem] pt-[4rem] h-auto flex flex-row justify-between gap-4 m-auto relative"
     >
-      <div class="w-1/5 hidden lg:block">
+      <div class="max-w-[55rem] hidden lg:block">
         <img class=" avatar mb-2" src={avatar} alt="Avatar" />
         <div class="lg:h-56">
           <SocialMedia></SocialMedia>
         </div>
       </div>
-
-      <div class="flex flex-col gap-1 max-w-[60rem] justify-start">
+      <div class="flex flex-col gap-2 max-w-[70rem] justify-start">
         {#if loaded}
           <IntroComponent></IntroComponent>
         {/if}
-        <div>
-          <!-- {#if loaded}
-          {/if} -->
-        </div>
-        <div class="flex flex-row gap-1">
+        <div class="flex flex-row gap-2">
           {#if loaded}
             <AboutMe></AboutMe>
           {/if}
@@ -113,16 +109,33 @@
             </div>
           {/if}
         </div>
+        {#if loaded}
+          <LanguageComponent></LanguageComponent>
+        {/if}
       </div>
-      <div>
+      <div class="flex flex-col gap-4">
         {#if loaded}
           <ClockComponent></ClockComponent>
         {/if}
-        <div>Individual Client</div>
+        {#if loaded}
+          <div
+            transition:fly={{
+              delay: 700,
+              duration: 300,
+              // x: 200,
+              y: 50,
+              opacity: 0,
+              easing: quintOut,
+            }}
+            class="main-box p-4 rounded-3xl"
+          >
+            <TimelineComponent></TimelineComponent>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
-  <div class="flex flex-row gap-4 justify-between">
+  <div class="flex flex-row gap-4 justify-between mt-4">
     {#if loaded}
       <div
         transition:fly={{
@@ -134,11 +147,14 @@
           easing: quintOut,
         }}
         class="main-box rounded-3xl w-full"
+        class:main-box-glow={techGlow.glow}
+        id="technical"
+        style="scroll-margin-top: 100px;"
       >
-        <div>
-          <StickyRevealComponent></StickyRevealComponent>
-        </div>
+        <!-- <StickyRevealComponent></StickyRevealComponent> -->
+        <TechStack></TechStack>
       </div>
+
       <div
         transition:fly={{
           delay: 750,
@@ -154,12 +170,12 @@
       </div>
     {/if}
   </div>
-
+  <ChatBox></ChatBox>
   <!-- <div>
     <ResumeComponent></ResumeComponent>
   </div> -->
-  <div id="technical">
-    <TechComponent></TechComponent>
+  <div>
+    <!-- <TechComponent></TechComponent> -->
   </div>
   <div id="experience"></div>
   <div class="min-h-[5rem] hidden lg:block">
@@ -226,7 +242,7 @@
               transition:fly={{
                 delay: 500,
                 duration: 600,
-                x: 200,
+                // x: 200,
                 y: 300,
                 opacity: 0,
                 easing: quintOut,
@@ -258,7 +274,7 @@
   <div class="top-10 block lg:hidden">
     <MobileContact></MobileContact>
   </div>
-  <div class="empty-space h-screen w-screen hidden lg:block"></div>
+  <!-- <div class="empty-space h-screen w-screen hidden lg:block"></div> -->
 
   <!-- <header class="text-white" class:intersecting>
     {intersecting ? "Element is in view" : "Element is not in view"}

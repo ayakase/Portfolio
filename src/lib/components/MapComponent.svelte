@@ -1,3 +1,7 @@
+<script lang="ts">
+ 
+</script>
+
 <div class="text-gray-200 w-full">
   <ul class="flex flex-col font-semibold justify-between text-xl">
     <!-- Active Link = text-indigo-500
@@ -19,6 +23,10 @@
       <a href="#contact">#contact</a>
     </li>
   </ul>
+  <h1>{$count}</h1>
+
+  <!-- Button to increment the count -->
+  <button on:click={increment}>Increment</button>
 </div>
 
 <style>

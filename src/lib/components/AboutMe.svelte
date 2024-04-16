@@ -4,6 +4,13 @@
   import { fade, slide, fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   const words1: string = `I am a passionate Web Developer from Vietnam!`;
+  import { about } from "../../store/store";
+  let glowValue: {
+    glow: boolean;
+  };
+  about.subscribe((value) => {
+    glowValue = value;
+  });
 </script>
 
 <div
@@ -16,6 +23,7 @@
     easing: quintOut,
   }}
   class="main-box p-4 rounded-3xl h-full flex flex-col justify-between"
+  class:main-box-glow={glowValue.glow}
 >
   <div class="text-3xl text-white">Something about me.</div>
   <div>
