@@ -74,7 +74,7 @@
   });
 </script>
 
-<div class="main-box hover:bg-[#2d0c22] rounded-3xl p-4 box-border w-1/2 mt-4">
+<div class="main-box hover:bg-[#2d0c22] rounded-3xl p-4 box-border">
   <div
     class="message-container flex flex-col h-80 overflow-scroll overflow-x-hidden font-bold text-lg"
   >

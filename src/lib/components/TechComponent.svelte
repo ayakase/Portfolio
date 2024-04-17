@@ -16,11 +16,7 @@
           >
             &lt; Technical background &gt;
           </p>
-          <!-- <h1
-            class="mt-4 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl"
-          >
-            I like to code
-          </h1> -->
+      
         </div>
       </div>
     </div>

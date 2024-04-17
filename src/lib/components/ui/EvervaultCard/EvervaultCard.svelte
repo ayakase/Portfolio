@@ -9,6 +9,7 @@
     experience,
     projects,
     contact,
+    github,
   } from "../../../../store/store";
   let time = new Date();
   const updateTime = () => {
@@ -42,8 +43,7 @@
     randomString = str;
   }
 
-  const characters =
-    "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+  const characters = "10";
   const generateRandomString = (length: number) => {
     let result = "";
     for (let i = 0; i < length; i++) {
@@ -64,6 +64,38 @@
     }, 500);
   }
   function toggleTech() {
+    setTimeout(() => {
+      $tech = { glow: true };
+    }, 100);
+    setTimeout(() => {
+      $tech = { glow: false };
+    }, 600);
+  }
+  function toggleGithub() {
+    setTimeout(() => {
+      $github = { glow: true };
+    }, 500);
+    setTimeout(() => {
+      $github = { glow: false };
+    }, 900);
+  }
+  function toggleExperience() {
+    setTimeout(() => {
+      $tech = { glow: true };
+    }, 100);
+    setTimeout(() => {
+      $tech = { glow: false };
+    }, 600);
+  }
+  function toggleProject() {
+    setTimeout(() => {
+      $tech = { glow: true };
+    }, 100);
+    setTimeout(() => {
+      $tech = { glow: false };
+    }, 600);
+  }
+  function toggleContact() {
     setTimeout(() => {
       $tech = { glow: true };
     }, 100);
@@ -121,15 +153,17 @@
             <li class="nav-item md:px-4 md:py-2">
               <a on:click={toggleTech} href="#technical">#technical</a>
             </li>
-
             <li class="nav-item md:px-4 md:py-2">
-              <a href="#experience">#experience</a>
+              <a on:click={toggleGithub} href="#github">#github_stat</a>
             </li>
             <li class="nav-item md:px-4 md:py-2">
-              <a href="#projects">#projects</a>
+              <a on:click={toggleExperience} href="#experience">#experience</a>
             </li>
             <li class="nav-item md:px-4 md:py-2">
-              <a href="#contact">#contact</a>
+              <a on:click={toggleProject} href="#projects">#projects</a>
+            </li>
+            <li class="nav-item md:px-4 md:py-2">
+              <a on:click={toggleContact} href="#contact">#contact</a>
             </li>
           </ul>
         </div>

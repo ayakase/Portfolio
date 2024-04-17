@@ -67,7 +67,7 @@
 
 <style>
   .timeline-container {
-    height: 100%;
+    height: 20rem;
     overflow: scroll;
     overflow-x: hidden;
   }

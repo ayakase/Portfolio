@@ -8,7 +8,10 @@ body {
 @layer utilities {
   .main-box {
     border: 1px solid #1b181b;
-    background-color: #100e10;
+    /* background-color: #100e10; */
+    backdrop-filter: blur(4px); /* Adjust the blur radius as needed */
+    -webkit-backdrop-filter: blur(4px); /* For Safari */
+    background-color: rgba(27, 24, 27, 0.6); /* Adjust the color and opacity as needed */
     transition: all 0.2s linear;
   }
   .main-box:hover {
@@ -17,7 +20,7 @@ body {
   }
   .main-box-glow{
     background-color: #252226;
-    /* transform: scale(1.1); */
+    transform: scale(1.02);
     box-shadow: rgba(131, 51, 153, 0.8) 0 0 20px 10px;
     z-index: 99999;
 

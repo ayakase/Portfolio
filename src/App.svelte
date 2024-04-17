@@ -16,6 +16,7 @@
   import ClockComponent from "./lib/components/ClockComponent.svelte";
   import GlobeComponent from "./lib/components/GlobeComponent.svelte";
   import StickyRevealComponent from "./lib/components/ui/StickyScrollReveal/StickyRevealComponent.svelte";
+  import GithubComponent from "./lib/components/GithubComponent.svelte";
   import ChatBox from "./lib/components/ChatBox.svelte";
   import { slide, fly } from "svelte/transition";
   import axios from "axios";
@@ -29,9 +30,10 @@
   let nodeExperience: any;
   let nodeProjectTitle: any;
   let nodeProjectSection: any;
+  let nodeGithub: any;
+  let nodeChatbox: any;
   let element: any;
   let intersecting: any;
-  const words1: string = `I am a passionate Web Developer from Vietnam!`;
   let projectArray: {
     title: string;
     description: string;
@@ -77,11 +79,12 @@
   </div> -->
   <div class="flex flex-row justify-between w-full">
     <div
-      class="lg:pt-[4rem] pt-[4rem] h-auto flex flex-row justify-between gap-4 m-auto relative"
+      class="lg:pt-[4rem] pt-[4rem] w-full h-auto flex flex-row justify-between gap-4 m-auto relative"
     >
-      <div class="max-w-[55rem] hidden lg:block">
+      <div class="max-w-[35rem] hidden lg:block">
+        <a href="" class="circle"></a>
         <img class=" avatar mb-2" src={avatar} alt="Avatar" />
-        <div class="lg:h-56">
+        <div class="">
           <SocialMedia></SocialMedia>
         </div>
       </div>
@@ -89,7 +92,7 @@
         {#if loaded}
           <IntroComponent></IntroComponent>
         {/if}
-        <div class="flex flex-row gap-2">
+        <div class="flex flex-row gap-2 h-full">
           {#if loaded}
             <AboutMe></AboutMe>
           {/if}
@@ -110,7 +113,7 @@
           {/if}
         </div>
         {#if loaded}
-          <LanguageComponent></LanguageComponent>
+          <!-- <LanguageComponent></LanguageComponent> -->
         {/if}
       </div>
       <div class="flex flex-col gap-4">
@@ -129,7 +132,7 @@
             }}
             class="main-box p-4 rounded-3xl"
           >
-            <TimelineComponent></TimelineComponent>
+            <!-- <TimelineComponent></TimelineComponent> -->
           </div>
         {/if}
       </div>
@@ -151,7 +154,6 @@
         id="technical"
         style="scroll-margin-top: 100px;"
       >
-        <!-- <StickyRevealComponent></StickyRevealComponent> -->
         <TechStack></TechStack>
       </div>
 
@@ -164,13 +166,52 @@
           opacity: 0,
           easing: quintOut,
         }}
-        class="main-box rounded-3xl"
+        class="bg-none rounded-3xl"
       >
         <GlobeComponent></GlobeComponent>
       </div>
     {/if}
   </div>
-  <ChatBox></ChatBox>
+  <div class="flex flex-row justify-between mt-4 gap-4">
+    <IntersectionObserver element={nodeGithub} let:intersecting>
+      <div id="github" bind:this={nodeGithub}>
+        {#if intersecting}
+          <div
+            transition:fly={{
+              delay: 350,
+              duration: 300,
+              // x: 200,
+              y: 50,
+              opacity: 0,
+              easing: quintOut,
+            }}
+          >
+            <GithubComponent></GithubComponent>
+          </div>
+        {/if}
+      </div>
+    </IntersectionObserver>
+    <IntersectionObserver element={nodeChatbox} let:intersecting>
+      <div class="w-3/4" bind:this={nodeChatbox}>
+        {#if intersecting}
+          <div
+            class="w-full flex flex-col gap-4"
+            transition:fly={{
+              delay: 350,
+              duration: 300,
+              // x: 200,
+              y: 50,
+              opacity: 0,
+              easing: quintOut,
+            }}
+          >
+            <StickyRevealComponent></StickyRevealComponent>
+            <ChatBox></ChatBox>
+          </div>
+        {/if}
+      </div>
+    </IntersectionObserver>
+  </div>
   <!-- <div>
     <ResumeComponent></ResumeComponent>
   </div> -->

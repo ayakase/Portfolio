@@ -1,32 +1,42 @@
-<div class="github-container flex flex-col w-[90%] m-auto p-auto">
-  <div
-    class="flex w-3/5 flex-row justify-between h-full items-stretch m-auto p-auto flex-wrap"
-  >
-    <img
-      src="https://github-readme-stats.vercel.app/api?username=ayakase&show_icons=true&theme=tokyonight&card_width=300"
-      alt="GitHub Stats"
-    />
+<script lang="ts">
+  import { github } from "../../store/store";
+  let githubGlow: {
+    glow: boolean;
+  };
+  github.subscribe((value) => {
+    githubGlow = value;
+  });
+</script>
 
-    <img
-      src="https://streak-stats.demolab.com?user=ayakase&theme=tokyonight&card_width=400"
-      alt="GitHub Streak"
-    />
-  </div>
-  <dir class="flex flex-row justify-center">
-    <img
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayakase&layout=compact&langs_count=80&theme=tokyonight&card_width=467"
-      alt="Top Languages"
-    />
-  </dir>
+<div
+  class:main-box-glow={githubGlow.glow}
+  class="main-box !bg-[#1a1b27] p-4 flex-col items-center hidden lg:flex rounded-3xl"
+>
+  <!-- <div class="text-4xl text-white mb-4">&lt; My Github Stats &gt;</div> -->
+  <img
+    loading="lazy"
+    src="https://github-readme-stats.vercel.app/api?username=ayakase&show_icons=true&theme=tokyonight&card_width=400&hide_border=true"
+    alt="Ayakase's GitHub Stats"
+  />
 
-  <!-- <img
-        src="https://github-readme-activity-graph.vercel.app/graph?username=ayakase&theme=github-compact&line=628edb"
-        alt="GitHub Activity Graph"
-    /> -->
+  <img
+    loading="lazy"
+    src="https://streak-stats.demolab.com?user=ayakase&theme=tokyonight&card_width=400&hide_border=true"
+    alt="GitHub Streak"
+  />
+
+  <img
+    loading="lazy"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayakase&layout=compact&langs_count=80&theme=tokyonight&card_width=400&hide_border=true"
+    alt="Top Languages"
+  />
 </div>
 
 <style>
   img {
-    height: 100%;
+    transition: all 0.1s linear;
+  }
+  img:hover {
+    transform: scale(1.05);
   }
 </style>

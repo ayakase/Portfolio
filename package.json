@@ -26,6 +26,7 @@
     "@benzara/svelte-animated-counter": "^0.0.3",
     "@emailjs/browser": "^4.3.3",
     "@supabase/supabase-js": "^2.42.4",
+    "animejs": "^3.2.2",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "lucide-svelte": "^0.343.0",

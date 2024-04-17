@@ -26,9 +26,11 @@
     opacity: 0,
     easing: quintOut,
   }}
-  class="clock rounded-3xl main-box"
+  class="clock rounded-3xl bg-[#100e10]"
 >
-  <BackgroundGradient className="rounded-[22px] main-box max-w-sm p-4 bg-none">
+  <BackgroundGradient
+    className="rounded-[22px] bg-[#100e10] max-w-sm p-4 bg-none"
+  >
     {time.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -41,7 +43,7 @@
 <style>
   .clock {
     font-size: 3rem;
-    width: 16rem;
+    width: 18rem;
     text-align: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;

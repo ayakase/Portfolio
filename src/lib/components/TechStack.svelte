@@ -1,5 +1,16 @@
+<script>
+  import anime from "animejs";
+  import { onMount } from "svelte";
+  onMount(() => {
+    anime({
+      targets: ".css-selector-demo .tech-container",
+      translateX: 250,
+    });
+  });
+</script>
+
 <div class="tech-container h-full p-8 box-border">
-  <p class="lg:text-xl leading-8 text-gray-100">What I can do:</p>
+  <p class="heading-text lg:text-xl leading-8 text-gray-100">What I can do:</p>
 
   <ul role="list" class=" flex flex-col h-full justify-around text-gray-600">
     <li class="flex gap-x-2">
@@ -99,8 +110,6 @@
       </p>
     </li>
   </ul>
-
-
 </div>
 
 <style>
