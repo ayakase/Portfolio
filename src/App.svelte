@@ -320,9 +320,9 @@
   <!-- <header class="text-white" class:intersecting>
     {intersecting ? "Element is in view" : "Element is not in view"}
   </header> -->
-  <IntersectionObserver {element} bind:intersecting>
+  <!-- <IntersectionObserver {element} bind:intersecting>
     <div bind:this={element}></div>
-  </IntersectionObserver>
+  </IntersectionObserver> -->
 </div>
 
 <style>

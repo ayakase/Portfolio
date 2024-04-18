@@ -1,11 +1,20 @@
-<script>
-  import anime from "animejs";
+<script lang="ts">
   import { onMount } from "svelte";
+  import { inView, animate } from "motion";
+
   onMount(() => {
-    anime({
-      targets: ".css-selector-demo .tech-container",
-      translateX: 250,
-    });
+    const techContainer = document.querySelector(".tech-container");
+    if (techContainer) {
+      inView(techContainer, ({ target }) => {
+        animate(
+          target,
+          { opacity: 1, transform: "none" },
+          { delay: 0.2, duration: 9, easing: [0.17, 0.55, 0.55, 1] }
+        );
+      });
+    } else {
+      console.error("no target");
+    }
   });
 </script>
 

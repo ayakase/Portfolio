@@ -83,10 +83,9 @@
         planet = gltf.scene;
         scene.add(planet);
         planet.scale.set(4, 4, 4);
-        // spaceBoi.rotation.y = -0.6
       },
       undefined,
-      function (error: Error) {
+      function (error: any) {
         console.error(error);
       }
     );

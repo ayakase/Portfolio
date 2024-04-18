@@ -1,13 +1,9 @@
 <script lang="ts">
-  import { createClient } from "@supabase/supabase-js";
+  import supabase from "../../supabase";
   import { onMount, afterUpdate } from "svelte";
   import { toasts, ToastContainer, FlatToast } from "svelte-toasts";
 
   // Create a single supabase client for interacting with your database
-  const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_KEY
-  );
 
   let message: string = "";
   let messageArray: any[] | [] = [];
