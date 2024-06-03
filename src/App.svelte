@@ -6,7 +6,6 @@
   import TimelineComponent from "./lib/components/TimelineComponent.svelte";
   import IntersectionObserver from "svelte-intersection-observer";
   import DividerComponent from "./lib/components/DividerComponent.svelte";
-  // import TechComponent from "./lib/components/TechComponent.svelte";
   import TechStack from "./lib/components/TechStack.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
   import EvervaultComponent from "./lib/components/ui/EvervaultCard/EvervaultComponent.svelte";
@@ -29,8 +28,7 @@
   let nodeProjectSection: any;
   let nodeGithub: any;
   let nodeChatbox: any;
-  let element: any;
-  let intersecting: any;
+
   let projectArray: {
     title: string;
     description: string;

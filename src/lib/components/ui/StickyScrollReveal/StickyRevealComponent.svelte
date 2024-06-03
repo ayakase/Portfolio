@@ -3,18 +3,18 @@
 
   const content = [
     {
-      title: "GMO-Z.com Runsystem JSC",
-      description: `Developed Front-end Interface for landing pages and SPA pages Built automated data fetching script from tech blogs' API using Javascript and Python. Participated in an AI-intergrated automated translation web-app project serving internal staffs, capable of translating requirement documents, test plan, user manual,... in PowerPoint, XLSX, Markdown,...without losing formats and images, responsible for Markdown and XLSX translate modules, optimized the number of API call tokens to reduce costs and cooldown time. Technologies: VueJS, Flask, Socket.IO, OpenAI API.`,
+      title: "GMO-Z.com Runsystem JSC - Jan/20233 - July/2023",
+      description: `Project joined: Automated translation web-app, capable of translating requirement documents, test plan, user manual,... in PowerPoint, XLSX, Markdown,...formats without losing styles, media, responsible for Markdown, XLSX translation modules, worked on optimizing the number of API call tokens & frequency adjustment to reduce costs. Technologies: VueJS, Python Flask, Socket.IO, OpenAI API, tiktoken. Built automated content fetching script from tech blogs' API to build a SPA blog. Technologies:  Python, NodeJS, MySQL and VueJS.`,
     },
     {
       title: "Anh Tuan Driving Center",
       description:
-        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+        "Rebuilt interface, optimized, debugged and developed more functionalities landing page using Wordpress, HTML, CSS, Cpanel, SSH, Cron Jobs. Rebuilt interface, optimized, debugged and developed more functionalities landing page using Wordpress, HTML, CSS, Cpanel, SSH, Cron Jobs.",
     },
     {
-      title: "Version control",
+      title: "Programming tutor at Marathon Education",
       description:
-        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "Teach Javascript, Python, HTML, CSS and Wordpress Teach Javascript, Python, HTML, CSS and WordpressTeach Javascript, Python, HTML, CSS and WordpressTeach Javascript, Python, HTML, CSS and Wordpress",
     },
   ];
 </script>

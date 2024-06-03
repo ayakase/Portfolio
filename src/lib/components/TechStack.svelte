@@ -55,7 +55,7 @@
       </svg>
       <span class="text-gray-100 lg:text-xl text-base"
         ><strong class="font-semibold">Back-end: </strong> NodeJS, ExpressJS, Flask,
-        Supabase, Firebase, Ruby on Rails, Socket.IO, Sequelize</span
+        Supabase, Firebase, Socket.IO, Sequelize</span
       >
     </li>
     <li class="flex gap-x-2">
@@ -73,7 +73,7 @@
       </svg>
       <span class="text-gray-100 lg:text-xl text-base"
         ><strong class="font-semibold">Database: </strong> MySQL, MongoDB, Firestore
-        10, Redis, ElasticSearch</span
+        10, Redis, Typesense</span
       >
     </li>
     <li class="flex gap-x-2">
