@@ -9,8 +9,6 @@ body {
   .main-box {
     border: 1px solid #1b181b;
     /* background-color: #100e10; */
-    backdrop-filter: blur(4px); /* Adjust the blur radius as needed */
-    -webkit-backdrop-filter: blur(4px); /* For Safari */
     background-color: rgba(27, 24, 27, 0.6); /* Adjust the color and opacity as needed */
     transition: all 0.2s linear;
   }

@@ -44,7 +44,7 @@
         </span>
       </a>
       <a
-        href="https://www.facebook.com/ayakase.1809"
+        href="https://www.facebook.com/ayakase.luna"
         data-twe-ripple-init
         data-twe-ripple-color="light"
         class="hover:bg-[#3367f5] main-box each-icon-container inline-block rounded-2xl bg-main-box p-4 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"

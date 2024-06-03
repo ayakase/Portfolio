@@ -164,7 +164,7 @@
     function animate() {
       t += 0.003;
       if (techArray) {
-        techArray.forEach(function (logo, index) {
+        techArray.forEach(function (logo: THREE.Mesh, index: number) {
           logo.position.x = 7 * Math.cos(t + index * 1.1) + 0;
           logo.position.z = 7 * Math.sin(t + index * 1.1) + 0;
           logo.quaternion.copy(camera.quaternion);

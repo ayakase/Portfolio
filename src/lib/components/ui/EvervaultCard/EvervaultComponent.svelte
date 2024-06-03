@@ -2,9 +2,7 @@
   import { EvervaultCard } from ".";
 </script>
 
-<div
-  class="h-full rounded-3xl relative mx-auto flex max-w-80 flex-col items-start"
->
+<div class="rounded-3xl z-[9999] bg-[#1b181b]">
   <!-- <Icon class="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
   <Icon class="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
   <Icon class="absolute -right-3 -top-3 h-6 w-6 text-black dark:text-white" />

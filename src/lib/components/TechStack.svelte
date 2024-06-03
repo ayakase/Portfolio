@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { inView, animate } from "motion";
+  // import { inView, animate } from "motion";
 
   onMount(() => {
     const techContainer = document.querySelector(".tech-container");
     if (techContainer) {
       inView(techContainer, ({ target }) => {
         animate(
-          target,
+          target.querySelector(".tech-container"),
           { opacity: 1, transform: "none" },
           { delay: 0.2, duration: 9, easing: [0.17, 0.55, 0.55, 1] }
         );

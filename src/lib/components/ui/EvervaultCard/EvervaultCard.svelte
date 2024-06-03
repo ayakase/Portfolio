@@ -107,14 +107,14 @@
 
 <div
   class={cn(
-    "aspect-square  relative flex  h-full w-full items-center justify-center bg-transparent ",
+    "relative flex items-center justify-center bg-transparent ",
     className
   )}
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     on:mousemove={onMouseMove}
-    class="group/card relative flex h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-transparent"
+    class="group/card relative flex items-center justify-center overflow-hidden rounded-3xl bg-transparent"
   >
     <div class="pointer-events-none">
       <div
@@ -143,8 +143,8 @@
       <div
         class="relative flex items-center justify-center rounded-full text-4xl font-bold text-white"
       >
-        <div class="text-gray-200 w-full p-4">
-          <ul class="flex flex-col font-semibold justify-between text-xl">
+        <div class="text-gray-200 ">
+          <ul class="flex flex-row font-semibold justify-between text-xl">
             <!-- Active Link = text-indigo-500
                     Inactive Link = hover:text-indigo-500 -->
             <li class="nav-item md:px-4 md:py-2">

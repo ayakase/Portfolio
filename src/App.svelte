@@ -7,7 +7,6 @@
   import IntersectionObserver from "svelte-intersection-observer";
   import DividerComponent from "./lib/components/DividerComponent.svelte";
   // import TechComponent from "./lib/components/TechComponent.svelte";
-  import LanguageComponent from "./lib/components/LanguageComponent.svelte";
   import TechStack from "./lib/components/TechStack.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
   import EvervaultComponent from "./lib/components/ui/EvervaultCard/EvervaultComponent.svelte";
@@ -24,8 +23,6 @@
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
   import { tech } from "./store/store";
-
-  import LanguageToolComponent from "./lib/components/LanguageToolComponent.svelte";
   let nodeTimeline: any;
   let nodeExperience: any;
   let nodeProjectTitle: any;
@@ -77,6 +74,9 @@
       <NavBarComponent></NavBarComponent>
     {/if}
   </div> -->
+  <div class="fixed top-0 left-0 flex flex-col items-center w-full z-[9999]">
+    <EvervaultComponent></EvervaultComponent>
+  </div>
   <div class="flex flex-row justify-between w-full">
     <div
       class="lg:pt-[4rem] pt-[4rem] w-full h-auto flex flex-row justify-between gap-4 m-auto relative"
@@ -95,21 +95,6 @@
         <div class="flex flex-row gap-2 h-full">
           {#if loaded}
             <AboutMe></AboutMe>
-          {/if}
-          {#if loaded}
-            <div
-              transition:fly={{
-                delay: 650,
-                duration: 300,
-                // x: 200,
-                y: 50,
-                opacity: 0,
-                easing: quintOut,
-              }}
-              class="main-box rounded-3xl"
-            >
-              <EvervaultComponent></EvervaultComponent>
-            </div>
           {/if}
         </div>
         {#if loaded}

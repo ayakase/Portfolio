@@ -8,7 +8,14 @@ export default {
   ],
   theme: {
     extend: {
-      
+      keyframes: {
+        // ... other keyframes
+        scroll: {
+          to: {
+            transform: 'translate(calc(-50% - 0.5rem))'
+          }
+        }
+      }
     },
   },
   plugins: [
