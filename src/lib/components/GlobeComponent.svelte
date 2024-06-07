@@ -2,14 +2,18 @@
   import { onMount } from "svelte";
   import * as THREE from "three";
   // import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+  import type { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
   import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   var loadingManager = new THREE.LoadingManager();
   const loader = new GLTFLoader(loadingManager);
   const textureLoader = new THREE.TextureLoader(loadingManager);
+  import IntersectionObserver from "svelte-intersection-observer";
+  import { fly } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
+  let node: HTMLElement;
   // @ts-ignore
   import PlanetModel from "../../assets/planet.glb";
   import { TrackballControls } from "three/addons/controls/TrackballControls.js";
-
   import vueTexture from "../../assets/techLogo/vue.png";
   import tailwindTexture from "../../assets/techLogo/tailwind.png";
   import bootstrapTexture from "../../assets/techLogo/bootstrap.png";
@@ -47,6 +51,45 @@
   import ec2Texture from "../../assets/techLogo/ec2.png";
   import nuxtTexture from "../../assets/techLogo/nuxt.png";
   import s3Texture from "../../assets/techLogo/s3.png";
+  const techLogos = [
+    vueTexture,
+    tailwindTexture,
+    bootstrapTexture,
+    svelteTexture,
+    threejsTexture,
+    nodejsTexture,
+    flaskTexture,
+    jsTexture,
+    pythonTexture,
+    htmlTexture,
+    cssTexture,
+    firebaseTexture,
+    socketioTexture,
+    dockerTexture,
+    wordpressTexture,
+    ejsTexture,
+    mysqlTexture,
+    piniaTexture,
+    vuetifyTexture,
+    mongoTexture,
+    cloudinaryTexture,
+    bashTexture,
+    bulmaTexture,
+    linuxTexture,
+    aceternityuiTexture,
+    rubyTexture,
+    railsTexture,
+    viteTexture,
+    ubuntuTexture,
+    figmaTexture,
+    githubTexture,
+    photoshopTexture,
+    supabaseTexture,
+    emailjsTexture,
+    ec2Texture,
+    nuxtTexture,
+    s3Texture,
+  ];
   let loading: boolean = true;
   // @ts-ignore
   onMount(() => {
@@ -57,7 +100,7 @@
     // camera.position.setY(10);
     camera.position.setZ(12);
     const renderer = new THREE.WebGLRenderer({
-      canvas: document.querySelector("#cube") as HTMLCanvasElement,
+      canvas: document.querySelector("#globe") as HTMLCanvasElement,
       alpha: true,
     });
 
@@ -67,8 +110,13 @@
     controls.noZoom = true;
 
     renderer.setPixelRatio(1);
-    let container = document.querySelector(".cube-container");
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    let container: HTMLElement | null =
+      document.querySelector(".globe-container");
+    if (container) {
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    } else {
+      console.error("Container not found");
+    }
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0xffffff, 400, 500);
@@ -76,10 +124,10 @@
     scene.add(pointLight);
     // const gridHelper = new THREE.GridHelper(200, 50);
     // scene.add(gridHelper);
-    let planet: any;
+    let planet: THREE.Object3D;
     loader.load(
       PlanetModel,
-      function (gltf: any) {
+      function (gltf: GLTF) {
         planet = gltf.scene;
         scene.add(planet);
         planet.scale.set(4, 4, 4);
@@ -87,9 +135,9 @@
       undefined,
       function (error: any) {
         console.error(error);
-      }
+      },
     );
-    let techArray: any = [];
+    let techArray: THREE.Mesh[] = [];
     function createLogo(logoPath: string) {
       const techTexture = textureLoader.load(logoPath);
       const tech = new THREE.Mesh(
@@ -98,7 +146,7 @@
           map: techTexture,
           transparent: true,
           // alphaTest: 0.5,
-        })
+        }),
       );
       // tech.position.y = 8;
       tech.position.y = Math.floor(Math.random() * 5) - 2;
@@ -107,44 +155,9 @@
       return tech;
     }
 
-    createLogo(vueTexture);
-    createLogo(svelteTexture);
-    createLogo(tailwindTexture);
-    createLogo(bootstrapTexture);
-    createLogo(jsTexture);
-    createLogo(htmlTexture);
-    createLogo(cssTexture);
-    createLogo(pythonTexture);
-    createLogo(flaskTexture);
-    createLogo(threejsTexture);
-    createLogo(nodejsTexture);
-    createLogo(firebaseTexture);
-    createLogo(socketioTexture);
-    createLogo(dockerTexture);
-    createLogo(wordpressTexture);
-    createLogo(ejsTexture);
-    createLogo(mysqlTexture);
-    createLogo(piniaTexture);
-    createLogo(vuetifyTexture);
-    createLogo(mongoTexture);
-    createLogo(cloudinaryTexture);
-    createLogo(bashTexture);
-    createLogo(bulmaTexture);
-    createLogo(linuxTexture);
-    createLogo(aceternityuiTexture);
-    createLogo(rubyTexture);
-    createLogo(railsTexture);
-    createLogo(viteTexture);
-    createLogo(ubuntuTexture);
-    createLogo(figmaTexture);
-    createLogo(githubTexture);
-    createLogo(photoshopTexture);
-    createLogo(supabaseTexture);
-    createLogo(emailjsTexture);
-    createLogo(ec2Texture);
-    createLogo(nuxtTexture);
-    createLogo(s3Texture);
-
+    techLogos.forEach((element) => {
+      createLogo(element);
+    });
     function moveCamera() {
       const topT = document.body.getBoundingClientRect().top;
       //   camera.position.y = topT * -0.0001 + 8;
@@ -175,33 +188,39 @@
       if (planet) {
         planet.rotation.y += 0.005;
       }
-      requestAnimationFrame(animate);
       controls.update();
       renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     }
   });
 </script>
 
 <!-- <div id="scroll-distance">Distance from Top: 0px</div> -->
 
-<div class="cube-container relative main-box rounded-3xl">
+<div
+  class="group globe-container w-[30rem] h-[30rem] relative main-box rounded-3xl"
+>
   {#if loading}
     <div class="loader"></div>
   {/if}
-  <canvas id="cube" class="absolute"></canvas>
+  <canvas id="globe" class="absolute"></canvas>
+  <div
+    class="flex flex-row justify-center w-full absolute bottom-0 left-0 text-white"
+  >
+    <h3
+      class="opacity-100 group-hover:opacity-0 group-hover:invisible transition-all duration-5000"
+    >
+      Use mouse to drag
+    </h3>
+  </div>
 </div>
 
 <style>
-  .cube-container {
-    width: 30rem;
-    height: 30rem;
+  .globe-container {
   }
-  #cube {
-    /* width: 100rem;
-    height: 100rem; */
+  .drag-title {
+    transition: all 1s linear;
   }
-  /* HTML: <div class="loader"></div> */
-  /* HTML: <div class="loader"></div> */
   .loader {
     margin: auto;
     margin-top: 48%;

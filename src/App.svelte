@@ -3,12 +3,11 @@
   import ContactForm from "./lib/components/ContactForm.svelte";
   import IntroComponent from "./lib/components/IntroComponent.svelte";
   import AboutMe from "./lib/components/AboutMe.svelte";
-  import TimelineComponent from "./lib/components/TimelineComponent.svelte";
+  import MyJob from "./lib/components/MyJob.svelte";
   import IntersectionObserver from "svelte-intersection-observer";
-  import DividerComponent from "./lib/components/DividerComponent.svelte";
   import TechStack from "./lib/components/TechStack.svelte";
   import SocialMedia from "./lib/components/SocialMedia.svelte";
-  import EvervaultComponent from "./lib/components/ui/EvervaultCard/EvervaultComponent.svelte";
+  import EvervaultCard from "./lib/components/ui/EvervaultCard/EvervaultCard.svelte";
   import MobileProjects from "./lib/components/mobile-components/MobileProjects.svelte";
   import MobileContact from "./lib/components/mobile-components/MobileContact.svelte";
   import ClockComponent from "./lib/components/ClockComponent.svelte";
@@ -16,19 +15,17 @@
   import StickyRevealComponent from "./lib/components/ui/StickyScrollReveal/StickyRevealComponent.svelte";
   import GithubComponent from "./lib/components/GithubComponent.svelte";
   import ChatBox from "./lib/components/ChatBox.svelte";
+  import AvatarComponent from "./lib/components/AvatarComponent.svelte";
+  import BuiltWithLove from "./lib/components/BuiltWithLove.svelte";
+  import ViewCount from "./lib/components/ViewCount.svelte";
   import { slide, fly } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
-  import { tech } from "./store/store";
-  let nodeTimeline: any;
-  let nodeExperience: any;
-  let nodeProjectTitle: any;
-  let nodeProjectSection: any;
-  let nodeGithub: any;
-  let nodeChatbox: any;
-
+  let nodeProjectSection: HTMLElement;
+  let nodeGlobe: HTMLElement;
+  let nodeGravity: HTMLElement;
   let projectArray: {
     title: string;
     description: string;
@@ -36,13 +33,8 @@
     github: string;
     demo?: string;
   }[];
-  let techGlow: {
-    glow: boolean;
-  };
-  tech.subscribe((value) => {
-    techGlow = value;
-  });
-  let loaded: any;
+
+  let loaded: boolean;
   onMount(async () => {
     loaded = true;
     try {
@@ -53,7 +45,7 @@
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
             "Content-Type": "application/json", // Add other headers as needed
           },
-        }
+        },
       );
 
       projectArray = response.data;
@@ -63,183 +55,89 @@
   });
 </script>
 
-<div class="w-10/12 m-auto p-auto">
-  <!-- <LoadingScreen></LoadingScreen> -->
-
-  <!-- <MobileNav></MobileNav>
-  <div class:intersecting class="flex flex-row justify-center">
-    {#if !intersecting}
-      <NavBarComponent></NavBarComponent>
-    {/if}
-  </div> -->
-  <div class="fixed top-0 left-0 flex flex-col items-center w-full z-[9999]">
-    <EvervaultComponent></EvervaultComponent>
-  </div>
-  <div class="flex flex-row justify-between w-full">
+<div class="w-screen m-auto p-auto">
+  <div
+    class="first-section lg:p-[4rem] snap-start snap-always h-screen w-full flex flex-col justify-between"
+  >
     <div
-      class="lg:pt-[4rem] pt-[4rem] w-full h-auto flex flex-row justify-between gap-4 m-auto relative"
+      class="w-full h-full flex flex-row justify-between gap-4 m-auto relative"
     >
-      <div class="max-w-[35rem] hidden lg:block">
-        <a href="" class="circle"></a>
-        <img class=" avatar mb-2" src={avatar} alt="Avatar" />
-        <div class="">
-          <SocialMedia></SocialMedia>
-        </div>
+      <div>
+        <AvatarComponent></AvatarComponent>
+        <BuiltWithLove></BuiltWithLove>
       </div>
-      <div class="flex flex-col gap-2 max-w-[70rem] justify-start">
-        {#if loaded}
+      <div class="flex flex-col gap-2 max-w-[70rem] justify-between">
+        <div class="flex flex-row gap-4">
           <IntroComponent></IntroComponent>
-        {/if}
-        <div class="flex flex-row gap-2 h-full">
-          {#if loaded}
-            <AboutMe></AboutMe>
-          {/if}
+          <ViewCount></ViewCount>
         </div>
-        {#if loaded}
-          <!-- <LanguageComponent></LanguageComponent> -->
-        {/if}
+        <div class="flex flex-row gap-2 h-full">
+          <AboutMe></AboutMe>
+        </div>
+        <EvervaultCard></EvervaultCard>
       </div>
+      <!-- <ContactForm></ContactForm> -->
       <div class="flex flex-col gap-4">
-        {#if loaded}
-          <ClockComponent></ClockComponent>
-        {/if}
-        {#if loaded}
-          <div
-            transition:fly={{
-              delay: 700,
-              duration: 300,
-              // x: 200,
-              y: 50,
-              opacity: 0,
-              easing: quintOut,
-            }}
-            class="main-box p-4 rounded-3xl"
-          >
-            <!-- <TimelineComponent></TimelineComponent> -->
+        <IntersectionObserver element={nodeGravity} let:intersecting>
+          <div bind:this={nodeGravity} class="w-full h-full">
+            {#if intersecting}
+              <div
+                transition:fly={{
+                  delay: 300,
+                  duration: 300,
+                  // y: 50,
+                  x: 80,
+                  opacity: 0,
+                  easing: quintOut,
+                }}
+                class="w-full h-full"
+              >
+                <MyJob></MyJob>
+              </div>
+            {/if}
           </div>
-        {/if}
+        </IntersectionObserver>
+        <!-- <ClockComponent></ClockComponent> -->
+        <!-- <SocialMedia></SocialMedia> -->
       </div>
     </div>
   </div>
-  <div class="flex flex-row gap-4 justify-between mt-4">
-    {#if loaded}
-      <div
-        transition:fly={{
-          delay: 650,
-          duration: 300,
-          // x: 200,
-          y: 50,
-          opacity: 0,
-          easing: quintOut,
-        }}
-        class="main-box rounded-3xl w-full"
-        class:main-box-glow={techGlow.glow}
-        id="technical"
-        style="scroll-margin-top: 100px;"
-      >
-        <TechStack></TechStack>
-      </div>
 
-      <div
-        transition:fly={{
-          delay: 750,
-          duration: 300,
-          // x: 200,
-          y: 50,
-          opacity: 0,
-          easing: quintOut,
-        }}
-        class="bg-none rounded-3xl"
-      >
-        <GlobeComponent></GlobeComponent>
-      </div>
-    {/if}
-  </div>
-  <div class="flex flex-row justify-between mt-4 gap-4">
-    <IntersectionObserver element={nodeGithub} let:intersecting>
-      <div id="github" bind:this={nodeGithub}>
-        {#if intersecting}
-          <div
-            transition:fly={{
-              delay: 350,
-              duration: 300,
-              // x: 200,
-              y: 50,
-              opacity: 0,
-              easing: quintOut,
-            }}
-          >
-            <GithubComponent></GithubComponent>
-          </div>
-        {/if}
-      </div>
-    </IntersectionObserver>
-    <IntersectionObserver element={nodeChatbox} let:intersecting>
-      <div class="w-3/4" bind:this={nodeChatbox}>
-        {#if intersecting}
-          <div
-            class="w-full flex flex-col gap-4"
-            transition:fly={{
-              delay: 350,
-              duration: 300,
-              // x: 200,
-              y: 50,
-              opacity: 0,
-              easing: quintOut,
-            }}
-          >
-            <StickyRevealComponent></StickyRevealComponent>
-            <ChatBox></ChatBox>
-          </div>
-        {/if}
-      </div>
-    </IntersectionObserver>
+  <div
+    class="snap-start snap-always p-[4rem] flex flex-row justify-between gap-4 w-full h-screen"
+  >
+    <GithubComponent></GithubComponent>
+    <div class="flex flex-row gap-4 justify-between">
+      <TechStack></TechStack>
+      <IntersectionObserver element={nodeGlobe} let:intersecting>
+        <div bind:this={nodeGlobe}>
+          {#if intersecting}
+            <div
+              transition:fly={{
+                delay: 750,
+                duration: 300,
+                // y: 50,
+                x: 80,
+                opacity: 0,
+                easing: quintOut,
+              }}
+              class="bg-none rounded-3xl"
+            >
+              <GlobeComponent></GlobeComponent>
+            </div>
+          {/if}
+        </div>
+      </IntersectionObserver>
+    </div>
+    <div class="flex flex-col gap-4">
+      <!-- <StickyRevealComponent></StickyRevealComponent> -->
+      <!-- <ChatBox></ChatBox> -->
+    </div>
   </div>
   <!-- <div>
     <ResumeComponent></ResumeComponent>
   </div> -->
-  <div>
-    <!-- <TechComponent></TechComponent> -->
-  </div>
-  <div id="experience"></div>
-  <div class="min-h-[5rem] hidden lg:block">
-    <IntersectionObserver element={nodeExperience} let:intersecting>
-      <div bind:this={nodeExperience}>
-        {#if intersecting}
-          <DividerComponent title={"My Experience"}></DividerComponent>
-        {/if}
-      </div>
-    </IntersectionObserver>
-  </div>
-
-  <div class=" min-h-[40rem] hidden lg:block">
-    <IntersectionObserver element={nodeTimeline} let:intersecting>
-      <div class="experience">
-        <div bind:this={nodeTimeline}>
-          {#if intersecting}
-            <div
-              class="pt-4"
-              transition:slide={{
-                delay: 650,
-                duration: 600,
-                easing: quintOut,
-                axis: "y",
-              }}
-            >
-              <!-- <TimelineComponent></TimelineComponent> -->
-            </div>
-          {/if}
-        </div>
-      </div>
-    </IntersectionObserver>
-  </div>
-  <div class="block lg:hidden"></div>
-  <div id="projects"></div>
-  <hr class="mt-10 block lg:hidden mb-10" />
-  <h2 class="text-center text-2xl font-bold text-gray-200 mb-4 block lg:hidden">
-    &lt; Personal Projects &gt;
-  </h2>
-
+  <h2 class="snap-start snap-always">a</h2>
   {#if projectArray}
     {#each projectArray as { title, description, image, github, demo }}
       <div class="flex flex-col">
@@ -248,15 +146,6 @@
       </div>
     {/each}
   {/if}
-  <div class="min-h-[5rem] mt-20 hidden lg:block">
-    <IntersectionObserver element={nodeProjectTitle} let:intersecting>
-      <div bind:this={nodeProjectTitle}>
-        {#if intersecting}
-          <DividerComponent title={"My Personal Projects"}></DividerComponent>
-        {/if}
-      </div>
-    </IntersectionObserver>
-  </div>
   {#if projectArray}
     <div class="min-h-[55rem] w-3/4 m-auto hidden lg:block">
       <IntersectionObserver element={nodeProjectSection} let:intersecting>
@@ -292,9 +181,7 @@
     </div>
   {/if}
   <div id="contact"></div>
-  <div class=" hidden lg:block">
-    <ContactForm></ContactForm>
-  </div>
+  <div class=" hidden lg:block"></div>
   <div class="top-10 block lg:hidden">
     <MobileContact></MobileContact>
   </div>
@@ -306,6 +193,7 @@
   <!-- <IntersectionObserver {element} bind:intersecting>
     <div bind:this={element}></div>
   </IntersectionObserver> -->
+  <div class="contruction"></div>
 </div>
 
 <style>
@@ -331,5 +219,11 @@
       rgba(224, 46, 240, 0.2) 15px 15px,
       rgba(217, 46, 240, 0.1) 20px 20px,
       rgba(227, 46, 240, 0.05) 25px 25px;
+  }
+  .first-section {
+    /* background-image: url("./assets/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
   }
 </style>

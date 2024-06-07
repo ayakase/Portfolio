@@ -2,7 +2,6 @@
   import { cn } from "../../../utils/cn";
 
   import { Motion } from "svelte-motion";
-
   export let className: string | undefined = undefined;
   export let containerClassName: string | undefined = undefined;
   export let animate: boolean | undefined = true;

@@ -3,7 +3,7 @@
     export let className: string;
     export let containerClassName = void 0;
     export let isMouseEntered = false;
-    let containerRef: any;
+    let containerRef: HTMLElement;
     const handleMouseMove = (e: MouseEvent) => {
         if (!containerRef) return;
         const { left, top, width, height } =

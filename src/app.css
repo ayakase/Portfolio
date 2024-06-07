@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 body {
-  background-color: black; 
+  background-color: rgb(10, 10, 10);
 }
+
 @layer utilities {
   .main-box {
-    border: 1px solid #1b181b;
-    /* background-color: #100e10; */
-    background-color: rgba(27, 24, 27, 0.6); /* Adjust the color and opacity as needed */
+    border: 1px solid #272727;
+    box-sizing: border-box;
+    background-color: rgba(27, 24, 27, 0.758);
     transition: all 0.2s linear;
   }
+
   .main-box:hover {
-    border: 1px solid #1b181b;
     background-color: #191619;
   }
-  .main-box-glow{
+
+  .main-box-glow {
     background-color: #252226;
     transform: scale(1.02);
     box-shadow: rgba(131, 51, 153, 0.8) 0 0 20px 10px;
@@ -24,6 +26,7 @@ body {
 
   }
 }
+
 #app {
   /* position: absolute; */
   margin: auto;
@@ -31,33 +34,51 @@ body {
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+  border-radius: 1.5rem !important;
+  background: none !important;
 }
 
 html {
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
-::-webkit-scrollbar {
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(46, 25, 69); 
+  background: rgb(46, 25, 69);
 }
- 
-/* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: #503786; 
+  background: #503786;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5b4290; 
+  background: #5b4290;
+} */
+
+
+:root {
+  /* font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace; */
+
+
+
 }
 
-
-:root {}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

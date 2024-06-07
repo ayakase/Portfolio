@@ -1,6 +1,9 @@
 <script lang="ts">
   import StickyScrollReveal from "./StickyScrollReveal.svelte";
-
+  import { fly } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
+  import IntersectionObserver from "svelte-intersection-observer";
+  let node: HTMLElement;
   const content = [
     {
       title: "GMO-Z.com Runsystem JSC - Jan/20233 - July/2023",
@@ -19,6 +22,22 @@
   ];
 </script>
 
-<div class="w-full">
-  <StickyScrollReveal {content} />
-</div>
+<IntersectionObserver element={node} let:intersecting>
+  <div bind:this={node}>
+    {#if intersecting}
+      <div
+        class="w-full"
+        transition:fly={{
+          delay: 350,
+          duration: 300,
+          // x: 200,
+          y: 50,
+          opacity: 0,
+          easing: quintOut,
+        }}
+      >
+        <StickyScrollReveal {content} />
+      </div>
+    {/if}
+  </div>
+</IntersectionObserver>

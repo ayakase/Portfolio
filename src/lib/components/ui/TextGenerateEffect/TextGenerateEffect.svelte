@@ -1,14 +1,14 @@
 <script lang="ts">
   import { Motion } from "svelte-motion";
   import { cn } from "../../../utils/cn";
-  export let words: any;
+  export let words: string;
   export let className = void 0;
   const variants = {
-    visible: (i: any) => ({
+    visible: (i: number) => ({
       opacity: 1,
       transition: {
-        delay: i * 0.2,
-        duration: 1,
+        delay: i * 0.08,
+        duration: .4,
       },
     }),
     hidden: { opacity: 0 },
@@ -17,7 +17,7 @@
 
 <div class={cn("", className)}>
   <div class="">
-    <div class="leading-snug tracking-wide text-white">
+    <div class="leading-snug tracking-wide">
       <Motion
         let:motion
         custom={0}
@@ -34,7 +34,7 @@
               initial="hidden"
               animate={"visible"}
             >
-              <span use:motion class="text-white">
+              <span use:motion class="">
                 {word}{" "}
               </span>
             </Motion>

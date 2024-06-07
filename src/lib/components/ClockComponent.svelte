@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
   import { onDestroy, tick } from "svelte";
   import { fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import BackgroundGradient from "./ui/BackgroundGradient/BackgroundGradient.svelte";
+  import IntersectionObserver from "svelte-intersection-observer";
+  let node: HTMLElement;
   let time = new Date();
 
   const updateTime = () => {
@@ -17,28 +19,30 @@
   tick().then(updateTime);
 </script>
 
-<div
-  transition:fly={{
-    delay: 550,
-    duration: 300,
-    // x: 200,
-    y: 50,
-    opacity: 0,
-    easing: quintOut,
-  }}
-  class="clock rounded-3xl bg-[#100e10]"
->
-  <BackgroundGradient
-    className="rounded-[22px] bg-[#100e10] max-w-sm p-4 bg-none"
-  >
-    {time.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    })}
-  </BackgroundGradient>
-</div>
+<IntersectionObserver element={node} let:intersecting>
+  <div bind:this={node}>
+    {#if intersecting}
+      <div
+        transition:fly={{
+          delay: 550,
+          duration: 300,
+          x: 100,
+          opacity: 0,
+          easing: quintOut,
+        }}
+        class="clock rounded-3xl bg-[#100e10]"
+      >
+        
+          {time.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          })}
+      </div>
+    {/if}
+  </div>
+</IntersectionObserver>
 
 <style>
   .clock {

@@ -9,42 +9,39 @@
     const toast = toasts.add({
       title: "Success",
       description: "I have recevied your information and will contact you soon",
-      duration: 3000, // 0 or negative to avoid auto-remove
+      duration: 3000,
       theme: "dark",
       placement: "bottom-right",
       showProgress: true,
       type: "success",
       onClick: () => {},
       onRemove: () => {},
-      // component: BootstrapToast, // allows to override toast component/template per toast
     });
   };
   const toastError = () => {
     const toast = toasts.add({
       title: "Error",
       description: "Some error occurred",
-      duration: 3000, // 0 or negative to avoid auto-remove
+      duration: 3000,
       theme: "dark",
       placement: "bottom-right",
       showProgress: true,
       type: "error",
       onClick: () => {},
       onRemove: () => {},
-      // component: BootstrapToast, // allows to override toast component/template per toast
     });
   };
   const toastWarn = () => {
     const toast = toasts.add({
       title: "Missing Information",
       description: "Please fill in the form",
-      duration: 3000, // 0 or negative to avoid auto-remove
+      duration: 3000,
       theme: "dark",
       placement: "bottom-right",
       showProgress: true,
       type: "warning",
       onClick: () => {},
       onRemove: () => {},
-      // component: BootstrapToast, // allows to override toast component/template per toast
     });
   };
   const sendEmail = () => {
@@ -64,7 +61,7 @@
           templateParams,
           {
             publicKey: import.meta.env.VITE_PUBLIC_KEY,
-          }
+          },
         )
         .then(
           () => {
@@ -73,26 +70,15 @@
           (error) => {
             console.error(error);
             toastError();
-          }
+          },
         );
     }
   };
-  // let templateParams: {
-  //     name: string;
-  //     contact: string;
-  //     company: string;
-  //     message: string;
-  // };
 </script>
 
-<!-- component -->
-
 <div class="w-full">
-  <div class=" h-96"></div>
-  <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
-    <div
-      class="backdrop-blur-sm bg-indigo-300/25 w-full shadow rounded-[2rem] p-8 sm:p-12 -mt-72"
-    >
+  <div class="mx-auto">
+    <div class="main-box w-full shadow rounded-[2rem] p-8">
       <p class="text-3xl font-bold leading-7 text-center text-white">
         Contact me {contact}
       </p>

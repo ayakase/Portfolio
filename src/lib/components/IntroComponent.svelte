@@ -3,36 +3,53 @@
   import TextGenerateEffect from "../../lib/components/ui/TextGenerateEffect/TextGenerateEffect.svelte";
   import { fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
-  const words: string = `I am a passionate Web Developer from Vietnam!`;
+  import BackgroundGradient from "./ui/BackgroundGradient/BackgroundGradient.svelte";
+  import IntersectionObserver from "svelte-intersection-observer";
+  let node: HTMLElement;
+  const words: string = `I am a passionate developer from Vietnam!`;
+  import stars from "../../assets/stars.svg";
 </script>
 
-<div
-  transition:fly={{
-    delay: 500,
-    duration: 300,
-    // x: 200,
-    y: 50,
-    opacity: 0,
-    easing: quintOut,
-  }}
-  class="hidden flex-col lg:flex justify-between main-box h-36 p-4 rounded-3xl"
->
-  <div class="text-white text-5xl">
-    Hello world! This is
-    <span class="">
-      [<AnimatedCounter
-        values={["Thai An", "Ayakase", "アヤカセ"]}
-        class="custom-counter"
-        interval={1000}
-        startImmediately={false}
-        direction="up"
-        loop={true}
-        ease="ease-in-out"
-        initialValue="Fullstack"
-      />]
-    </span>
+<IntersectionObserver element={node} let:intersecting>
+  <div bind:this={node}>
+    {#if intersecting}
+      <div
+        transition:fly={{
+          delay: 350,
+          duration: 300,
+          // x: 200,
+          y: -100,
+          opacity: 0,
+          easing: quintOut,
+        }}
+        class="hidden flex-row lg:flex justify-start gap-8 main-box rounded-3xl relative"
+      >
+        <BackgroundGradient
+          className="rounded-[22px] bg-[#100e10] p-4 bg-none"
+        >
+          <img src={stars} alt="" class="absolute top-4 right-4" />
+          <div class="flex flex-col justify-center">
+            <div class="text-white text-4xl">
+              Hello world! This is
+              <span class="">
+                [<AnimatedCounter
+                  values={["Thai An", "アヤカセ"]}
+                  class="custom-counter"
+                  interval={1000}
+                  startImmediately={false}
+                  direction="up"
+                  loop={true}
+                  ease="ease-in-out"
+                  initialValue="Fullstack"
+                />]
+              </span>
+            </div>
+            <div class="text-4xl text-gray-400">
+              <TextGenerateEffect {words}></TextGenerateEffect>
+            </div>
+          </div>
+        </BackgroundGradient>
+      </div>
+    {/if}
   </div>
-  <div class="text-2xl">
-    <TextGenerateEffect {words}></TextGenerateEffect>
-  </div>
-</div>
+</IntersectionObserver>
