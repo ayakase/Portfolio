@@ -34,8 +34,8 @@
 
 <style>
   .about-container {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("../../assets//giphy.gif");
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../assets//giphy.gif"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

@@ -33,6 +33,11 @@ body {
   padding: auto;
 }
 
+::selection {
+  background: rgb(0, 70, 70);
+  /* text-decoration: cyan underline; */
+}
+
 canvas {
   border-radius: 1.5rem !important;
   background: none !important;

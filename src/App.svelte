@@ -62,11 +62,11 @@
     <div
       class="w-full h-full flex flex-row justify-between gap-4 m-auto relative"
     >
-      <div>
+      <div class="">
         <AvatarComponent></AvatarComponent>
         <BuiltWithLove></BuiltWithLove>
       </div>
-      <div class="flex flex-col gap-2 max-w-[70rem] justify-between">
+      <div class="flex flex-col gap-4 max-w-[65rem] justify-between">
         <div class="flex flex-row gap-4">
           <IntroComponent></IntroComponent>
           <ViewCount></ViewCount>

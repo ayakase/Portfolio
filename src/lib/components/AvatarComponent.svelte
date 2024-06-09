@@ -4,6 +4,7 @@
     import IntersectionObserver from "svelte-intersection-observer";
     let node: HTMLElement;
     import avatar from "../../assets/avatar.jpg";
+    import cartoon from "../../assets/cartoon.jpg";
     import stars from "../../assets/stars.svg";
 </script>
 
@@ -19,8 +20,8 @@
                     opacity: 0,
                     easing: quintOut,
                 }}
-                class="w-full h-full avatar mb-2 rounded-3xl"
-                src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133351928-stock-illustration-default-placeholder-man-and-woman.jpg"
+                class="w-full h-full avatar mb-2 rounded-3xl object-cover object-center"
+                src={cartoon}
                 alt="Avatar"
             />
         {/if}

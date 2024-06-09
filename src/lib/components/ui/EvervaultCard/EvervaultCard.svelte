@@ -48,8 +48,7 @@
     randomString = str;
   }
 
-  const characters =
-    "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+  const characters = "0101";
   const generateRandomString = (length: number) => {
     let result = "";
     for (let i = 0; i < length; i++) {
