@@ -7,7 +7,12 @@
   import IntersectionObserver from "svelte-intersection-observer";
   let node: HTMLElement;
   let message: string = "";
-  let messageArray: any[] | [] = [];
+  type eachMessage = {
+    id: number;
+    message: string;
+    created_at: Date;
+  };
+  let messageArray: eachMessage[] | [] = [];
   const toastWarn = () => {
     const toast = toasts.add({
       title: "Message too long",

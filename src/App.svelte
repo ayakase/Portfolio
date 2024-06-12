@@ -152,12 +152,12 @@
     </div>
     <div class="flex flex-col gap-4">
       <!-- <StickyRevealComponent></StickyRevealComponent> -->
-      <!-- <ChatBox></ChatBox> -->
     </div>
   </div>
   <!-- <div>
     <ResumeComponent></ResumeComponent>
   </div> -->
+
   <h2 class="snap-start snap-always">a</h2>
   {#if projectArray}
     {#each projectArray as { title, description, image, github, demo }}
@@ -201,6 +201,14 @@
       </IntersectionObserver>
     </div>
   {/if}
+  <div class="flex flex-row gap-4 snap-start h-screen p-4 lg:p-16">
+    <div class="flex-1">
+      <ChatBox></ChatBox>
+    </div>
+    <div>
+      <ContactForm></ContactForm>
+    </div>
+  </div>
   <div id="contact"></div>
   <div class=" hidden lg:block"></div>
   <div class="top-10 block lg:hidden">
