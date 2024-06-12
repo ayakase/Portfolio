@@ -6,10 +6,10 @@
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-  <div bind:this={node}>
+  <div bind:this={node} class="h-full">
     {#if intersecting}
       <div
-        class="main-box !bg-[#1a1b27] rounded-3xl"
+        class="main-box !bg-[#1a1b27] rounded-3xl h-full"
         transition:fly={{
           delay: 350,
           duration: 300,
@@ -20,7 +20,15 @@
         }}
       >
         <!-- <div class="text-4xl text-white mb-4">&lt; My Github Stats &gt;</div> -->
-        <div class="image-container p-4 flex-col items-center hidden lg:flex">
+        <div
+          class="image-container h-full p-4 flex-col items-center justify-between hidden lg:flex"
+        >
+          <img
+            class="w-2/3 border-[#6a9aec] border-4 border-solid rounded-md"
+            loading="lazy"
+            src="https://komarev.com/ghpvc/?username=ayakase&abbreviated=true&style=for-the-badge&color=6a9aec"
+            alt="Ayakase's GitHub Stats"
+          />
           <img
             loading="lazy"
             src="https://github-readme-stats.vercel.app/api?username=ayakase&show_icons=true&theme=tokyonight&card_width=400&hide_border=true"

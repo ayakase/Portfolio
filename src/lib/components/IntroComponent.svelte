@@ -11,7 +11,7 @@
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-  <div bind:this={node}>
+  <div bind:this={node} class=" w-full lg:w-2/3">
     {#if intersecting}
       <div
         transition:fly={{
@@ -22,14 +22,16 @@
           opacity: 0,
           easing: quintOut,
         }}
-        class="hidden flex-row lg:flex justify-start gap-8 main-box rounded-3xl relative"
+        class="flex-row flex justify-start gap-8 main-box rounded-3xl relative"
       >
-        <BackgroundGradient
-          className="rounded-[22px] bg-[#100e10] p-4 bg-none"
-        >
-          <img src={stars} alt="" class="absolute top-4 right-4" />
+        <BackgroundGradient className="rounded-[22px] bg-[#100e10] p-4 bg-none">
+          <img
+            src={stars}
+            alt=""
+            class=" w-1/12 absolute top-2 lg:top-4 right-2 lg:right-4"
+          />
           <div class="flex flex-col justify-center">
-            <div class="text-white text-4xl">
+            <div class="text-white text-md lg:text-4xl">
               Hello world! This is
               <span class="">
                 [<AnimatedCounter
@@ -44,7 +46,7 @@
                 />]
               </span>
             </div>
-            <div class="text-4xl text-gray-400">
+            <div class="text-lg lg:text-4xl text-gray-400">
               <TextGenerateEffect {words}></TextGenerateEffect>
             </div>
           </div>

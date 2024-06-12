@@ -6,7 +6,7 @@
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-  <div bind:this={node}>
+  <div bind:this={node} class="block lg:hidden">
     {#if intersecting}
       <div
         class="flex gap-4"
@@ -19,9 +19,9 @@
           easing: quintOut,
         }}
       >
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col justify-between gap-4">
           <div
-            class="social-media-container flex flex-row justify-between lg:justify-start gap-4 mt-5 lg:mt-0"
+            class="social-media-container flex flex-row justify-between lg:justify-start gap-4 lg:mt-0"
           >
             <!-- <div class="text-white text-3xl hidden lg:block lg:text-4xl m-0 p-0">
       Reach me:
@@ -83,7 +83,7 @@
             </a>
           </div>
           <div
-            class="social-media-container flex flex-row justify-between lg:justify-start gap-4 h-1/2 mt-5 lg:mt-0"
+            class="social-media-container flex flex-row justify-between lg:justify-start gap-4 h-1/2 lg:mt-0"
           >
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=thaian.180901@gmail.com"

@@ -200,7 +200,7 @@
 <!-- <div id="scroll-distance">Distance from Top: 0px</div> -->
 
 <div
-  class="group globe-container w-[30rem] h-[30rem] relative main-box rounded-3xl hidden md:block"
+  class="group globe-container w-[30rem] h-[30rem] relative main-box rounded-3xl hidden lg:block"
 >
   {#if loading}
     <div class="loader"></div>

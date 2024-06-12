@@ -14,13 +14,16 @@
   import GlobeComponent from "./lib/components/GlobeComponent.svelte";
   import StickyRevealComponent from "./lib/components/ui/StickyScrollReveal/StickyRevealComponent.svelte";
   import GithubComponent from "./lib/components/GithubComponent.svelte";
+  import DownloadCv from "./lib/components/DownloadCv.svelte";
   import ChatBox from "./lib/components/ChatBox.svelte";
   import AvatarComponent from "./lib/components/AvatarComponent.svelte";
   import BuiltWithLove from "./lib/components/BuiltWithLove.svelte";
   import ViewCount from "./lib/components/ViewCount.svelte";
+  import MikuStare from "./lib/components/MikuStare.svelte";
   import { slide, fly } from "svelte/transition";
   import axios from "axios";
   import avatar from "./assets/avatar.jpg";
+  import supabase from "./supabase";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
   let nodeProjectSection: HTMLElement;
@@ -33,9 +36,21 @@
     github: string;
     demo?: string;
   }[];
-
+  let count: number = 0;
+  async function getCount() {
+    const { data } = await supabase.from("count").select("*").eq("id", 1);
+    console.log(data);
+    if (data) {
+      count = data[0].count;
+      await supabase
+        .from("count")
+        .update({ count: count + 1 })
+        .eq("id", 1);
+    }
+  }
   let loaded: boolean;
   onMount(async () => {
+    getCount();
     loaded = true;
     try {
       const response = await axios.get(
@@ -57,33 +72,38 @@
 
 <div class="w-screen m-auto p-auto">
   <div
-    class="first-section lg:p-[4rem] snap-start snap-always h-screen w-full flex flex-col justify-between"
+    class="first-section overflow-hidden p-4 lg:p-16 snap-start snap-always max-h-screen h-screen w-full flex flex-col justify-between"
   >
     <div
       class="w-full h-full flex flex-row justify-between gap-4 m-auto relative"
     >
-      <div class="">
+      <div class="flex-col gap-4 hidden lg:flex">
         <AvatarComponent></AvatarComponent>
-        <BuiltWithLove></BuiltWithLove>
+        <DownloadCv></DownloadCv>
+        {#if count}
+          <ViewCount countValue={count}></ViewCount>
+        {/if}
+        <!-- <BuiltWithLove></BuiltWithLove> -->
       </div>
-      <div class="flex flex-col gap-4 max-w-[65rem] justify-between">
+      <div class="flex flex-1 w-full flex-col gap-4 justify-between">
         <div class="flex flex-row gap-4">
           <IntroComponent></IntroComponent>
-          <ViewCount></ViewCount>
+          <MikuStare></MikuStare>
         </div>
         <div class="flex flex-row gap-2 h-full">
           <AboutMe></AboutMe>
         </div>
         <EvervaultCard></EvervaultCard>
+        <SocialMedia></SocialMedia>
       </div>
       <!-- <ContactForm></ContactForm> -->
-      <div class="flex flex-col gap-4">
+      <div class="w-1/5 hidden lg:block">
         <IntersectionObserver element={nodeGravity} let:intersecting>
           <div bind:this={nodeGravity} class="w-full h-full">
             {#if intersecting}
               <div
                 transition:fly={{
-                  delay: 300,
+                  delay: 500,
                   duration: 300,
                   // y: 50,
                   x: 80,
@@ -98,15 +118,16 @@
           </div>
         </IntersectionObserver>
         <!-- <ClockComponent></ClockComponent> -->
-        <!-- <SocialMedia></SocialMedia> -->
       </div>
     </div>
   </div>
 
   <div
-    class="snap-start snap-always p-[4rem] flex flex-row justify-between gap-4 w-full h-screen"
+    class="second-section snap-start snap-always p-4 lg:p-16 flex-wrap lg:flex-nowrap flex flex-row justify-between gap-4 w-full"
   >
-    <GithubComponent></GithubComponent>
+    <div class="h-full">
+      <GithubComponent></GithubComponent>
+    </div>
     <div class="flex flex-row gap-4 justify-between">
       <TechStack></TechStack>
       <IntersectionObserver element={nodeGlobe} let:intersecting>

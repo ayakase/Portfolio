@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { AnimatedCounter } from "@benzara/svelte-animated-counter";
   import TextGenerateEffect from "../../lib/components/ui/TextGenerateEffect/TextGenerateEffect.svelte";
-  import { fade, slide, fly, scale } from "svelte/transition";
+  import { Spotlight } from "./ui/SpotLight";
+  import { scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   const words1: string = `I am a passionate Web Developer from Vietnam!`;
   import IntersectionObserver from "svelte-intersection-observer";
@@ -9,7 +9,7 @@
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-  <div bind:this={node}>
+  <div bind:this={node} class="">
     {#if intersecting}
       <div
         transition:scale={{
@@ -19,10 +19,19 @@
           start: 0.8,
           easing: quintOut,
         }}
-        class="main-box p-8 rounded-3xl h-full flex flex-col justify-between about-container"
+        class="main-box relative overflow-hidden p-8 rounded-3xl flex flex-col max-h-full h-full justify-between about-container"
       >
-        <div class="about-title text-white">Something about me.</div>
-        <div class="text-3xl text-gray-200">
+        <Spotlight
+          className="-top-20 left-0 md:left-60 md:-top-20"
+          fill="white"
+        />
+
+        <div class="about-title text-white lg:text-xl 2xl:text-5xl">
+          Something about me.
+        </div>
+        <div
+          class="text-sm sm:text-2xl md:text-xl lg:text-xl 2xl:text-3xl text-gray-200"
+        >
           <TextGenerateEffect
             words={"I started my journey as a web developer 5 years ago, starting with just pure HTML and CSS, I immediately discovered my passion for developing simple yet aesthetic website. I love sharing my works of art with people. I also love to discover emerging tech trends. I'm instinctively curious and consistently improving my skills."}
           ></TextGenerateEffect>
@@ -33,15 +42,16 @@
 </IntersectionObserver>
 
 <style>
-  .about-container {
-    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("../../assets//giphy.gif"); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  .main-box {
+    /* background-image: linear-gradient(
+        rgba(36, 36, 36, 0.7) 0.1em,
+        transparent 0.1em
+      ),
+      linear-gradient(90deg, rgba(36, 36, 36, 0.7) 0.1em, transparent 0.1em);
+    background-size: 2rem 2rem; */
   }
+
   .about-title {
-    font-size: 3rem;
     font-weight: bolder;
     background: linear-gradient(
       to right,
