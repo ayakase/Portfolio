@@ -15,10 +15,21 @@
             myNumber.set(countValue);
         }, 1000);
     });
+    function getAppend() {
+        if (countValue % 10 == 1) {
+            return "st";
+        } else if (countValue % 10 == 2) {
+            return "nd";
+        } else if (countValue % 10 == 3) {
+            return "rd";
+        } else {
+            return "th";
+        }
+    }
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-    <div bind:this={node} class="w-full flex-1">
+    <div bind:this={node} class=" max-w-96 flex-1">
         {#if intersecting}
             <div
                 transition:fly={{
@@ -28,11 +39,13 @@
                     opacity: 0,
                     easing: quintOut,
                 }}
-                class="container flex flex-col items-center justify-center main-box h-full rounded-3xl text-white text-2xl text-center"
+                class="container grid place-content-center main-box text-xl h-full rounded-3xl text-white text-center"
             >
-                <h1 class="text-[4rem] font-mono">
-                    {$formatted}
-                </h1>
+                <p class="font-mono max-w-80">
+                    You are the <span class="text-green-500 text-3xl">
+                        {$formatted}{getAppend()}
+                    </span> person to visit this portfolio
+                </p>
             </div>
         {/if}
     </div>

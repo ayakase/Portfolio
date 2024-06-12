@@ -123,9 +123,9 @@
   </div>
 
   <div
-    class="second-section snap-start snap-always p-4 lg:p-16 flex-wrap lg:flex-nowrap flex flex-row justify-between gap-4 w-full"
+    class="second-section snap-start snap-always p-4 lg:p-16 flex-wrap lg:flex-nowrap flex flex-row justify-between gap-4 w-full h-screen"
   >
-    <div class="h-full">
+    <div class="h-full hidden lg:block">
       <GithubComponent></GithubComponent>
     </div>
     <div class="flex flex-row gap-4 justify-between">
