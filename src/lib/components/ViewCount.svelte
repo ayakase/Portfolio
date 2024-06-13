@@ -7,14 +7,9 @@
     import { onMount } from "svelte";
     let node: HTMLElement;
     export let countValue: number;
-    let myNumber = tweened(0, { duration: 2000, easing: quintOut });
+    let myNumber = tweened(0, { duration: 1000, easing: quintOut });
     let formatted = derived(myNumber, ($myNumber) => $myNumber.toFixed());
 
-    onMount(() => {
-        setTimeout(() => {
-            myNumber.set(countValue);
-        }, 1000);
-    });
     function getAppend() {
         if (countValue % 10 == 1) {
             return "st";
@@ -28,7 +23,19 @@
     }
 </script>
 
-<IntersectionObserver element={node} let:intersecting>
+<IntersectionObserver
+    element={node}
+    let:intersecting
+    on:observe={(e) => {
+        setTimeout(() => {
+            if (e.detail.isIntersecting) {
+                myNumber.set(countValue);
+            } else {
+                myNumber.set(0);
+            }
+        }, 2000);
+    }}
+>
     <div bind:this={node} class=" max-w-96 flex-1">
         {#if intersecting}
             <div

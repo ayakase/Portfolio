@@ -77,7 +77,7 @@
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
-  <div bind:this={node}>
+  <div bind:this={node} class="hidden lg:block">
     {#if intersecting}
       <div
         transition:fly={{

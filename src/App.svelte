@@ -10,23 +10,34 @@
   import EvervaultCard from "./lib/components/ui/EvervaultCard/EvervaultCard.svelte";
   import MobileProjects from "./lib/components/mobile-components/MobileProjects.svelte";
   import MobileContact from "./lib/components/mobile-components/MobileContact.svelte";
-  import ClockComponent from "./lib/components/ClockComponent.svelte";
   import GlobeComponent from "./lib/components/GlobeComponent.svelte";
+  import CounterGroups from "./lib/components/CounterGroups.svelte";
   import StickyRevealComponent from "./lib/components/ui/StickyScrollReveal/StickyRevealComponent.svelte";
   import GithubComponent from "./lib/components/GithubComponent.svelte";
   import DownloadCv from "./lib/components/DownloadCv.svelte";
   import ChatBox from "./lib/components/ChatBox.svelte";
   import AvatarComponent from "./lib/components/AvatarComponent.svelte";
-  import BuiltWithLove from "./lib/components/BuiltWithLove.svelte";
   import ViewCount from "./lib/components/ViewCount.svelte";
   import MikuStare from "./lib/components/MikuStare.svelte";
-  import { slide, fly } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import axios from "axios";
-  import avatar from "./assets/avatar.jpg";
   import supabase from "./supabase";
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
-  let nodeProjectSection: HTMLElement;
+  import { toasts, ToastContainer, FlatToast } from "svelte-toasts";
+  const toastWarn = () => {
+    const toast = toasts.add({
+      title: "Under construction",
+      description: "Site is still under construction and improvements",
+      duration: 5000,
+      theme: "dark",
+      placement: "bottom-center",
+      showProgress: true,
+      type: "warning",
+      onClick: () => {},
+      onRemove: () => {},
+    });
+  };
   let nodeGlobe: HTMLElement;
   let nodeGravity: HTMLElement;
   let projectArray: {
@@ -36,6 +47,39 @@
     github: string;
     demo?: string;
   }[];
+  interface countObject {
+    title: string;
+    count: number;
+    icon: string;
+    description: string;
+  }
+  let countArr: countObject[] = [
+    {
+      title: "Projects",
+      count: 14,
+      icon: "fa-regular fa-folder-open",
+      description: "Got some nice personal projects",
+    },
+    {
+      title: "Individual clients",
+      count: 5,
+      icon: "fa-solid fa-users",
+      description: "Clients were happy with my works",
+    },
+    {
+      title: "Companies",
+      count: 2,
+      icon: "fa-solid fa-building",
+      description: "Experienced professional work environment",
+    },
+    {
+      title: "Years of experience",
+      count: 1,
+      icon: "fa-solid fa-calendar-alt",
+      description: "Just a newbie but I'm still upgrading myself",
+    },
+  ];
+
   let count: number = 0;
   async function getCount() {
     const { data } = await supabase.from("count").select("*").eq("id", 1);
@@ -50,6 +94,7 @@
   }
   let loaded: boolean;
   onMount(async () => {
+    toastWarn();
     getCount();
     loaded = true;
     try {
@@ -157,71 +202,63 @@
   <!-- <div>
     <ResumeComponent></ResumeComponent>
   </div> -->
-
-  <h2 class="snap-start snap-always">a</h2>
+  <div class="snap-start h-screen p-0 lg:p-16 flex flex-col gap-4">
+    <StickyRevealComponent></StickyRevealComponent>
+    <div class=" flex-row gap-4 justify-between flex-1 hidden lg:flex">
+      {#each countArr as { title, count, icon, description }}
+        <CounterGroups {icon} {title} {count} {description}></CounterGroups>
+      {/each}
+    </div>
+  </div>
   {#if projectArray}
-    {#each projectArray as { title, description, image, github, demo }}
-      <div class="flex flex-col">
-        <MobileProjects {title} {description} {image} {github} demo={demo || ""}
-        ></MobileProjects>
-      </div>
-    {/each}
-  {/if}
-  {#if projectArray}
-    <div class="min-h-[55rem] w-3/4 m-auto hidden lg:block">
-      <IntersectionObserver element={nodeProjectSection} let:intersecting>
-        <div bind:this={nodeProjectSection}>
-          {#if intersecting}
-            <div
-              transition:fly={{
-                delay: 500,
-                duration: 600,
-                // x: 200,
-                y: 300,
-                opacity: 0,
-                easing: quintOut,
-              }}
-            >
-              <div
-                class="all-project flex flex-row justify-around flex-wrap gap-5 items-center h-auto"
-              >
-                {#each projectArray as { title, description, image, github, demo }}
-                  <ThreeDCardEffect
-                    {title}
-                    {description}
-                    {image}
-                    {github}
-                    demo={demo || ""}
-                  ></ThreeDCardEffect>
-                {/each}
-              </div>
-            </div>
-          {/if}
+    <div
+      class="snap-start overflow-x-scroll flex lg:hidden flex-row w-screen h-screen gap-4"
+    >
+      {#each projectArray as { title, description, image, github, demo }}
+        <div class="snap-x">
+          <MobileProjects
+            {title}
+            {description}
+            {image}
+            {github}
+            demo={demo || ""}
+          ></MobileProjects>
         </div>
-      </IntersectionObserver>
+      {/each}
     </div>
   {/if}
-  <div class="flex flex-row gap-4 snap-start h-screen p-4 lg:p-16">
+  {#if projectArray}
+    <div class=" snap-start p-16 min-h-[55rem] w-3/4 m-auto hidden lg:block">
+      <div>
+        <div
+          class="all-project flex flex-row justify-around flex-wrap gap-5 items-center h-auto"
+        >
+          {#each projectArray as { title, description, image, github, demo }}
+            <ThreeDCardEffect
+              {title}
+              {description}
+              {image}
+              {github}
+              demo={demo || ""}
+            ></ThreeDCardEffect>
+          {/each}
+        </div>
+      </div>
+    </div>
+  {/if}
+  <div class="flex-row gap-4 snap-start h-screen p-4 lg:p-16 hidden lg:flex">
     <div class="flex-1">
       <ChatBox></ChatBox>
     </div>
-    <div>
+    <div class="flex-1">
       <ContactForm></ContactForm>
     </div>
   </div>
   <div id="contact"></div>
   <div class=" hidden lg:block"></div>
-  <div class="top-10 block lg:hidden">
+  <div class="top-10 block lg:hidden snap-start">
     <MobileContact></MobileContact>
   </div>
-  <!-- <div class="empty-space h-screen w-screen hidden lg:block"></div> -->
-
-  <!-- <header class="text-white" class:intersecting>
-    {intersecting ? "Element is in view" : "Element is not in view"}
-  </header> -->
-  <!-- <IntersectionObserver {element} bind:intersecting>
-    <div bind:this={element}></div>
-  </IntersectionObserver> -->
   <div class="contruction"></div>
 </div>
 

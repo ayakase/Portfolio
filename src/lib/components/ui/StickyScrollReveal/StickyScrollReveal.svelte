@@ -12,6 +12,11 @@
     "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
     "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
   ];
+  let logos = [
+    "https://i.imgur.com/RtoHULC.png",
+    "https://ttat.vn/wp-content/uploads/2023/02/image-1.png",
+    "https://marathon.edu.vn/images/main-logo.png",
+  ];
   let scrollYProgress = 0;
 
   export let content: { title: string; description: string }[] = [];
@@ -23,7 +28,7 @@
       const target = event.target as HTMLElement;
       scrollYProgress = target.scrollTop / target.scrollHeight;
       const cardsBreakpoints = content.map(
-        (_, index) => index / content.length
+        (_, index) => index / content.length,
       );
 
       cardsBreakpoints.forEach((breakpoint, index) => {
@@ -49,7 +54,7 @@
   style="background-color: {backgroundColors[
     activeCard % backgroundColors.length
   ]}"
-  class="relative rounded-3xl flex h-[30rem] justify-around space-x-10 overflow-y-auto p-10 transition ease-in-out"
+  class="relative rounded-3xl flex h-full justify-around space-x-10 overflow-y-auto p-10 transition ease-in-out"
 >
   <div class="div relative flex items-start px-4">
     <div class="max-w-2xl">
@@ -57,15 +62,15 @@
         <div class="my-10">
           <h2
             style="opacity: {activeCard === index ? 1 : 0.3}"
-            class="text-2xl font-bold text-slate-100"
+            class="text-3xl font-bold text-slate-100"
           >
             {item.title}
           </h2>
           <p
             style="opacity: {activeCard === index ? 1 : 0.3}"
-            class="text-kg mt-10 text-slate-300"
+            class="text-kg text-xl mt-10 text-slate-300"
           >
-            {item.description}
+            {@html item.description}
           </p>
         </div>
       {/each}
@@ -73,9 +78,14 @@
     </div>
   </div>
   <div
-    style="background: {linearGradients[activeCard % linearGradients.length]}"
-    class="sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block"
-  ></div>
+    class="sticky grid place-content-center top-0 hidden h-full w-1/2 overflow-hidden rounded-md lg:block"
+  >
+    <img
+      src={logos[activeCard % logos.length]}
+      class="w-full object-contain"
+      alt=""
+    />
+  </div>
 </div>
 
 <style scoped>
