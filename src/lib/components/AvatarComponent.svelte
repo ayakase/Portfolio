@@ -3,9 +3,7 @@
     import { quintOut } from "svelte/easing";
     import IntersectionObserver from "svelte-intersection-observer";
     let node: HTMLElement;
-    import avatar from "../../assets/avatar.jpg";
-    import cartoon from "../../assets/cartoon.jpg";
-    import stars from "../../assets/stars.svg";
+    import cartoon from "../../assets/cartoon.png";
 </script>
 
 <IntersectionObserver element={node} let:intersecting>
