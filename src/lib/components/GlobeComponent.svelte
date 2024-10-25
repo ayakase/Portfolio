@@ -92,6 +92,8 @@
   ];
   let loading: boolean = true;
   // @ts-ignore
+
+  let canvas;
   onMount(() => {
     if (window.innerWidth > 768) {
       const scene = new THREE.Scene();
@@ -101,7 +103,7 @@
       // camera.position.setY(10);
       camera.position.setZ(12);
       const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector("#globe") as HTMLCanvasElement,
+        canvas: canvas as HTMLCanvasElement,
         alpha: true,
       });
 
@@ -205,7 +207,7 @@
   {#if loading}
     <div class="loader"></div>
   {/if}
-  <canvas id="globe" class="absolute"></canvas>
+  <canvas  bind:this={canvas} id="globe" class="absolute"></canvas>
   <div
     class="flex flex-row justify-center w-full absolute bottom-0 left-0 text-white"
   >
