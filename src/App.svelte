@@ -25,6 +25,7 @@
   import { quintOut } from "svelte/easing";
   import { onMount } from "svelte";
   import { toasts, ToastContainer, FlatToast } from "svelte-toasts";
+  import GlobeBackground from "./lib/components/GlobeBackground.svelte";
   const toastWarn = () => {
     const toast = toasts.add({
       title: "Under construction",
@@ -105,7 +106,7 @@
             apiKey: import.meta.env.VITE_SUPABASE_KEY,
             "Content-Type": "application/json", // Add other headers as needed
           },
-        },
+        }
       );
 
       projectArray = response.data;
@@ -115,7 +116,8 @@
   });
 </script>
 
-<div class="w-screen m-auto p-auto">
+<GlobeBackground></GlobeBackground>
+<div class="w-screen m-auto p-auto hidden">
   <div
     class="first-section overflow-hidden p-4 lg:p-16 snap-start snap-always max-h-screen h-screen w-full flex flex-col justify-between"
   >
